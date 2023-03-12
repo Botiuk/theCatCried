@@ -1,0 +1,297 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ /*General styles*/
+body {
+	font-family: Arial, San-Serif;
+	font-size: 100%;
+    text-align: center;
+	margin-bottom: 0;
+	display: block;	
+	box-sizing: border-box;	
+	background-color: lightseagreen;
+}
+
+a {
+    text-decoration: none; 
+	color: darkblue;
+}
+
+h3 {
+	margin: 5px;
+}
+
+
+table {
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: 100%;
+}  
+
+td {
+	overflow: hidden;
+	white-space: nowrap;	
+	text-overflow: ellipsis;
+  }
+
+ /*Header*/
+header {
+	background-color: lightseagreen;
+	padding: 10px;
+}
+ 
+ /*Main*/
+main {
+	background-color: whitesmoke;
+	padding: 10px;
+}
+
+.index_come, .index_balance {
+	max-width: 800px;
+	justify-content: center;
+	margin: 15px auto;
+}
+
+.index_come {
+	display: flex;
+	justify-content: space-between;
+}
+
+.index_outcome, .index_income {
+	float: left;
+	padding: 10px;
+	margin: auto; 
+	border-radius: 5px;
+	box-shadow: 1px 5px 10px #888888;
+	outline: none;
+	width: 49%;
+}
+
+.one_item_outcome, .one_item_income {
+	padding: 5px;
+	border-radius: 5px;
+	box-shadow: 1px 5px 10px #888888;
+	outline: none; 
+	margin: 15px auto;   
+	max-width: 800px;
+}
+
+.one_item_outcome, .index_outcome {
+	background-color: rgb(253, 218, 218);
+}
+
+.one_item_income, .index_income {
+	background-color: rgb(193, 250, 193);
+}
+
+.index_other, .report_item {
+	max-width: 800px;
+	width: 100%;
+	margin: 15px auto;
+	padding: 15px;
+	box-shadow: 1px 5px 10px #888888;
+	background-color: gainsboro;
+}
+
+.index_button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	max-width: 800px;
+	width: 100%;
+}
+
+.one_item {
+	text-align: left;
+}
+.search {
+	margin: 15px auto;
+}
+
+.op_odate, .op_amount, .op_category, .op_description, .td_button, .cat_name, .cat_description {
+	padding: 5px;
+	box-sizing: border-box;
+}
+
+.op_odate {
+	width: 12%;		
+	font-style: italic;
+}
+
+.op_amount {
+	width: 15%;	
+	text-align: center;
+	color: darkslategray;
+	font-weight: bolder;
+}
+
+.op_category {
+	width: 15%;
+}
+
+.op_description {
+	font-style: italic;
+	font-size: 95%;
+}
+
+.td_button {
+	width: 47px;
+}
+
+.cat_name {
+	width: 20%;
+	color: darkslategray;
+	font-weight: bolder;
+}
+
+.cat_description {
+	font-style: italic;
+}
+
+.button_on_top, .button_on_bottom {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	max-width: 800px;
+	width: 100%;
+	margin: auto;
+	padding: 15px;	
+}
+
+.button_on_top {
+	border-bottom: 2px solid rgb(184, 183, 183);
+}
+
+.button_on_bottom {
+	border-top: 2px solid rgb(184, 183, 183);
+}
+
+.button_in_item {
+	display: flex;
+	justify-content: center;
+}
+
+.button_on_top a, .button_on_bottom a, .td_button a, .button_in_item a, .index_button a {
+	display: block;
+	color: black;
+	background-color: lightblue;
+	cursor: pointer;
+	border: 1px solid transparent;
+	border-radius: 5px;	
+	box-shadow: 1px 2px 4px #888888;
+}
+
+.button_on_top a, .button_on_bottom a {
+	margin: 5px 10px;
+	padding: 5px;
+}
+
+.index_button a {
+	margin: 10px;
+	padding: 15px;
+	font-weight: bolder;
+}
+
+.td_button a, .button_in_item a {
+	margin: 0;
+	padding: 5px 10px;
+}
+
+.button_on_top a:hover, .button_on_bottom a:hover, .td_button a:hover, 
+.button_in_item a:hover, .index_button a:hover {
+	background-color: lightseagreen;
+	color: lightgray;
+}
+
+.one_item_show td {
+	width: 100%;
+	text-align: left;
+	padding-left: 20px;
+	overflow: visible;
+	white-space: initial;	
+	text-overflow: clip;
+}
+
+.form div {
+	padding: 5px;
+	color: darkslategray;
+	font-weight: bolder;
+}
+
+.radio_button label {
+	font-weight: normal;
+}
+
+.report_content {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.report_item_table, .report_item_image {
+	float: left;
+	padding: 10px;
+	margin: 15px auto;
+	outline: none; 
+	width: 280px;
+}
+
+.report_item_table {
+	width: 280px;	
+	flex-grow: 0;
+}
+
+.report_item_image {
+	width: 60%;
+	flex-grow: 1;
+}
+
+.report_table table {
+    table-layout: auto;
+	width: 100%;
+}
+
+.report_table tr:nth-child(even) {
+    background-color: aquamarine;
+}
+
+.report_table tr:nth-child(odd) {
+    background-color: aliceblue;
+}
+
+.report_table th {
+    background-color: lightblue;
+	text-align: center;		
+	padding: 5px 10px;
+}
+
+.report_table td {	
+	padding: 5px 10px;
+}
+
+ /*Footer*/
+
+footer {
+	background-color: lightseagreen;
+	padding: 10px;
+} 
+
+footer th {	
+	font-style: italic;
+	color: darkslategray; 
+	font-weight: normal;
+}

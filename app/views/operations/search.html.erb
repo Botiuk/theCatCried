@@ -1,0 +1,18 @@
+<h3>Журнал операцій по категорії "<%= @search_name %>" </h3>
+
+<div class = "button_on_top">
+  <%= link_to '<i class="bi bi-house-fill"></i> На головну'.html_safe, root_path %>
+  <%= link_to '<i class="bi bi-list-columns-reverse"></i> Журнал операцій'.html_safe, operations_path %>
+  <%= link_to '<i class="bi bi-bag-plus-fill"></i> Додати витрату'.html_safe, new_operation_path(:otype => "outcome"), :method => :post %>
+  <%= link_to '<i class="bi bi-bag-plus-fill"></i> Додати дохід'.html_safe, new_operation_path(:otype => "income"), :method => :post %>
+</div>  
+
+<div id="operations">
+
+  <% @operations.each do |operation| %>
+  <%= render operation %>
+  <% end %>
+  
+</div>
+
+<%= paginate @operations, window: 1, outer_window: 1 %>

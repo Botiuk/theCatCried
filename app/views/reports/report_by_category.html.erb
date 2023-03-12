@@ -1,0 +1,73 @@
+<% if @otype == "outcome" %>
+    <h3>Розподіл витрат за категоріями</h3>    
+    <div class = "one_item_outcome">
+<% else %>
+    <h3>Розподіл доходів за категоріями</h3>    
+    <div class = "one_item_income">
+<% end %>
+  <h4>За період <%= @start_date.to_date.strftime('%d.%m.%Y') %> - <%= @end_date.to_date.strftime('%d.%m.%Y') %></h4>
+  <% if @category_id == "0" %>
+      <h5>(всі категорії)</h5>
+    <% else %>
+      <h5>(категорія: "<%= @category_name %>")</h5>
+    <% end %>
+    
+    <% if @cat_name.size == 0 %>
+        <p style = "color: red; font-weight: bold">За вибраний період часу, таких операцій немає.
+        <br>Спробуй створити звіт з іншими параметрами запиту</p>
+    <% else %>   
+    
+    <div class = "report_content">
+        <div class = "report_item_table">
+            <table class ="report_table">
+                <tr>
+                    <th>Категорія</th>
+                    <th>Сума</th>
+                </tr>
+                <% @diagram_data.each do |diagram| %>
+                <tr>
+                    <td style = "text-align: left"><%= diagram[0] %></td>
+                    <td><%= diagram[1] %></td>
+                </tr>
+                <% end %>                
+                <tr>
+                    <th colspan = "2", style = "text-align: left">Всього: <%= @period_sum %> грн</th>
+                </tr>
+            </table>
+        </div>
+
+        <div class = "report_item_image">
+            <canvas id="myPie"></canvas>
+            <script>
+            {
+            const ctx = document.getElementById('myPie').getContext('2d');
+            const data = {
+            labels:  <%= raw @cat_name %>,
+            datasets: [{
+                label: 'Сума',
+                data: <%= @cat_moneys %>,
+                backgroundColor: <%= raw @colors %>,
+                hoverOffset: 4
+            }]
+            };
+
+            const config = {
+                type: 'pie',
+                data: data,
+            };
+
+            const myPie = new Chart(ctx, config);
+            }
+            </script>
+        
+        </div>
+    </div>
+    
+    <% end %> 
+
+</div>
+
+<div class = "button_on_bottom">
+  <%= link_to '<i class="bi bi-house-fill"></i> На головну'.html_safe, root_path %>
+  <%= link_to '<i class="bi bi-file-earmark-bar-graph-fill"></i> Звіт'.html_safe, reports_path %>
+</div>
