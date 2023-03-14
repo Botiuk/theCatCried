@@ -128,7 +128,7 @@ main {
 }
 
 .op_odate {
-	width: 12%;		
+	width: 8%;		
 	font-style: italic;
 }
 
@@ -146,6 +146,25 @@ main {
 .op_description {
 	font-style: italic;
 	font-size: 95%;
+}
+
+@media screen and (max-width: 600px) {
+	.op_odate {
+		width: 22%;
+	}
+	
+	.op_amount {
+		width: 30%;
+	}
+	
+	.op_category {
+		width: 30%;
+	}
+	
+	.op_description {
+		visibility: hidden;
+		display: none;
+	}
 }
 
 .td_button {
