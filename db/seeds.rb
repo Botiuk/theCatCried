@@ -10,6 +10,7 @@ require "faker"
 
 case Rails.env
 when "development"
+  #  Forty unique names for the two types of categories and the first 17 operations were manually entered into the development.sqlite3
   
   (18..50).each do |id|
     Operation.create(
