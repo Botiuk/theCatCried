@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'reports/index', to: 'reports#index'
+  get 'reports', to: 'reports#index'
   get 'reports/report_by_category', to: 'reports#report_by_category'
   get 'reports/report_by_dates', to: 'reports#report_by_dates'
   get 'main/index', to: 'main#index'
