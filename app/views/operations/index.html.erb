@@ -1,14 +1,16 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Operations</h1>
+<h1>Операції</h1>
+
+<%= link_to "Додати нову операцію", new_operation_path %>
 
 <div id="operations">
   <% @operations.each do |operation| %>
     <%= render operation %>
     <p>
-      <%= link_to "Show this operation", operation %>
+      <%= link_to "Детальніше", operation %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New operation", new_operation_path %>
+
