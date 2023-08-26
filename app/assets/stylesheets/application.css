@@ -39,6 +39,14 @@ main {
 	background-color: whitesmoke;
 	padding: 10px;
 }
+.index_outcome, .index_income {
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 1px 5px 10px #888888;
+	outline: none; 
+	margin: 15px auto;   
+	width: 400px;
+}
 
 .one_item_outcome, .one_item_income {
 	padding: 10px;
@@ -49,11 +57,11 @@ main {
 	width: 800px;
 }
 
-.one_item_outcome {
+.one_item_outcome, .index_outcome {
 	background-color: rgb(253, 218, 218);
 }
 
-.one_item_income {
+.one_item_income, .index_income {
 	background-color: rgb(193, 250, 193);
 }
 
@@ -105,6 +113,7 @@ main {
 
 .op_button button a {
 	color: red;
+	display: block;
 }
 
 
