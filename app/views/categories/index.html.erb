@@ -1,14 +1,12 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Categories</h1>
+<h3>Перелік категорій</h3>
+
+<div> <button type="button"><%= link_to "Додати категорію витрат", new_category_path(:ctype => "outcome"), :method => :post %></button></div>
+<div> <button type="button"><%= link_to "Додати категорію доходів", new_category_path(:ctype => "income"), :method => :post %></button></div>
 
 <div id="categories">
   <% @categories.each do |category| %>
     <%= render category %>
-    <p>
-      <%= link_to "Show this category", category %>
-    </p>
   <% end %>
 </div>
-
-<%= link_to "New category", new_category_path %>

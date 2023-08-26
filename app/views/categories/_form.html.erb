@@ -11,22 +11,27 @@
     </div>
   <% end %>
 
+<% if category.ctype == "outcome" %>
+    <div class = "one_item_outcome">
+<% else %>
+    <div class = "one_item_income">
+<% end %>
   <div>
-    <%= form.label :name, style: "display: block" %>
+    <%= form.hidden_field :ctype %>
+  </div>
+  
+  <div>
+    <%= form.label :name, "Назва", style: "display: block" %>
     <%= form.text_field :name %>
   </div>
 
   <div>
-    <%= form.label :description, style: "display: block" %>
+    <%= form.label :description, "Опис", style: "display: block" %>
     <%= form.text_field :description %>
-  </div>
-
-  <div>
-    <%= form.label :ctype, style: "display: block" %>
-    <%= form.text_field :ctype %>
   </div>
 
   <div>
     <%= form.submit %>
   </div>
 <% end %>
+</div>

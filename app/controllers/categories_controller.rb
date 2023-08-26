@@ -12,7 +12,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
-    @category = Category.new
+    @category = Category.new(:ctype => params[:ctype])
   end
 
   # GET /categories/1/edit

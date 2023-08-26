@@ -1,10 +1,12 @@
-<h1>Editing category</h1>
+<h3>Редагування категорії</h3>
 
-<%= render "form", category: @category %>
+<div>
+<button type="button"><%= link_to "Повернутись до переліку категорій", categories_path %></button>
+<button type="button"><%= link_to "Повернутися до категорії", @category %></button>
+</div>
 
 <br>
 
-<div>
-  <%= link_to "Show this category", @category %> |
-  <%= link_to "Back to categories", categories_path %>
-</div>
+<%= render "form", category: @category %>
+
+

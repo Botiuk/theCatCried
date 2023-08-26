@@ -1,10 +1,25 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @category %>
+<h3>Детальніше про категорію</h3>
 
-<div>
-  <%= link_to "Edit this category", edit_category_path(@category) %> |
-  <%= link_to "Back to categories", categories_path %>
+<button type="button"><%= link_to "Перелік категорій", categories_path %></button>
+<button type="button"><%= link_to "Редагувати", edit_category_path(@category) %></button>
+<button type="button"><%= link_to "Видалити", @category, method: :delete %></button>
 
-  <%= button_to "Destroy this category", @category, method: :delete %>
-</div>
+<% if @category.ctype == "outcome" %>
+    <div class = "one_item_outcome">
+<% else %>
+    <div class = "one_item_income">
+<% end %>
+    <table>
+    <tr class = "one_item">
+        <th>Номер категорії</th>
+        <th>Назва</th>
+        <th>Опис</th>       
+    </tr>
+    <tr class = "one_item">
+        <td class = "cat_id"><%= @category.id %></td>
+        <td class = "cat_name"><%= @category.name %></dt>
+        <td class = "cat_description"><%= @category.description %></td>      
+    </tr>
+    </table>

@@ -1,9 +1,14 @@
-<h1>New category</h1>
+<% if @category.ctype == "outcome" %>
+    <h3>Нова категорія витрат</h3>
+<% else %>
+    <h3>Нова категорія доходів</h3>
+<% end %>
 
-<%= render "form", category: @category %>
+<div>
+  <button type="button"><%= link_to "Повернутись до переліку категорій", categories_path %></button>
+</div>
 
 <br>
 
-<div>
-  <%= link_to "Back to categories", categories_path %>
-</div>
+<%= render "form", category: @category %>
+

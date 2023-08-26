@@ -1,17 +1,19 @@
 <div id="<%= dom_id category %>">
-  <p>
-    <strong>Назва:</strong>
-    <%= category.name %>
-  </p>
 
-  <p>
-    <strong>Опис:</strong>
-    <%= category.description %>
-  </p>
-
-  <p>
-    <strong>Тип:</strong>
-    <%= category.ctype %>
-  </p>
+<% if category.ctype == "outcome" %>
+    <div class = "one_item_outcome">
+<% else %>
+    <div class = "one_item_income">
+<% end %>
+    <table>
+    <tr class = "one_item">
+        <td class = "cat_name"><%= category.name %></dt>
+        <td class = "cat_description"><%= category.description %></td>
+        <td class = "op_button"><button type="button"><%= link_to "Детальніше", category %></button></td>
+        <td class = "op_button"><button type="button"><%= link_to "Редагувати", edit_category_path(category) %></button></td>
+        <td class = "op_button"><button type="button"><%= link_to "Видалити", category, method: :delete %></button></td>
+        </tr>
+    </table>
+</div>
 
 </div>
