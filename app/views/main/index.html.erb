@@ -1,23 +1,28 @@
+<div class = "index_come">
+
 <div class = "index_outcome"> 
 <h3>Витрата</h3>
 <div> <button type="button"><%= link_to "Додати витрату", new_operation_path(:otype => "outcome"), :method => :post %></button></div>
 <div> <button type="button"><%= link_to "Додати категорію витрат", new_category_path(:ctype => "outcome"), :method => :post %></button></div>
-
 </div>
-
-
-
 
 <div class = "index_income"> 
 <h3>Дохід</h3>
 <div> <button type="button"><%= link_to "Додати дохід", new_operation_path(:otype => "income"), :method => :post  %></button></div>
 <div> <button type="button"><%= link_to "Додати категорію доходів", new_category_path(:ctype => "income") %></button></div>
 </div>
+</div>
 
 
-<div class = "index_balance"> 
+<div class = "index_balance">
+<% if $total_amount < 0 %> %>
+    <div class = "one_item_outcome">
+<% else %>
+    <div class = "one_item_income">
+<% end %> 
 <h3>Баланс</h3>
-<div> Загальна сума <%= $total_amount %> грн</div>
+<div><%= $total_amount %> грн</div>
+</div>
 </div>
 
 <div class = "index_other">
