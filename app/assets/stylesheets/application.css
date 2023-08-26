@@ -32,20 +32,29 @@ a {
 header {
 	background-color: lightseagreen;
 	padding: 10px;
+	
 }
+
  
  /*Main*/
 main {
 	background-color: whitesmoke;
 	padding: 10px;
 }
+
+.index_come, .index_balance, .index_other {
+	width: 800px;
+}
+
 .index_outcome, .index_income {
+	float: left;
 	padding: 10px;
 	border-radius: 5px;
 	box-shadow: 1px 5px 10px #888888;
 	outline: none; 
 	margin: 15px auto;   
-	width: 400px;
+	width: 50%;
+	box-sizing: border-box;
 }
 
 .one_item_outcome, .one_item_income {
