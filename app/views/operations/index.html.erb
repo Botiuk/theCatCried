@@ -1,16 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Операції</h1>
-
-<%= link_to "Додати нову операцію", new_operation_path %>
+<h3>Журнал операцій</h3>
+<div> <button type="button"><%= link_to "Додати витрату", new_operation_path(:otype => "outcome"), :method => :post %></button></div>
+<div> <button type="button"><%= link_to "Додати дохід", new_operation_path(:otype => "income"), :method => :post %></button></div>
 
 <div id="operations">
-  <% @operations.each do |operation| %>
-    <%= render operation %>
-    <p>
-      <%= link_to "Детальніше", operation %>
-    </p>
-  <% end %>
-</div>
 
+  <% @operations.reverse_each do |operation| %>
+  <%= render operation %>
+  <% end %>
+  
+</div>
 

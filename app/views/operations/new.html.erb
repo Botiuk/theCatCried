@@ -1,9 +1,15 @@
-<h1>Нова операція</h1>
-
-<%= render "form", operation: @operation %>
-
-<br>
+<% if @operation.otype == "outcome" %>
+    <h3>Нова витрата</h3>
+<% else %>
+    <h3>Новий дохід</h3>
+<% end %>
 
 <div>
-  <%= link_to "Повернутись до списку операцій", operations_path %>
+  <button type="button"><%= link_to "Повернутись до журналу операцій", operations_path %></button>
 </div>
+
+<br>
+<%= render "form", operation: @operation %>
+
+
+

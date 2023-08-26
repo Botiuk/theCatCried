@@ -1,26 +1,20 @@
 <div id="<%= dom_id operation %>">
- <p>
-    <strong>Тип:</strong>
-    <%= operation.otype %>
-  </p>
-  <p>
-    <strong>Сума:</strong>
-    <%= operation.amount %>
-  </p>
 
-  <p>
-    <strong>Дата:</strong>
-    <%= operation.odate %>
-  </p>
-
-  <p>
-    <strong>Опис:</strong>
-    <%= operation.description %>
-  </p>
-
-  <p>
-    <strong>Категорія:</strong>
-    <%= operation.category_id %>
-  </p>
+<% if operation.otype == "outcome" %>
+    <div class = "one_item_outcome">
+<% else %>
+    <div class = "one_item_income">
+<% end %>
+    <table>
+    <tr class = "one_item">
+        <td class = "op_odate"><%= operation.odate.to_date %></td>
+        <td class = "op_amount"><%= operation.amount %></td>
+        <td class = "op_category"><%= Category.find(operation.category_id).name %></td>
+        <td class = "op_button"><button type="button"><%= link_to "Детальніше", operation %></button></td>
+        <td class = "op_button"><button type="button"><%= link_to "Редагувати", edit_operation_path(operation) %></button></td>
+        <td class = "op_button"><button type="button"><%= link_to "Видалити", operation, method: :delete %></button></td>
+        </tr>
+    </table>
+</div>
 
 </div>

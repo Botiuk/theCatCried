@@ -12,11 +12,21 @@ class OperationsController < ApplicationController
 
   # GET /operations/new
   def new
-    @operation = Operation.new
+    @operation = Operation.new(:otype => params[:otype])
+    if @operation.otype == "outcome"
+      @categories = Category.where(ctype: "outcome").map { |cat| [cat.name, cat.id] }
+    else
+      @categories = Category.where(ctype: "income").map { |cat| [cat.name, cat.id] }
+    end    
   end
 
   # GET /operations/1/edit
   def edit
+    if @operation.otype == "outcome"
+      @categories = Category.where(ctype: "outcome").map { |cat| [cat.name, cat.id] }
+    else
+      @categories = Category.where(ctype: "income").map { |cat| [cat.name, cat.id] }
+    end  
   end
 
   # POST /operations or /operations.json

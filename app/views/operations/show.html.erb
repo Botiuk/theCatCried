@@ -1,10 +1,30 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @operation %>
+<h3>Детальніше про операцію</h3>
 
-<div>
-  <%= link_to "Редагувати операцію", edit_operation_path(@operation) %> |
-  <%= link_to "Повернутись до списку операцій", operations_path %>
+<button type="button"><%= link_to "Журнал операцій", operations_path %></button>
+<button type="button"><%= link_to "Редагувати", edit_operation_path(@operation) %></button>
+<button type="button"><%= link_to "Видалити", @operation, method: :delete %></button>
 
-  <%= button_to "Видалити цю операцію", @operation, method: :delete %>
-</div>
+<% if @operation.otype == "outcome" %>
+    <div class = "one_item_outcome">
+<% else %>
+    <div class = "one_item_income">
+<% end %>
+    <table>
+    <tr class = "one_item">
+        <th>Номер операції</th>
+        <th>Дата та час</th>
+        <th>Сума</th>
+        <th>Категорія</th>
+        <th>Опис</th>       
+    </tr>
+    <tr class = "one_item">
+        <td class = "op_id"><%= @operation.id %></td>
+        <td class = "op_odate"><%= @operation.odate %></td>
+        <td class = "op_amount"><%= @operation.amount %></td>
+        <td class = "op_category"><%= Category.find(@operation.category_id).name %></td>
+        <td class = "op_description"><%= @operation.description %></td>       
+    </tr>
+    </table>
+
