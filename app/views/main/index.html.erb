@@ -14,9 +14,13 @@
 <div> <button type="button"><%= link_to "Додати категорію доходів", new_category_path(:ctype => "income") %></button></div>
 </div>
 
+
 <div class = "index_balance"> 
 <h3>Баланс</h3>
-<div> Загальна сума </div>
+<div> Загальна сума <%= $total_amount %> грн</div>
+</div>
+
+<div class = "index_other">
 <div> <button type="button"><%= link_to "Журнал операцій", operations_path %></button></div>
 <div> <button type="button"><%= link_to "Перелік категорій", categories_path %></button></div>
 <div> <button type="button"><%= link_to "Звіт", reports_path %></button></div>

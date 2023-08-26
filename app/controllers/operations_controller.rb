@@ -3,7 +3,7 @@ class OperationsController < ApplicationController
 
   # GET /operations or /operations.json
   def index
-    @operations = Operation.all
+    @operations = Operation.page(params[:page])
   end
 
   # GET /operations/1 or /operations/1.json
@@ -13,30 +13,23 @@ class OperationsController < ApplicationController
   # GET /operations/new
   def new
     @operation = Operation.new(:otype => params[:otype])
-    if @operation.otype == "outcome"
-      @categories = Category.where(ctype: "outcome").map { |cat| [cat.name, cat.id] }
-    else
-      @categories = Category.where(ctype: "income").map { |cat| [cat.name, cat.id] }
-    end    
+    @categories = Category.ctype_formhelper(@operation)    
   end
 
   # GET /operations/1/edit
   def edit
-    if @operation.otype == "outcome"
-      @categories = Category.where(ctype: "outcome").map { |cat| [cat.name, cat.id] }
-    else
-      @categories = Category.where(ctype: "income").map { |cat| [cat.name, cat.id] }
-    end  
+    @categories = Category.edit_formhelper(@operation)
   end
 
   # POST /operations or /operations.json
   def create
     @operation = Operation.new(operation_params)
-
+    
     respond_to do |format|
       if @operation.save
-        format.html { redirect_to operation_url(@operation), notice: "Operation was successfully created." }
+        format.html { redirect_to operation_url(@operation), notice: "Операція успішно створена." }
         format.json { render :show, status: :created, location: @operation }
+        $total_amount = Operation.total_amount_new(@operation)
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @operation.errors, status: :unprocessable_entity }
@@ -46,10 +39,11 @@ class OperationsController < ApplicationController
 
   # PATCH/PUT /operations/1 or /operations/1.json
   def update
-    respond_to do |format|
+      respond_to do |format|
       if @operation.update(operation_params)
-        format.html { redirect_to operation_url(@operation), notice: "Operation was successfully updated." }
+        format.html { redirect_to operation_url(@operation), notice: "Операція успішно оновлена." }
         format.json { render :show, status: :ok, location: @operation }
+        $total_amount = Operation.total_amount
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @operation.errors, status: :unprocessable_entity }
@@ -62,8 +56,9 @@ class OperationsController < ApplicationController
     @operation.destroy
 
     respond_to do |format|
-      format.html { redirect_to operations_url, notice: "Operation was successfully destroyed." }
+      format.html { redirect_to operations_url, notice: "Операція успішно видалена." }
       format.json { head :no_content }
+      $total_amount = Operation.total_amount
     end
   end
 
