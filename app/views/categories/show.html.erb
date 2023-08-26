@@ -13,13 +13,15 @@
 <% end %>
     <table>
     <tr class = "one_item">
-        <th>Номер категорії</th>
-        <th>Назва</th>
-        <th>Опис</th>       
+        <td>Номер категорії</td>
+        <td class = "cat_id"><%= @category.id %></td>
     </tr>
     <tr class = "one_item">
-        <td class = "cat_id"><%= @category.id %></td>
+        <td>Назва</td>               
         <td class = "cat_name"><%= @category.name %></dt>
+    </tr>
+    <tr class = "one_item">        
+        <td>Опис</td>
         <td class = "cat_description"><%= @category.description %></td>      
     </tr>
     </table>

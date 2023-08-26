@@ -13,18 +13,27 @@
 <% end %>
     <table>
     <tr class = "one_item">
-        <th>Номер операції</th>
-        <th>Дата та час</th>
-        <th>Сума</th>
-        <th>Категорія</th>
-        <th>Опис</th>       
+        <td>Номер операції</td>
+        <td class = "op_id"><%= @operation.id %></td>
     </tr>
     <tr class = "one_item">
-        <td class = "op_id"><%= @operation.id %></td>
+        <td>Дата та час</td>
         <td class = "op_odate"><%= @operation.odate %></td>
-        <td class = "op_amount"><%= @operation.amount %></td>
-        <td class = "op_category"><%= Category.find(@operation.category_id).name %></td>
-        <td class = "op_description"><%= @operation.description %></td>       
     </tr>
+    <tr class = "one_item">
+        <td>Сума</td>
+        <td class = "op_amount"><%= @operation.amount %></td>
+    </tr>
+    <tr class = "one_item"> 
+        <td>Категорія</td> 
+        <td class = "op_category"><%= Category.find(@operation.category_id).name %></td>
+    </tr>
+    <tr class = "one_item">
+        <td>Опис</td> 
+        <td class = "op_description"><%= @operation.description %></td>
+    </tr>
+
+
+
     </table>
 
