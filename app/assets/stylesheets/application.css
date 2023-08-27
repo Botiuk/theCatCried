@@ -19,7 +19,7 @@ body {
 	font-family: Arial, San-Serif;
 	font-size: 100%;
     text-align: center;
-	margin: 0;
+	margin-bottom: 0;
 	display: block;	
 }
 
@@ -43,7 +43,7 @@ main {
 }
 
 .index_come, .index_balance, .index_other {
-	width: 800px;
+	max-width: 800px;
 }
 
 .index_outcome, .index_income {
@@ -63,7 +63,7 @@ main {
 	box-shadow: 1px 5px 10px #888888;
 	outline: none; 
 	margin: 15px auto;   
-	width: 800px;
+	max-width: 800px;
 }
 
 .one_item_outcome, .index_outcome {
@@ -74,8 +74,8 @@ main {
 	background-color: rgb(193, 250, 193);
 }
 
-.one_item {
-	width:100%	
+.one_item td {
+	text-align: left;
 }
 
 .op_odate, .op_amount, .op_category, .op_description, .op_button {
@@ -85,44 +85,38 @@ main {
 
 .op_odate {
     text-align: left;
-	width: 14%;
+	width: 15%;
 }
 
 .op_amount {
     text-align: center;
-	width: 10%;
+	width: 15%;
 	
 }
 
 .op_category {
     text-align: left;
-	width: 20%;
-}
-
-.op_description {
-    text-align: left;
-	width: 40%;
+	width: 55%;
 }
 
 .op_button {
     text-align: right;
-	width: 7%;
+	width: 5%;
 }
 
 .op_button button {
     display: block;
-	padding: 10px;
 	background-color: lightblue;
 	cursor: pointer;
 	border: 1px solid transparent;
 	border-radius: 5px;
-	font-weight: bolder;
 	
 } 
 
 .op_button button a {
-	color: red;
+	color: black;
 	display: block;
+	width: 100%;
 }
 
 
@@ -133,10 +127,11 @@ main {
 }
 
  /*Footer*/
+
 footer {
 	background-color: lightseagreen;
-	padding: 5px;	
-}
+	padding: 5px;
+} 
 
 footer p{
 
