@@ -9,12 +9,14 @@
         <tr class = "one_item">
             <td class = "cat_name"><%= category.name %></dt>
             <td class = "cat_description"><%= category.description %></td>
-            <td class = "op_button"><button type="button"><%= link_to "Детальніше", category %></button></td>
             <td class = "op_button"><button type="button">
-                <%= link_to "Редагувати", edit_category_path(category) %>
+                <%= link_to '<i class="bi bi-file-earmark-text-fill"></i>'.html_safe, category %>
+                </button></td>
+            <td class = "op_button"><button type="button">
+                <%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_category_path(category) %>
             </button></td>
             <td class = "op_button"><button type="button">
-                <%= link_to "Видалити", category, data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %>
+                <%= link_to '<i class="bi bi-trash3-fill"></i>'.html_safe, category, data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %>
             </button></td>
         </tr>
     </table>
