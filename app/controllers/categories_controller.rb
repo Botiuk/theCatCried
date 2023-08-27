@@ -25,7 +25,7 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        format.html { redirect_to category_url(@category), notice: "Category was successfully created." }
+        format.html { redirect_to category_url(@category), notice: "Категорія успішно створена." }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        format.html { redirect_to category_url(@category), notice: "Category was successfully updated." }
+        format.html { redirect_to category_url(@category), notice: "Категорія успішно оновлена." }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -50,12 +50,14 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1 or /categories/1.json
   def destroy
     respond_to do |format|
-      if Operations.where(category_id: category.id).size == 0 
+      if Operation.where(category_id: @category.id).size == 0 
         @category.destroy
-        format.html { redirect_to categories_url, notice: "Category was successfully destroyed." }
+        format.html { redirect_to categories_url, notice: "Категорія успішно видалена." }
         format.json { head :no_content }
       else
-        format.html { render :destroy, status: :unprocessable_entity, notice: "Є операції з даною категорією." }
+        format.html { redirect_to category_url(@category), 
+          alert: "Неможливо видалити! Є операції з даною категорією.", 
+          status: :unprocessable_entity }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end

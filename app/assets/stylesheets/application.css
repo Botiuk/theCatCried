@@ -126,6 +126,12 @@ main {
 }
 
 
+.one_item_show td {
+	width: 100%;
+	text-align: left;
+	padding-left: 20px;
+}
+
  /*Footer*/
 footer {
 	background-color: lightseagreen;

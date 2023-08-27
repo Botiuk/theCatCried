@@ -6,13 +6,19 @@
     <div class = "one_item_income">
 <% end %>
     <table>
-    <tr class = "one_item">
-        <td class = "op_odate"><%= operation.odate.to_date %></td>
-        <td class = "op_amount"><%= operation.amount %></td>
-        <td class = "op_category"><%= Category.find(operation.category_id).name %></td>
-        <td class = "op_button"><button type="button"><%= link_to "Детальніше", operation %></button></td>
-        <td class = "op_button"><button type="button"><%= link_to "Редагувати", edit_operation_path(operation) %></button></td>
-        <td class = "op_button"><button type="button"><%= link_to "Видалити", operation, data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %></button></td>
+        <tr class = "one_item">
+            <td class = "op_odate"><%= operation.odate.to_date %></td>
+            <td class = "op_amount"><%= operation.amount %></td>
+            <td class = "op_category"><%= Category.find(operation.category_id).name %></td>
+            <td class = "op_button"><button type="button">
+                <%= link_to "Детальніше", operation %>
+            </button></td>
+            <td class = "op_button"><button type="button">
+                <%= link_to "Редагувати", edit_operation_path(operation) %>
+            </button></td>
+            <td class = "op_button"><button type="button">
+                <%= link_to "Видалити", operation, data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %>
+            </button></td>
         </tr>
     </table>
 </div>

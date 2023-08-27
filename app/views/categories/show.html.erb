@@ -1,10 +1,13 @@
 <p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
 
 <h3>Детальніше про категорію</h3>
 
 <button type="button"><%= link_to "Перелік категорій", categories_path %></button>
 <button type="button"><%= link_to "Редагувати", edit_category_path(@category) %></button>
-<button type="button"><%= link_to "Видалити", @category,  data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %></button>
+<button type="button">
+    <%= link_to "Видалити", @category,  data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %>
+</button>
 
 <% if @category.ctype == "outcome" %>
     <div class = "one_item_outcome">
@@ -12,13 +15,13 @@
     <div class = "one_item_income">
 <% end %>
     <table>
-    <tr class = "one_item">
-        Номер категорії: <%= @category.id %>
+    <tr class = "one_item_show">
+        <td><strong>Номер категорії: </strong><%= @category.id %></td>
     </tr>
-    <tr class = "one_item">
-        Назва: <%= @category.name %>
+    <tr class = "one_item_show">
+        <td><strong>Назва: </strong><%= @category.name %></td>
     </tr>
-    <tr class = "one_item">        
-        Опис: <%= @category.description %>   
+    <tr class = "one_item_show">        
+        <td><strong>Опис: </strong><%= @category.description %></td>
     </tr>
     </table>

@@ -23,11 +23,11 @@
 
   <div>
     <%= form.label :amount, "Сума", style: "display: block" %>
-    <%= form.text_field :amount %>
+    <%= form.number_field :amount, min: 0.0, step: 0.1%>
   </div>
 
   <div>
-    <%= form.label :odate, "Дата і час", style: "display: block" %>
+    <%= form.label :odate, "Дата та час", style: "display: block" %>
     <%= form.datetime_field :odate %>
   </div>
 
@@ -38,7 +38,7 @@
 
   <div>
     <%= form.label :description, "Опис", style: "display: block" %>
-    <%= form.text_field :description %>
+    <%= form.text_area :description, size: "50x5" %>
   </div>
 
   <div>

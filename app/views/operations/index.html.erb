@@ -1,8 +1,13 @@
 <p style="color: green"><%= notice %></p>
+<p style="color: red"><%= alert %></p>
 
 <h3>Журнал операцій</h3>
-<div> <button type="button"><%= link_to "Додати витрату", new_operation_path(:otype => "outcome"), :method => :post %></button></div>
-<div> <button type="button"><%= link_to "Додати дохід", new_operation_path(:otype => "income"), :method => :post %></button></div>
+<div><button type="button">
+  <%= link_to "Додати витрату", new_operation_path(:otype => "outcome"), :method => :post %>
+  </button></div>
+<div><button type="button">
+  <%= link_to "Додати дохід", new_operation_path(:otype => "income"), :method => :post %>
+</button></div>
 
 <div id="operations">
 
