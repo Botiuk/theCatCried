@@ -15,6 +15,7 @@
 
 
 <div class = "index_balance">
+<% $total_amount = Operation.total_amount %>
 <% if $total_amount < 0 %> %>
     <div class = "one_item_outcome">
 <% else %>
