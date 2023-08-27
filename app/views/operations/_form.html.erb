@@ -11,40 +11,61 @@
     </div>
   <% end %>
 
-<% if operation.otype == "outcome" %>
+  <% if operation.otype == "outcome" %>
     <div class = "one_item_outcome">
-<% else %>
+  <% else %>
     <div class = "one_item_income">
-<% end %>
+  <% end %>
 
-  <div>
-    <%= form.hidden_field :otype %>
-  </div>
+      <% if @categories.size == 0 %>
 
-  <div>
-    <%= form.label :amount, "Сума", style: "display: block" %>
-    <%= form.number_field :amount, min: 0.0, step: 0.1%>
-  </div>
+          <p style="color: red; font-weight: bold">Немає категорій, які відповідають вибраному типу операцій.
+          <br/>Спочатку треба створити хоч одну таку категорію.
+          </p>
+          
+          <% if operation.otype == "outcome" %>
+            <div><button type="button">
+              <%= link_to "Додати категорію витрат", new_category_path(:ctype => "outcome"), :method => :post %>
+            </button></div>
+          <% else %>
+            <div><button type="button">
+              <%= link_to "Додати категорію доходів", new_category_path(:ctype => "income"), :method => :post %>
+            </button></div>
+          <% end %>
+        
+      <% else %>
 
-  <div>
-    <%= form.label :odate, "Дата та час", style: "display: block" %>
-    <%= form.datetime_field :odate %>
-  </div>
+        <div>
+          <%= form.hidden_field :otype %>
+        </div>
 
-  <div>
-    <%= form.label :category_id, "Категорія", style: "display: block" %>
-    <%= select(:operation, :category_id, options_for_select(@categories)) %>
-  </div>
+        <div>
+          <%= form.label :amount, "Сума", style: "display: block" %>
+          <%= form.number_field :amount, min: 0.0, step: 0.1%>
+        </div>
 
-  <div>
-    <%= form.label :description, "Опис", style: "display: block" %>
-    <%= form.text_area :description, size: "50x5" %>
-  </div>
+        <div>
+          <%= form.label :odate, "Дата та час", style: "display: block" %>
+          <%= form.datetime_field :odate %>
+        </div>
 
-  <div>
-    <%= form.submit "Підтвердити" %>
-  </div>
-  
+        <div>
+          <%= form.label :category_id, "Категорія", style: "display: block" %>
+          <%= select(:operation, :category_id, options_for_select(@categories)) %>
+        </div>
+
+        <div>
+          <%= form.label :description, "Опис", style: "display: block" %>
+          <%= form.text_area :description, size: "50x5" %>
+        </div>
+
+        <div>
+          <%= form.submit "Підтвердити" %>
+        </div>
+
+      <% end %>
+  </div>    
+
 <% end %>
 
 
