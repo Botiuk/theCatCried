@@ -4,7 +4,7 @@
 
 <button type="button"><%= link_to "Журнал операцій", operations_path %></button>
 <button type="button"><%= link_to "Редагувати", edit_operation_path(@operation) %></button>
-<button type="button"><%= link_to "Видалити", @operation, method: :delete %></button>
+<button type="button"><%= link_to "Видалити", @operation, data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %></button>
 
 <% if @operation.otype == "outcome" %>
     <div class = "one_item_outcome">
@@ -13,24 +13,19 @@
 <% end %>
     <table>
     <tr class = "one_item">
-        <td>Номер операції</td>
-        <td class = "op_id"><%= @operation.id %></td>
+        Номер операції: <%= @operation.id %>
     </tr>
     <tr class = "one_item">
-        <td>Дата та час</td>
-        <td class = "op_odate"><%= @operation.odate %></td>
+        Дата та час: <%= @operation.odate %>
     </tr>
     <tr class = "one_item">
-        <td>Сума</td>
-        <td class = "op_amount"><%= @operation.amount %></td>
+        Сума: <%= @operation.amount %>
     </tr>
     <tr class = "one_item"> 
-        <td>Категорія</td> 
-        <td class = "op_category"><%= Category.find(@operation.category_id).name %></td>
+        Категорія: <%= Category.find(@operation.category_id).name %>
     </tr>
     <tr class = "one_item">
-        <td>Опис</td> 
-        <td class = "op_description"><%= @operation.description %></td>
+        Опис: <%= @operation.description %>
     </tr>
 
 

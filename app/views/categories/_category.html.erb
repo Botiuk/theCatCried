@@ -11,7 +11,7 @@
         <td class = "cat_description"><%= category.description %></td>
         <td class = "op_button"><button type="button"><%= link_to "Детальніше", category %></button></td>
         <td class = "op_button"><button type="button"><%= link_to "Редагувати", edit_category_path(category) %></button></td>
-        <td class = "op_button"><button type="button"><%= link_to "Видалити", category, method: :delete %></button></td>
+        <td class = "op_button"><button type="button"><%= link_to "Видалити", category, data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %></button></td>
         </tr>
     </table>
 </div>

@@ -12,7 +12,7 @@
         <td class = "op_category"><%= Category.find(operation.category_id).name %></td>
         <td class = "op_button"><button type="button"><%= link_to "Детальніше", operation %></button></td>
         <td class = "op_button"><button type="button"><%= link_to "Редагувати", edit_operation_path(operation) %></button></td>
-        <td class = "op_button"><button type="button"><%= link_to "Видалити", operation, method: :delete %></button></td>
+        <td class = "op_button"><button type="button"><%= link_to "Видалити", operation, data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %></button></td>
         </tr>
     </table>
 </div>

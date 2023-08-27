@@ -4,7 +4,7 @@
 
 <button type="button"><%= link_to "Перелік категорій", categories_path %></button>
 <button type="button"><%= link_to "Редагувати", edit_category_path(@category) %></button>
-<button type="button"><%= link_to "Видалити", @category, method: :delete %></button>
+<button type="button"><%= link_to "Видалити", @category,  data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %></button>
 
 <% if @category.ctype == "outcome" %>
     <div class = "one_item_outcome">
@@ -13,15 +13,12 @@
 <% end %>
     <table>
     <tr class = "one_item">
-        <td>Номер категорії</td>
-        <td class = "cat_id"><%= @category.id %></td>
+        Номер категорії: <%= @category.id %>
     </tr>
     <tr class = "one_item">
-        <td>Назва</td>               
-        <td class = "cat_name"><%= @category.name %></dt>
+        Назва: <%= @category.name %>
     </tr>
     <tr class = "one_item">        
-        <td>Опис</td>
-        <td class = "cat_description"><%= @category.description %></td>      
+        Опис: <%= @category.description %>   
     </tr>
     </table>
