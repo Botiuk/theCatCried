@@ -24,6 +24,7 @@ class OperationsController < ApplicationController
   # POST /operations or /operations.json
   def create
     @operation = Operation.new(operation_params)
+    @categories = Category.ctype_formhelper(@operation)
     
     respond_to do |format|
       if @operation.save
