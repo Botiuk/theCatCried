@@ -19,7 +19,7 @@
             <td><strong>Номер операції: </strong><%= @operation.id %></td>
         </tr>
         <tr class = "one_item_show">
-            <td><strong>Дата та час: </strong><%= @operation.odate %></td>
+            <td><strong>Дата та час: </strong><%= @operation.odate.strftime('%d.%m.%Y / %I:%M ') %></td>
         </tr>
         <tr class = "one_item_show">
             <td><strong>Сума: </strong><%= @operation.amount %></td>
