@@ -17,25 +17,24 @@
     <div class = "one_item_income">
   <% end %>
 
-        <div>
-          <%= form.hidden_field :ctype %>
-        </div>
-        
-        <div>
-          <%= form.label :name, "Назва", style: "display: block" %>
-          <%= form.text_field :name %>
-        </div>
+      <div>
+        <%= form.hidden_field :ctype %>
+      </div>
+     
+      <div>
+        <%= form.label :name, "Назва", style: "display: block" %>
+        <%= form.text_field :name %>
+      </div>
 
-        <div>
-          <%= form.label :description, "Опис", style: "display: block" %>
-          <%= form.text_area :description, size: "50x5" %>
-        </div>
+      <div>
+        <%= form.label :description, "Опис", style: "display: block" %>
+        <%= form.text_area :description, size: "40x5" %>
+      </div>
 
-        <div>
-          <%= form.submit "Підтвердити" %>
-        </div>
+      <div>
+        <%= form.submit "Підтвердити", class: "btn btn-success" %>
+      </div>
 
     </div>
 
 <% end %>
-

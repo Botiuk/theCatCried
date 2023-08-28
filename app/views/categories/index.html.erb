@@ -3,12 +3,10 @@
 
 <h3>Перелік категорій</h3>
 
-<div><button type="button">
+<div class = "button_on_top">
   <%= link_to "Додати категорію витрат", new_category_path(:ctype => "outcome"), :method => :post %>
-</button></div>
-<div><button type="button">
   <%= link_to "Додати категорію доходів", new_category_path(:ctype => "income"), :method => :post %>
-</button></div>
+</div>
 
 <div id="categories">
   <% @categories.each do |category| %>

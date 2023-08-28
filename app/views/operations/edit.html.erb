@@ -1,11 +1,8 @@
 <h3>Редагування операції</h3>
 
-<div>
-<button type="button"><%= link_to "Повернутись до журналу операцій", operations_path %></button>
-<button type="button"><%= link_to "Повернутися до операції", @operation %></button>
+<div class = "button_on_top">
+    <%= link_to "Повернутись до журналу операцій", operations_path %>
+    <%= link_to "Повернутися до операції", @operation %>
 </div>
 
-<br>
-
 <%= render "form", operation: @operation %>
-

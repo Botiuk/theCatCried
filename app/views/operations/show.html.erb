@@ -3,11 +3,11 @@
 
 <h3>Детальніше про операцію</h3>
 
-<button type="button"><%= link_to "Журнал операцій", operations_path %></button>
-<button type="button"><%= link_to "Редагувати", edit_operation_path(@operation) %></button>
-<button type="button">
+<div class = "button_on_top">
+    <%= link_to "Журнал операцій", operations_path %>
+    <%= link_to "Редагувати", edit_operation_path(@operation) %>
     <%= link_to "Видалити", @operation, data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %>
-</button>
+</div>
 
 <% if @operation.otype == "outcome" %>
     <div class = "one_item_outcome">

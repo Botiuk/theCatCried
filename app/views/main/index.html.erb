@@ -1,33 +1,40 @@
 <div class = "index_come">
 
-<div class = "index_outcome"> 
-<h3>Витрата</h3>
-<div> <button type="button"><%= link_to "Додати витрату", new_operation_path(:otype => "outcome"), :method => :post %></button></div>
-<div> <button type="button"><%= link_to "Додати категорію витрат", new_category_path(:ctype => "outcome"), :method => :post %></button></div>
-</div>
+    <div class = "index_outcome"> 
+        <h3>Витрата</h3>
+        <div class = "index_button">
+            <%= link_to '<i class="bi bi-plus-square-fill"></i><br>витрату'.html_safe, new_operation_path(:otype => "outcome"), :method => :post %>
+            <%= link_to '<i class="bi bi-plus-square-fill"></i><br>категорію'.html_safe, new_category_path(:ctype => "outcome"), :method => :post %>
+        </div>
+    </div>
 
-<div class = "index_income"> 
-<h3>Дохід</h3>
-<div> <button type="button"><%= link_to "Додати дохід", new_operation_path(:otype => "income"), :method => :post  %></button></div>
-<div> <button type="button"><%= link_to "Додати категорію доходів", new_category_path(:ctype => "income") %></button></div>
-</div>
+    <div class = "index_income"> 
+        <h3>Дохід</h3>
+        <div class = "index_button">
+            <%= link_to '<i class="bi bi-plus-square-fill"></i><br>дохід'.html_safe, new_operation_path(:otype => "income"), :method => :post  %>
+            <%= link_to '<i class="bi bi-plus-square-fill"></i><br>категорію'.html_safe, new_category_path(:ctype => "income") %>
+        </div>
+    </div>
+
 </div>
 
 
 <div class = "index_balance">
-<% $total_amount = Operation.total_amount %>
-<% if $total_amount < 0 %>
-    <div class = "one_item_outcome">
-<% else %>
-    <div class = "one_item_income">
-<% end %> 
-<h3>Баланс</h3>
-<div><%= $total_amount %> грн</div>
-</div>
+    <% $total_amount = Operation.total_amount %>
+    <% if $total_amount < 0 %>
+        <div class = "one_item_outcome">
+    <% else %>
+        <div class = "one_item_income">
+    <% end %> 
+            <h3>Баланс: <%= $total_amount %> грн</h3>
+    </div>
 </div>
 
 <div class = "index_other">
-<div> <button type="button"><%= link_to "Журнал операцій", operations_path %></button></div>
-<div> <button type="button"><%= link_to "Перелік категорій", categories_path %></button></div>
-<div> <button type="button"><%= link_to "Звіт", reports_path %></button></div>
+    <h3>Інше</h3>
+    <div class = "index_button">
+        <%= link_to "Журнал операцій", operations_path %>
+        <%= link_to "Перелік категорій", categories_path %>
+        <%= link_to "Звіт", reports_path %>
+    </div>
 </div>

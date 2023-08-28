@@ -2,12 +2,11 @@
 <p style="color: red"><%= alert %></p>
 
 <h3>Журнал операцій</h3>
-<div><button type="button">
+
+<div class = "button_on_top">
   <%= link_to "Додати витрату", new_operation_path(:otype => "outcome"), :method => :post %>
-  </button></div>
-<div><button type="button">
   <%= link_to "Додати дохід", new_operation_path(:otype => "income"), :method => :post %>
-</button></div>
+</div>
 
 <div id="operations">
 
@@ -18,4 +17,3 @@
 </div>
 
 <%= paginate @operations, window: 1, outer_window: 1 %>
-

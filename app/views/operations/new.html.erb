@@ -4,12 +4,8 @@
     <h3>Новий дохід</h3>
 <% end %>
 
-<div>
-  <button type="button"><%= link_to "Повернутись до журналу операцій", operations_path %></button>
+<div class = "button_on_top">
+ <%= link_to "Повернутись до журналу операцій", operations_path %>
 </div>
 
-<br>
 <%= render "form", operation: @operation %>
-
-
-

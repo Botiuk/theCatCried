@@ -3,25 +3,26 @@
 
 <h3>Детальніше про категорію</h3>
 
-<button type="button"><%= link_to "Перелік категорій", categories_path %></button>
-<button type="button"><%= link_to "Редагувати", edit_category_path(@category) %></button>
-<button type="button">
+<div class = "button_on_top">
+    <%= link_to "Перелік категорій", categories_path %>
+    <%= link_to "Редагувати", edit_category_path(@category) %>
     <%= link_to "Видалити", @category,  data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %>
-</button>
+</div>
 
 <% if @category.ctype == "outcome" %>
     <div class = "one_item_outcome">
 <% else %>
     <div class = "one_item_income">
 <% end %>
-    <table>
-    <tr class = "one_item_show">
-        <td><strong>Номер категорії: </strong><%= @category.id %></td>
-    </tr>
-    <tr class = "one_item_show">
-        <td><strong>Назва: </strong><%= @category.name %></td>
-    </tr>
-    <tr class = "one_item_show">        
-        <td><strong>Опис: </strong><%= @category.description %></td>
-    </tr>
-    </table>
+        <table>
+            <tr class = "one_item_show">
+                <td><strong>Номер категорії: </strong><%= @category.id %></td>
+            </tr>
+            <tr class = "one_item_show">
+                <td><strong>Назва: </strong><%= @category.name %></td>
+            </tr>
+            <tr class = "one_item_show">        
+                <td><strong>Опис: </strong><%= @category.description %></td>
+            </tr>
+        </table>
+</div>

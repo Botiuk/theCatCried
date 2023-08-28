@@ -21,6 +21,8 @@ body {
     text-align: center;
 	margin-bottom: 0;
 	display: block;	
+	box-sizing: border-box;	
+	background-color: lightseagreen;
 }
 
 a {
@@ -28,13 +30,28 @@ a {
 	color: darkblue;
 }
 
+h3 {
+	margin: 5px;
+}
+
+
+table {
+	table-layout: fixed;
+	border-collapse: collapse;
+	width: 100%;
+}  
+
+td {
+	overflow: hidden;
+	white-space: nowrap;	
+	text-overflow: ellipsis;
+  }
+
  /*Header*/
 header {
 	background-color: lightseagreen;
 	padding: 10px;
-	
 }
-
  
  /*Main*/
 main {
@@ -42,23 +59,30 @@ main {
 	padding: 10px;
 }
 
-.index_come, .index_balance, .index_other {
+.index_come, .index_balance {
 	max-width: 800px;
+	justify-content: center;
+	margin: 15px auto;
+}
+
+.index_come {
+	display: flex;
+	justify-content: space-between;
 }
 
 .index_outcome, .index_income {
 	float: left;
 	padding: 10px;
+	margin: 15px auto; 
 	border-radius: 5px;
 	box-shadow: 1px 5px 10px #888888;
 	outline: none; 
-	margin: 15px auto;   
-	width: 50%;
-	box-sizing: border-box;
+	margin: 15px 0;   
+	width: 48%;
 }
 
 .one_item_outcome, .one_item_income {
-	padding: 10px;
+	padding: 5px;
 	border-radius: 5px;
 	box-shadow: 1px 5px 10px #888888;
 	outline: none; 
@@ -74,51 +98,114 @@ main {
 	background-color: rgb(193, 250, 193);
 }
 
-.one_item td {
+.index_other {
+	max-width: 800px;
+	width: 100%;
+	margin: auto;
+	padding: 15px;
+	box-shadow: 1px 5px 10px #888888;
+	background-color: gainsboro;
+}
+
+.index_button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	max-width: 800px;
+	width: 100%;
+}
+
+.one_item {
 	text-align: left;
 }
 
-.op_odate, .op_amount, .op_category, .op_description, .op_button {
+.op_odate, .op_amount, .op_category, .op_description, .td_button, .cat_name, .cat_description {
 	padding: 5px;
+	box-sizing: border-box;
 	/*border: 1px solid black*/
 }
 
 .op_odate {
-    text-align: left;
-	width: 15%;
+	width: 12%;		
+	font-style: italic;
 }
 
 .op_amount {
-    text-align: center;
-	width: 15%;
-	
+	width: 15%;	
+	text-align: center;
+	color: darkslategray;
+	font-weight: bolder;
 }
 
 .op_category {
-    text-align: left;
-	width: 55%;
+	width: 15%;
 }
 
-.op_button {
-    text-align: right;
-	width: 5%;
+.op_description {
+	font-style: italic;
+	font-size: 95%;
 }
 
-.op_button button {
-    display: block;
+.td_button {
+	width: 47px;
+}
+
+.cat_name {
+	width: 20%;
+	color: darkslategray;
+	font-weight: bolder;
+}
+
+.cat_description {
+	font-style: italic;
+}
+
+.button_on_top {
+	display: flex;
+	justify-content: center;
+	max-width: 800px;
+	width: 100%;
+	margin: auto;
+	border-bottom: 2px solid rgb(184, 183, 183);
+	padding: 15px;
+}
+
+.button_in_item {
+	display: flex;
+	justify-content: center;
+}
+
+.button_on_top a, .td_button a, .button_in_item a, .index_button a {
+	display: block;
+	color: black;
 	background-color: lightblue;
 	cursor: pointer;
 	border: 1px solid transparent;
-	border-radius: 5px;
-	
-} 
-
-.op_button button a {
-	color: black;
-	display: block;
-	width: 100%;
+	border-radius: 5px;	
+	box-shadow: 1px 2px 4px #888888;
 }
 
+.button_on_top a {
+	margin: 0 10px;
+	padding: 5px;
+}
+
+.index_button a {
+	margin: 10px;
+	padding: 15px;
+	font-weight: bolder;
+}
+
+.td_button a, .button_in_item a {
+	margin: 0;
+	padding: 5px 10px;
+}
+
+.button_on_top a:hover, .td_button a:hover, .button_in_item a:hover, .index_button a:hover {
+	background-color: lightseagreen;
+	color: lightgray;
+}
 
 .one_item_show td {
 	width: 100%;
@@ -126,13 +213,15 @@ main {
 	padding-left: 20px;
 }
 
+
+
  /*Footer*/
 
 footer {
 	background-color: lightseagreen;
-	padding: 5px;
+	padding: 10px;
 } 
 
-footer p{
-
+footer p{	
+	font-style: italic;
 }
