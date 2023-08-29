@@ -1,5 +1,7 @@
 class ReportsController < ApplicationController
   def index
+    @categories_outcome = Category.reports_formhelper("outcome")
+    @categories_income = Category.reports_formhelper("income")
   end
 
   # def report_by_category
@@ -7,7 +9,7 @@ class ReportsController < ApplicationController
   # end
 
   def report_by_dates
-    rates_data = Operation.where(created_at >= start_date, created_at <= end_date, params[:created_at]).map { |o| [o.odate.to_s, o.amount] }
+    rates_data = Operation.reports_data(params[:start_date], params[:end_date], params[:otype_report], params[:cat_id_report])
     @dates = rates_data.map { |e| e[0] }
     @rates = rates_data.map { |e| e[1] }
   end

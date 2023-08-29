@@ -15,7 +15,7 @@ class Category < ApplicationRecord
 private
 
   def self.ctype_formhelper(operation)
-    if operation.otype == "outcome"
+    if operation.otype == "outcome" || operation == "outcome"
       Category.where(ctype: "outcome").order(:name).map { |cat| [cat.name, cat.id] }
     else
       Category.where(ctype: "income").order(:name).map { |cat| [cat.name, cat.id] }
@@ -25,7 +25,13 @@ private
   def self.edit_formhelper(operation)
     Category.where(id: operation.category_id).map { |cat| [cat.name, cat.id] } + Category.ctype_formhelper(operation)
   end
+
+  def self.reports_formhelper(otype)
+    if otype == "outcome"
+      [ ["Всі категорії витрат", 0] ] + Category.where(ctype: "outcome").order(:name).map { |cat| [cat.name, cat.id] }
+    else
+      [ ["Всі категорії доходів", 0] ] + Category.where(ctype: "income").order(:name).map { |cat| [cat.name, cat.id] }
+    end
+  end
   
-
-
 end
