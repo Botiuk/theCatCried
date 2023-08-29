@@ -98,7 +98,7 @@ main {
 	background-color: rgb(193, 250, 193);
 }
 
-.index_other {
+.index_other, .report_item {
 	max-width: 800px;
 	width: 100%;
 	margin: auto;
@@ -213,7 +213,15 @@ main {
 	padding-left: 20px;
 }
 
+.form div {
+	padding: 5px;
+	color: darkslategray;
+	font-weight: bolder;
+}
 
+.radio_button label {
+	font-weight: normal;
+}
 
  /*Footer*/
 
