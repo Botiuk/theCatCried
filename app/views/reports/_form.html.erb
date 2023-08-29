@@ -1,0 +1,70 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<%= form_with do |form| %>
+
+
+
+    <div class = "form">
+
+        <div>
+            <%= form.label :start_date, "Початкова дата:", style: "display: block" %>
+            <%= form.date_field :start_date %>
+        </div>
+
+        <div>
+            <%= form.label :end_date, "Кінцева дата:", style: "display: block" %>
+            <%= form.date_field :end_date, :value => Time.now.to_date %>
+        </div>
+
+        <div>
+            <%= form.label :otype_report, "Тип операції:" %>
+            <br>
+            <div class = "radio_button">
+                <%= form.radio_button :otype_report, "outcome", checked: true %>
+                <%= form.label :otype_report_outcome, "Витрата" %>
+                <%= form.radio_button :otype_report, "income" %>
+                <%= form.label :otype_report_income, "Дохід" %>
+            </div>
+        </div>
+       
+        <script>
+            $(document).ready(function(){
+                $("#cat_outcome").show();
+                $("#cat_income").hide();
+                $("input:radio[name='otype_report']").change(function(){                      
+                        if(this.value == 'outcome' && this.checked){
+                            $("#cat_outcome").show();
+                            $("#cat_income").hide();
+                        }else{
+                            $("#cat_outcome").hide();
+                            $("#cat_income").show();
+                        }
+                });
+            });
+        </script>      
+
+        <div>
+            <%= form.label :cat_id_report, "Категорія:", style: "display: block" %>
+            <div id ="cat_outcome">
+                <%= select(:operation, :cat_id_report, options_for_select(@categories_outcome)) %>
+            </div>
+            <div id ="cat_income">
+                <%= select(:operation, :cat_id_report, options_for_select(@categories_income)) %>
+            </div>    
+        </div>
+
+        <div>
+            
+            <%= form.button "Очистити", formmethod: :index, class: "btn btn-success" %>
+            <%= form.button "По днях",  formmethod: :report_by_dates, class: "btn btn-success" %>
+            <%= form.button "По категоріях",  formmethod: :report_by_category, class: "btn btn-success" %>
+        </div>
+    
+
+    </div>
+
+<% end %>
+    
+    
+    
+    
