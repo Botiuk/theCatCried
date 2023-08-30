@@ -20,7 +20,7 @@
       <% if @categories.size == 0 %>
 
           <p style="color: red; font-weight: bold">Немає категорій, які відповідають вибраному типу операцій.
-          <br>Спочатку потрібно створити хоч одну таку категорію.
+          <br>Спочатку потрібно створити хоч одну таку категорію
           </p>
           
           <% if operation.otype == "outcome" %>
@@ -47,8 +47,8 @@
           </div>
 
           <div>
-            <%= form.label :odate, "Дата та час:", style: "display: block" %>
-            <%= form.datetime_field :odate %>
+            <%= form.label :odate, "Дата:", style: "display: block" %>
+            <%= form.date_field :odate %>
           </div>
 
           <div>

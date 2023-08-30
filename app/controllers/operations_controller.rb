@@ -12,7 +12,7 @@ class OperationsController < ApplicationController
 
   # GET /operations/new
   def new
-    @operation = Operation.new(:otype => params[:otype], :odate => Time.now)
+    @operation = Operation.new(:otype => params[:otype], :odate => Time.now.to_date)
     @categories = Category.ctype_formhelper(@operation)    
   end
 
