@@ -28,7 +28,7 @@ class OperationsController < ApplicationController
     
     respond_to do |format|
       if @operation.save
-        format.html { redirect_to operation_url(@operation), notice: "Операція успішно створена." }
+        format.html { redirect_to operation_url(@operation), notice: "Операція успішно створена" }
         format.json { render :show, status: :created, location: @operation }
         $total_amount = Operation.total_amount_new(@operation)
       else
@@ -42,7 +42,7 @@ class OperationsController < ApplicationController
   def update
       respond_to do |format|
       if @operation.update(operation_params)
-        format.html { redirect_to operation_url(@operation), notice: "Операція успішно оновлена." }
+        format.html { redirect_to operation_url(@operation), notice: "Операція успішно оновлена" }
         format.json { render :show, status: :ok, location: @operation }
         $total_amount = Operation.total_amount
       else
