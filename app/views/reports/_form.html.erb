@@ -1,4 +1,4 @@
-<%= form_with url: "reports/report_by_dates", method: :get do |form| %>
+<%= form_with url: "reports", method: :get do |form| %>
 
     <div class = "form">
 
@@ -50,8 +50,9 @@
         </div>
 
         <div>
-            <%= form.submit "По днях",  class: "btn btn-success" %>
-            <%= form.submit "По категоріях",  formmethod: :report_by_category, class: "btn btn-success" %>
+            <%= form.submit "Сума",  formaction: "reports/report_by_sum", class: "btn btn-success" %>
+            <%= form.submit "По днях",  formaction: "reports/report_by_dates", class: "btn btn-success" %>
+            <%= form.submit "По категоріях",  formaction: "reports/report_by_category", class: "btn btn-success" %>
         </div>
     
 
