@@ -26,19 +26,31 @@ class Operation < ApplicationRecord
     Operation.where(otype: "income").sum(:amount) - Operation.where(otype: "outcome").sum(:amount)
   end
 
-  def self.reports_data(start_date, end_date, otype, category_id_out, category_id_in)
-    if otype == "outcome"
-      category_id = category_id_out
-    else
-      category_id = category_id_in
-    end
-
+  def self.reports_data_by_category(start_date, end_date, otype, category_id)    
     if category_id == "0" 
-      Operation.where(odate: start_date..end_date, otype: otype).map { |o| [o.odate.to_s, o.amount] }
+      Operation.where(odate: start_date..end_date, otype: otype)
+      .order(:category_id).group(:category_id).sum(:amount)
     else
-      Operation.where(odate: start_date..end_date, otype: otype, category_id: category_id).map { |o| [o.odate.to_s, o.amount] }
+      Operation.where(odate: start_date..end_date, otype: otype, category_id: category_id).sum(:amount)
     end    
   end
 
+  def self.reports_data_by_dates(start_date, end_date, otype, category_id)
+    if category_id == "0" 
+      Operation.where(odate: start_date..end_date, otype: otype)
+      .order(:odate).group(:odate).sum(:amount).map { |o| [o[0].to_date.to_s, o[1]] }
+    else
+      Operation.where(odate: start_date..end_date, otype: otype, category_id: category_id)
+      .order(:odate).group(:odate).sum(:amount).map { |o| [o[0].to_date.to_s, o[1]] }
+    end    
+  end
+
+  def self.reports_data_by_sum(start_date, end_date, otype, category_id)
+    if category_id == "0" 
+      Operation.where(odate: start_date..end_date, otype: otype).sum(:amount)
+    else
+      Operation.where(odate: start_date..end_date, otype: otype, category_id: category_id).sum(:amount)
+    end   
+  end
 
 end
