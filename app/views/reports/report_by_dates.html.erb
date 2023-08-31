@@ -17,7 +17,7 @@
     </div>
 
   <% else %>    
-    <canvas id="myChart" width="600" height="400"></canvas>
+    <canvas id="myChart" width="600" height="400">
     <script>
     {
       const ctx = document.getElementById('myChart').getContext('2d');
@@ -43,6 +43,7 @@
       const myChart = new Chart(ctx, config);
     }
     </script>
+    </canvas>
 
   <% end %>
 
