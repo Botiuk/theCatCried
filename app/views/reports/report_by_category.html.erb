@@ -1,2 +1,39 @@
-<h3>Reports#report_by_category</h3>
-<p>Find me in app/views/reports/report_by_category.html.erb</p>
+<h3>Звіт за період</h3>
+
+<div class = "report_item">
+    <canvas id="myPie" width="600" height="400">
+        <script>
+        {
+        const ctx = document.getElementById('myPie').getContext('2d');
+        const data = {
+        labels: [
+            'Red',
+            'Blue',
+            'Yellow'
+        ],
+        datasets: [{
+            label: 'My First Dataset',
+            data: [300, 50, 100],
+            backgroundColor: [
+            'rgb(255, 99, 132)',
+            'rgb(54, 162, 235)',
+            'rgb(255, 205, 86)'
+            ],
+            hoverOffset: 4
+        }]
+        };
+
+        const config = {
+            type: 'pie',
+            data: data,
+            options: {
+                responsive: false
+            }
+        };
+
+        const myPie = new Chart(ctx, config);
+        }
+        </script>
+    </canvas>
+
+</div>
