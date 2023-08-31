@@ -1,0 +1,16 @@
+<% if @otype == "outcome" %>
+    <h3>Сума витрат<h3>
+<% else %>
+    <h3>Сума доходів</h3>
+<% end %>
+<h3>за період з <%= @start_date %> по <%= @end_date %></h3>
+
+<div class = "report_item">
+    <% if @category_id == "0" %>
+        <h5>Вибірка по всіх категоріях</h5>
+    <% else %>
+        <h5>Вибірка по категорії: "<%= @category_name %>"</h5>
+    <% end %>
+    <br>
+    <h3><%= @period_sum %> грн</h3>
+</div>
