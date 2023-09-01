@@ -29,8 +29,7 @@ class OperationsController < ApplicationController
     respond_to do |format|
       if @operation.save
         format.html { redirect_to operation_url(@operation), notice: "Операція успішно створена" }
-        format.json { render :show, status: :created, location: @operation }
-        $total_amount = Operation.total_amount_new(@operation)
+        format.json { render :show, status: :created, location: @operation }        
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @operation.errors, status: :unprocessable_entity }
@@ -44,7 +43,6 @@ class OperationsController < ApplicationController
       if @operation.update(operation_params)
         format.html { redirect_to operation_url(@operation), notice: "Операція успішно оновлена" }
         format.json { render :show, status: :ok, location: @operation }
-        $total_amount = Operation.total_amount
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @operation.errors, status: :unprocessable_entity }
@@ -57,9 +55,8 @@ class OperationsController < ApplicationController
     @operation.destroy
 
     respond_to do |format|
-      format.html { redirect_to operations_url, notice: "Операція успішно видалена." }
+      format.html { redirect_to operations_url, notice: "Операція успішно видалена" }
       format.json { head :no_content }
-      $total_amount = Operation.total_amount
     end
   end
 
