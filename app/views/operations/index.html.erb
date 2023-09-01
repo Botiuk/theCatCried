@@ -4,6 +4,7 @@
 <h3>Журнал операцій</h3>
 
 <div class = "button_on_top">
+  <%= link_to "На головну", root_path %>
   <%= link_to "Додати витрату", new_operation_path(:otype => "outcome"), :method => :post %>
   <%= link_to "Додати дохід", new_operation_path(:otype => "income"), :method => :post %>
 </div>
