@@ -1,39 +1,78 @@
-<h3>Звіт за період</h3>
+<% if @otype == "outcome" %>
+    <h3>Розподіл витрат за період</h3>
+    <div class = "one_item_outcome">
+<% else %>
+    <h3>Розподіл доходів за період</h3>
+    <div class = "one_item_income">
+<% end %>
+  <h4> з <%= @start_date %> по <%= @end_date %></h4>
+  <% if @category_id == "0" %>
+      <h5>(по всіх категоріях)</h5>
+    <% else %>
+      <h5>(по категорії: "<%= @category_name %>")</h5>
+    <% end %>
+    
+    <% if @cat_name.size == 0 %>
+        <p style="color: red; font-weight: bold">За вибраний період часу, таких операцій немає.
+        <br>Спробуй створити звіт з іншими параметрами запиту
+        </p>
+        <div class = "button_in_item">
+        <%= link_to "Звіт", reports_path %>
+        </div>
+    <% else %>   
+    <div class = "diagram">
+        <div class = "diagram_item">
+            <table>
+                <tr>
+                    <th>Категорія</th>
+                    <th>Сума</th>
+                </tr>
+                <% @diagram_data.each do |diagram| %>
+                <tr>
+                    <td><%= diagram[0] %></td>
+                    <td><%= diagram[1] %></td>
+                </tr>
+                <% end %>
+                
+                <tr><th colspan="2">Всього: </th></tr>
+            </table>
+        </div>
 
-<div class = "report_item">
-    <canvas id="myPie" width="600" height="400">
-        <script>
-        {
-        const ctx = document.getElementById('myPie').getContext('2d');
-        const data = {
-        labels: [
-            'Red',
-            'Blue',
-            'Yellow'
-        ],
-        datasets: [{
-            label: 'My First Dataset',
-            data: [300, 50, 100],
-            backgroundColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(255, 205, 86)'
-            ],
-            hoverOffset: 4
-        }]
-        };
+        <div class = "diagram_item">
+        <canvas id="myPie"></canvas>
+            <script>
+            {
+            const ctx = document.getElementById('myPie').getContext('2d');
+            const data = {
+            labels:  <%= raw @cat_name %>,
+            datasets: [{
+                label: '<%= raw @cat_name.join %>',
+                data: <%= @cat_moneys %>,
+                backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 205, 86)'
+                ],
+                hoverOffset: 4
+            }]
+            };
 
-        const config = {
-            type: 'pie',
-            data: data,
-            options: {
-                responsive: false
+            const config = {
+                type: 'pie',
+                data: data,
+                options: {
+                    responsive: false
+                }
+            };
+
+            const myPie = new Chart(ctx, config);
             }
-        };
+            </script>
+        
+        </div>
 
-        const myPie = new Chart(ctx, config);
-        }
-        </script>
-    </canvas>
+
+    </div>
+    <% end %> 
 
 </div>
