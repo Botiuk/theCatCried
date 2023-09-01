@@ -65,7 +65,7 @@ main {
 	margin: 15px auto;
 }
 
-.index_come {
+.index_come, .diagram {
 	display: flex;
 	justify-content: space-between;
 }
@@ -221,6 +221,23 @@ main {
 
 .radio_button label {
 	font-weight: normal;
+}
+
+.diagram_item {
+	float: left;
+	padding: 10px;
+	margin: 15px auto;
+	outline: none; 
+	margin: 15px 0;   
+	width: 48%;
+}
+
+.diagram_item table, .diagram_item td, .diagram_item th{
+	border: black 1px solid;
+	text-align: left;
+	padding: 5px;
+	background-color: azure;
+
 }
 
  /*Footer*/
