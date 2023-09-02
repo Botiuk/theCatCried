@@ -4,7 +4,6 @@
 <h3>Детальніше про категорію</h3>
 
 <div class = "button_on_top">
-    <%= link_to "На головну", root_path %>
     <%= link_to "Перелік категорій", categories_path %>
     <%= link_to "Редагувати", edit_category_path(@category) %>
     <%= link_to "Видалити", @category,  data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %>
