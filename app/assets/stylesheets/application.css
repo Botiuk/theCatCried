@@ -277,6 +277,8 @@ footer {
 	padding: 10px;
 } 
 
-footer p{	
+footer th {	
 	font-style: italic;
+	color: darkslategray; 
+	font-weight: normal;
 }
