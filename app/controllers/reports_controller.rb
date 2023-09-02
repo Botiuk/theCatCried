@@ -8,18 +8,15 @@ class ReportsController < ApplicationController
     report_data_view
     @diagram_data = Operation.reports_data_by_category(@start_date, @end_date, @otype, @category_id)
     @cat_name= @diagram_data.map { |e| e[0] }
-    @cat_moneys = @diagram_data.map { |e| e[1] }
+    @cat_moneys = @diagram_data.map { |e| e[1] }    
+    @period_sum = Operation.reports_data_by_sum(@start_date, @end_date, @otype, @category_id)
   end
 
   def report_by_dates
     report_data_view
-    graph_data = Operation.reports_data_by_dates(@start_date, @end_date, @otype, @category_id)
-    @dates = graph_data.map { |e| e[0] }
-    @moneys = graph_data.map { |e| e[1] }
-  end
-
-  def report_by_sum
-    report_data_view
+    @graph_data = Operation.reports_data_by_dates(@start_date, @end_date, @otype, @category_id)
+    @dates = @graph_data.map { |e| e[0].to_date.strftime('%d.%m.%Y') }
+    @moneys = @graph_data.map { |e| e[1] }    
     @period_sum = Operation.reports_data_by_sum(@start_date, @end_date, @otype, @category_id)
   end
 
@@ -38,7 +35,6 @@ class ReportsController < ApplicationController
     if @category_id != "0"
       @category_name = Category.where(id: @category_id).pluck(:name).join
     end  
-
   end
 
 end
