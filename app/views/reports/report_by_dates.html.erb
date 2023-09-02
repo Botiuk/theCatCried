@@ -5,11 +5,11 @@
     <h3>Розподіл доходів по дняx</h3>
     <div class = "one_item_income">
 <% end %>
-  <h4>за період з <%= @start_date %> по <%= @end_date %></h4>
+  <h4>за період з <%= @start_date.to_date.strftime('%d.%m.%Y') %> по <%= @end_date.to_date.strftime('%d.%m.%Y') %></h4>
     <% if @category_id == "0" %>
-      <h5>(по всіх категоріях)</h5>
+      <h5>(вибірка по всіх категоріях)</h5>
     <% else %>
-      <h5>(по категорії: "<%= @category_name %>")</h5>
+      <h5>(вибірка по категорії: "<%= @category_name %>")</h5>
     <% end %>
     
   <% if @dates.size == 0 %>
@@ -19,39 +19,55 @@
     <div class = "button_in_item">
       <%= link_to "Звіт", reports_path %>
     </div>
-  <% elsif @dates.size == 1 %>
-    <p style="font-weight: bold">Недостатньо даних для побудови графіку. 
-    <br>Параметрам запиту відповідає лише один день - <%= @dates.join.to_date %>. Загальна сума: <%= @moneys.join %> грн.
-    <br>Спробуй створити звіт з іншими параметрами запиту
-    </p>
-    <div class = "button_in_item">
-      <%= link_to "Звіт", reports_path %>
+
+  <% else %> 
+    <div class = "report_content">
+      <div class = "report_item_table">
+        <table class ="report_table">
+         <tr>
+           <th>Дата</th>
+           <th>Сума</th>
+          </tr>
+          <% @graph_data.each do |graph| %>
+            <tr>
+             <td style = "text-align: left"><%= graph[0].to_date.strftime('%d.%m.%Y') %></td>
+             <td><%= graph[1] %></td>
+            </tr>
+          <% end %>
+            <tr>
+            <th colspan = "2", style = "text-align: left">Всього: <%= @period_sum %> грн</th>
+            </tr>
+        </table>
+      </div>
+
+      <div class = "report_item_image">       
+        <canvas id="myChart"></canvas>
+        <script>
+        {
+          const ctx = document.getElementById('myChart').getContext('2d');
+          const data = {
+            labels: <%= raw @dates %>,
+            datasets: [{
+              label: 'Грошовий потік',
+              data: <%= @moneys %>,
+              fill: false,
+              borderColor: 'rgb(65, 105, 225)',
+              tension: 0.1
+            }]
+          };
+
+          const config = {
+            type: 'line',
+            data: data,        
+          };
+          
+          const myChart = new Chart(ctx, config);
+        }
+        </script>
+      </div>
     </div>
 
-  <% else %>    
-    <canvas id="myChart"></canvas>
-    <script>
-    {
-      const ctx = document.getElementById('myChart').getContext('2d');
-      const data = {
-        labels: <%= raw @dates %>,
-        datasets: [{
-          label: 'Графік по днях',
-          data: <%= @moneys %>,
-          fill: false,
-          borderColor: 'rgb(75, 192, 192)',
-          tension: 0.1
-        }]
-      };
-
-      const config = {
-        type: 'line',
-        data: data,        
-      };
-
-      const myChart = new Chart(ctx, config);
-    }
-    </script>
+    
 
   <% end %>
 
