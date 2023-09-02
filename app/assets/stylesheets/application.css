@@ -65,7 +65,7 @@ main {
 	margin: 15px auto;
 }
 
-.index_come, .diagram {
+.index_come {
 	display: flex;
 	justify-content: space-between;
 }
@@ -76,8 +76,7 @@ main {
 	margin: 15px auto; 
 	border-radius: 5px;
 	box-shadow: 1px 5px 10px #888888;
-	outline: none; 
-	margin: 15px 0;   
+	outline: none;
 	width: 48%;
 }
 
@@ -123,7 +122,6 @@ main {
 .op_odate, .op_amount, .op_category, .op_description, .td_button, .cat_name, .cat_description {
 	padding: 5px;
 	box-sizing: border-box;
-	/*border: 1px solid black*/
 }
 
 .op_odate {
@@ -164,11 +162,12 @@ main {
 .button_on_top {
 	display: flex;
 	justify-content: center;
+	flex-wrap: wrap;
 	max-width: 800px;
 	width: 100%;
 	margin: auto;
 	border-bottom: 2px solid rgb(184, 183, 183);
-	padding: 15px;
+	padding: 15px;	
 }
 
 .button_in_item {
@@ -223,22 +222,53 @@ main {
 	font-weight: normal;
 }
 
-.diagram_item {
+.report_content {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+
+.report_item_table, .report_item_image {
 	float: left;
 	padding: 10px;
 	margin: 15px auto;
 	outline: none; 
-	margin: 15px 0;   
-	width: 48%;
+	width: 280px;
 }
 
-.diagram_item table, .diagram_item td, .diagram_item th{
-	border: black 1px solid;
-	text-align: left;
-	padding: 5px;
-	background-color: azure;
-
+.report_item_table {
+	width: 280px;	
+	flex-grow: 0;
 }
+
+.report_item_image {
+	width: 60%;
+	flex-grow: 1;
+}
+
+.report_table table {
+    table-layout: auto;
+	width: 100%;
+}
+
+.report_table tr:nth-child(even) {
+    background-color: aquamarine;
+}
+
+.report_table tr:nth-child(odd) {
+    background-color: aliceblue;
+}
+
+.report_table th {
+    background-color: lightblue;
+	text-align: center;		
+	padding: 5px 10px;
+}
+
+.report_table td {	
+	padding: 5px 10px;
+}
+
 
  /*Footer*/
 

@@ -1,57 +1,71 @@
 <% if @otype == "outcome" %>
-    <h3>Розподіл витрат за період</h3>
+    <h3>Розподіл витрат по категоріях</h3>
     <div class = "one_item_outcome">
 <% else %>
-    <h3>Розподіл доходів за період</h3>
+    <h3>Розподіл доходів по категоріях</h3>
     <div class = "one_item_income">
 <% end %>
-  <h4> з <%= @start_date %> по <%= @end_date %></h4>
+  <h4> з <%= @start_date.to_date.strftime('%d.%m.%Y') %> по <%= @end_date.to_date.strftime('%d.%m.%Y') %></h4>
   <% if @category_id == "0" %>
-      <h5>(по всіх категоріях)</h5>
+      <h5>(вибірка по всіх категоріях)</h5>
     <% else %>
-      <h5>(по категорії: "<%= @category_name %>")</h5>
+      <h5>(вибірка по категорії: "<%= @category_name %>")</h5>
     <% end %>
     
     <% if @cat_name.size == 0 %>
-        <p style="color: red; font-weight: bold">За вибраний період часу, таких операцій немає.
+        <p style = "color: red; font-weight: bold">За вибраний період часу, таких операцій немає.
         <br>Спробуй створити звіт з іншими параметрами запиту
         </p>
         <div class = "button_in_item">
         <%= link_to "Звіт", reports_path %>
         </div>
     <% else %>   
-    <div class = "diagram">
-        <div class = "diagram_item">
-            <table>
+    
+    <div class = "report_content">
+        <div class = "report_item_table">
+            <table class ="report_table">
                 <tr>
                     <th>Категорія</th>
                     <th>Сума</th>
                 </tr>
                 <% @diagram_data.each do |diagram| %>
                 <tr>
-                    <td><%= diagram[0] %></td>
+                    <td style = "text-align: left"><%= diagram[0] %></td>
                     <td><%= diagram[1] %></td>
                 </tr>
-                <% end %>
-                
-                <tr><th colspan="2">Всього: </th></tr>
+                <% end %>                
+                <tr>
+                    <th colspan = "2", style = "text-align: left">Всього: <%= @period_sum %> грн</th>
+                </tr>
             </table>
         </div>
 
-        <div class = "diagram_item">
-        <canvas id="myPie"></canvas>
+        <div class = "report_item_image">
+            <canvas id="myPie"></canvas>
             <script>
             {
             const ctx = document.getElementById('myPie').getContext('2d');
             const data = {
             labels:  <%= raw @cat_name %>,
             datasets: [{
-                label: '<%= raw @cat_name.join %>',
+                label: 'Грошовий потік',
                 data: <%= @cat_moneys %>,
                 backgroundColor: [
-                'rgb(255, 99, 132)',
-                'rgb(54, 162, 235)',
-                'rgb(255, 205, 86)'
+                'rgb(255,204,0)',
+                'rgb(46,139,87)',
+                'rgb(255, 0, 0)',
+                'rgb(128, 0, 0)',
+                'rgb(189,183,107)',
+                'rgb(255, 255, 0)',
+                'rgb(128, 128, 0)',
+                'rgb(0, 255, 0)',
+                'rgb(0, 128, 0)',
+                'rgb(0, 255, 255)',
+                'rgb(0, 128, 128)',
+                'rgb(0, 0, 255)',
+                'rgb(0, 0, 128)',
+                'rgb(255, 0, 255)',
+                'rgb(128, 0, 128)'                
                 ],
                 hoverOffset: 4
             }]
@@ -60,9 +74,6 @@
             const config = {
                 type: 'pie',
                 data: data,
-                options: {
-                    responsive: false
-                }
             };
 
             const myPie = new Chart(ctx, config);
@@ -70,9 +81,8 @@
             </script>
         
         </div>
-
-
     </div>
+    
     <% end %> 
 
 </div>
