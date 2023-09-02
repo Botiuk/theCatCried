@@ -3,7 +3,7 @@ class OperationsController < ApplicationController
 
   # GET /operations or /operations.json
   def index
-    @operations = Operation.page(params[:page])
+    @operations = Operation.order(:odate).reverse_order.page(params[:page])
   end
 
   # GET /operations/1 or /operations/1.json
