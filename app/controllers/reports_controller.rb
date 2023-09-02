@@ -10,6 +10,7 @@ class ReportsController < ApplicationController
     @cat_name= @diagram_data.map { |e| e[0] }
     @cat_moneys = @diagram_data.map { |e| e[1] }    
     @period_sum = Operation.reports_data_by_sum(@start_date, @end_date, @otype, @category_id)
+    @colors = (@diagram_data.size).times.map {"#" + "%06x" % (rand * 0xffffff)}
   end
 
   def report_by_dates

@@ -48,25 +48,9 @@
             const data = {
             labels:  <%= raw @cat_name %>,
             datasets: [{
-                label: 'Грошовий потік',
+                label: 'Сума',
                 data: <%= @cat_moneys %>,
-                backgroundColor: [
-                'rgb(255,204,0)',
-                'rgb(46,139,87)',
-                'rgb(255, 0, 0)',
-                'rgb(128, 0, 0)',
-                'rgb(189,183,107)',
-                'rgb(255, 255, 0)',
-                'rgb(128, 128, 0)',
-                'rgb(0, 255, 0)',
-                'rgb(0, 128, 0)',
-                'rgb(0, 255, 255)',
-                'rgb(0, 128, 128)',
-                'rgb(0, 0, 255)',
-                'rgb(0, 0, 128)',
-                'rgb(255, 0, 255)',
-                'rgb(128, 0, 128)'                
-                ],
+                backgroundColor: <%= raw @colors %>,
                 hoverOffset: 4
             }]
             };
