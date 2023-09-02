@@ -8,8 +8,8 @@ class Operation < ApplicationRecord
 
   enum :otype, { outcome: 0, income: 1 }, prefix: true
 
-  paginates_per 25
-  max_pages 40
+  paginates_per 20
+  max_pages 50
 
 
   private

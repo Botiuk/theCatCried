@@ -8,8 +8,8 @@ class Category < ApplicationRecord
 
   enum :ctype, { outcome: 0, income: 1 }, prefix: true
 
-  paginates_per 10
-  max_pages 50
+  paginates_per 20
+  max_pages 10
 
 
 private
