@@ -34,7 +34,9 @@
         </div>
 
         <div>
-          <%= form.submit "Підтвердити", class: "btn btn-success" %>
+          <%= form.button nil, class: "btn btn-success" do %>
+            <i class="bi bi-check-lg"></i> Підтвердити
+          <% end %>
         </div>
 
       </div>

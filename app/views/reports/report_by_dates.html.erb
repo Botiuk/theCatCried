@@ -1,15 +1,15 @@
 <% if @otype == "outcome" %>
-    <h3>Розподіл витрат по дняx</h3>
+    <h3>Розподіл витрат по дням</h3>    
     <div class = "one_item_outcome">
 <% else %>
-    <h3>Розподіл доходів по дняx</h3>
+    <h3>Розподіл доходів по дням</h3>    
     <div class = "one_item_income">
 <% end %>
-  <h4>за період з <%= @start_date.to_date.strftime('%d.%m.%Y') %> по <%= @end_date.to_date.strftime('%d.%m.%Y') %></h4>
+  <h4>За період з <%= @start_date.to_date.strftime('%d.%m.%Y') %> по <%= @end_date.to_date.strftime('%d.%m.%Y') %></h4>
     <% if @category_id == "0" %>
-      <h5>(вибірка по всіх категоріях)</h5>
+      <h5>(всі категорії)</h5>
     <% else %>
-      <h5>(вибірка по категорії: "<%= @category_name %>")</h5>
+      <h5>(категорія: "<%= @category_name %>")</h5>
     <% end %>
     
   <% if @dates.size == 0 %>
@@ -71,4 +71,9 @@
 
   <% end %>
 
+</div>
+
+<div class = "button_on_bottom">
+  <%= link_to '<i class="bi bi-house-fill"></i> На головну'.html_safe, root_path %>
+  <%= link_to '<i class="bi bi-file-earmark-bar-graph-fill"></i> Звіт'.html_safe, reports_path %>
 </div>

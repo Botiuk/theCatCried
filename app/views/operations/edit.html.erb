@@ -1,8 +1,9 @@
 <h3>Редагування операції</h3>
 
 <div class = "button_on_top">
-    <%= link_to "Повернутись до журналу операцій", operations_path %>
-    <%= link_to "Повернутися до операції", @operation %>
+    <%= link_to '<i class="bi bi-house-fill"></i> На головну'.html_safe, root_path %>
+    <%= link_to '<i class="bi bi-list-columns-reverse"></i> Журнал операцій'.html_safe, operations_path %>
+    <%= link_to '<i class="bi bi-file-earmark-text-fill"></i> Детальніше про операцію'.html_safe.html_safe, @operation %>
 </div>
 
 <%= render "form", operation: @operation %>
