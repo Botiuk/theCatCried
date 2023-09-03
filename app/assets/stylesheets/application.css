@@ -73,11 +73,11 @@ main {
 .index_outcome, .index_income {
 	float: left;
 	padding: 10px;
-	margin: 15px auto; 
+	margin: auto; 
 	border-radius: 5px;
 	box-shadow: 1px 5px 10px #888888;
 	outline: none;
-	width: 48%;
+	width: 49%;
 }
 
 .one_item_outcome, .one_item_income {
@@ -100,7 +100,7 @@ main {
 .index_other, .report_item {
 	max-width: 800px;
 	width: 100%;
-	margin: auto;
+	margin: 15px auto;
 	padding: 15px;
 	box-shadow: 1px 5px 10px #888888;
 	background-color: gainsboro;
@@ -159,15 +159,22 @@ main {
 	font-style: italic;
 }
 
-.button_on_top {
+.button_on_top, .button_on_bottom {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 	max-width: 800px;
 	width: 100%;
 	margin: auto;
-	border-bottom: 2px solid rgb(184, 183, 183);
 	padding: 15px;	
+}
+
+.button_on_top {
+	border-bottom: 2px solid rgb(184, 183, 183);
+}
+
+.button_on_bottom {
+	border-top: 2px solid rgb(184, 183, 183);
 }
 
 .button_in_item {
@@ -175,7 +182,7 @@ main {
 	justify-content: center;
 }
 
-.button_on_top a, .td_button a, .button_in_item a, .index_button a {
+.button_on_top a, .button_on_bottom a, .td_button a, .button_in_item a, .index_button a {
 	display: block;
 	color: black;
 	background-color: lightblue;
@@ -185,7 +192,7 @@ main {
 	box-shadow: 1px 2px 4px #888888;
 }
 
-.button_on_top a {
+.button_on_top a, .button_on_bottom a {
 	margin: 0 10px;
 	padding: 5px;
 }
@@ -201,7 +208,8 @@ main {
 	padding: 5px 10px;
 }
 
-.button_on_top a:hover, .td_button a:hover, .button_in_item a:hover, .index_button a:hover {
+.button_on_top a:hover, .button_on_bottom a:hover, .td_button a:hover, 
+.button_in_item a:hover, .index_button a:hover {
 	background-color: lightseagreen;
 	color: lightgray;
 }
@@ -268,7 +276,6 @@ main {
 .report_table td {	
 	padding: 5px 10px;
 }
-
 
  /*Footer*/
 
