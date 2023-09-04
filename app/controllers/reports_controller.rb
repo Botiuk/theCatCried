@@ -34,7 +34,7 @@ class ReportsController < ApplicationController
     end
 
     if @category_id != "0"
-      @category_name = Category.where(id: @category_id).pluck(:name).join
+      @category_name = Category.name_from_id(@category_id)
     end  
   end
 

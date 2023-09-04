@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories or /categories.json
   def index
-    @categories = Category.order(:name).page(params[:page])
+    @categories = Category.list_order.page(params[:page])
   end
 
   # GET /categories/1 or /categories/1.json
@@ -50,14 +50,13 @@ class CategoriesController < ApplicationController
   # DELETE /categories/1 or /categories/1.json
   def destroy
     respond_to do |format|
-      if Operation.where(category_id: @category.id).size == 0 
+      if Operation.cat_destroy(@category.id) == 0 
         @category.destroy
         format.html { redirect_to categories_url, notice: "Категорія успішно видалена" }
         format.json { head :no_content }
       else
         format.html { redirect_to category_url(@category), 
-          alert: "Неможливо видалити! Є операції з даною категорією", 
-          status: :unprocessable_entity }
+          alert: "Неможливо видалити! Є операції з даною категорією", status: :unprocessable_entity }
         format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
@@ -73,4 +72,5 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:name, :description, :ctype)
     end
+    
 end
