@@ -18,6 +18,18 @@ class Operation < ApplicationRecord
     Operation.where(otype: "income").sum(:amount) - Operation.where(otype: "outcome").sum(:amount)
   end
 
+  def self.list_order
+    Operation.order(:odate).reverse_order
+  end
+
+  def self.search_op(category_id)
+    Operation.where(category_id: category_id).order(:odate).reverse_order
+  end
+
+  def self.cat_destroy(category_id)
+    Operation.where(category_id: category_id).size
+  end
+
   def self.reports_data_by_category(start_date, end_date, otype, category_id)    
     if category_id == "0" 
       Operation.where(odate: start_date..end_date, otype: otype).group(:category_id)

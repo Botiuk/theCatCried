@@ -3,7 +3,13 @@ class OperationsController < ApplicationController
 
   # GET /operations or /operations.json
   def index
-    @operations = Operation.order(:odate).reverse_order.page(params[:page])
+    @operations = Operation.list_order.page(params[:page])
+    @categories = Category.search_formhelper
+  end
+
+  def search
+    @operations = Operation.search_op(params[:category_id]).page(params[:page])
+    @search_name = Category.name_from_id(params[:category_id])
   end
 
   # GET /operations/1 or /operations/1.json

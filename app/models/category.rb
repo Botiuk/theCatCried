@@ -14,6 +14,14 @@ class Category < ApplicationRecord
 
 private
 
+  def self.list_order
+    Category.order(:name)
+  end
+
+  def self.search_formhelper
+    Category.order(:name).pluck(:name, :id)
+  end
+
   def self.ctype_formhelper(operation)
     if operation.otype == "outcome" 
       Category.where(ctype: "outcome").order(:name).pluck(:name, :id)
@@ -23,7 +31,7 @@ private
   end
 
   def self.edit_formhelper(operation)
-    Category.where(id: operation.category_id).pluck(:name, :id) + Category.ctype_formhelper(operation)
+    Category.where(id: operation.category_id).pluck(:name, :id) + self.ctype_formhelper(operation)
   end
 
   def self.reports_formhelper(otype)
@@ -34,5 +42,8 @@ private
     end
   end
 
+  def self.name_from_id(id)
+    Category.where(id: id).pluck(:name).join
+  end
 
 end

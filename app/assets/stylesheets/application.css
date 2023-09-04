@@ -118,6 +118,9 @@ main {
 .one_item {
 	text-align: left;
 }
+.search {
+	margin: 15px auto;
+}
 
 .op_odate, .op_amount, .op_category, .op_description, .td_button, .cat_name, .cat_description {
 	padding: 5px;
@@ -193,7 +196,7 @@ main {
 }
 
 .button_on_top a, .button_on_bottom a {
-	margin: 0 10px;
+	margin: 5px 10px;
 	padding: 5px;
 }
 

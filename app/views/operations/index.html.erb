@@ -9,6 +9,16 @@
   <%= link_to '<i class="bi bi-bag-plus-fill"></i> Додати дохід'.html_safe, new_operation_path(:otype => "income"), :method => :post %>
 </div>
 
+<div class = "search">
+  <%= form_tag(search_path, :method => "get") do %>
+    <%= label_tag(:category_id, "Відобразити лише операції категорії:") %>
+    <%= select_tag(:category_id, options_for_select(@categories)) %>
+    <%= button_tag(type: "submit", :name => nil, class: "btn btn-secondary btn-sm") do %>
+      <i class="bi bi-funnel"></i> Фільтрувати
+    <% end %>  
+  <% end %>
+</div>  
+
 <div id="operations">
 
   <% @operations.each do |operation| %>
