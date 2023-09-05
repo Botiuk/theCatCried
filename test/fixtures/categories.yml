@@ -1,9 +1,11 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
-  description: MyString
+first:
+  name: First cat
+  description: First cat description
+  ctype: 0
 
-two:
-  name: MyString
-  description: MyString
+second:
+  name: Second cat
+  description: Second cat description
+  ctype: 1
