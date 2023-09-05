@@ -4,10 +4,12 @@ one:
   amount: 9.99
   odate: 2023-01-11 07:45:43
   description: MyString
-  category: one
+  category: first
+  otype: 1
 
 two:
-  amount: 9.99
-  odate: 2023-01-11 07:45:43
+  amount: 99.99
+  odate: 2023-02-11 08:45:43
   description: MyString
-  category: two
+  category: second
+  otype: 0
