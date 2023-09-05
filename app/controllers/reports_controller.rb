@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  
   def index
     @categories_outcome = Category.reports_formhelper("outcome")
     @categories_income = Category.reports_formhelper("income")
@@ -6,7 +7,7 @@ class ReportsController < ApplicationController
       
   def report_by_category
     report_data_view
-    @diagram_data = Operation.reports_data_by_category(@start_date, @end_date, @otype, @category_id)
+    @diagram_data = Operation.reports_data_by_category(@start_date, @end_date, @otype, @category_id).sort
     @cat_name= @diagram_data.map { |e| e[0] }
     @cat_moneys = @diagram_data.map { |e| e[1] }    
     @period_sum = Operation.reports_data_by_sum(@start_date, @end_date, @otype, @category_id)
