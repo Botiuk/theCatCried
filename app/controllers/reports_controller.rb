@@ -10,16 +10,16 @@ class ReportsController < ApplicationController
     @diagram_data = Operation.reports_data_by_category(@start_date, @end_date, @otype, @category_id).sort
     @cat_name= @diagram_data.map { |e| e[0] }
     @cat_moneys = @diagram_data.map { |e| e[1] }    
-    @period_sum = Operation.reports_data_by_sum(@start_date, @end_date, @otype, @category_id)
+    @period_sum = Operation.reports_sum(@start_date, @end_date, @otype, @category_id)
     @colors = (@diagram_data.size).times.map {"#" + "%06x" % (rand * 0xffffff)}
   end
 
   def report_by_dates
     report_data_view
     @graph_data = Operation.reports_data_by_dates(@start_date, @end_date, @otype, @category_id)
-    @dates = @graph_data.map { |e| e[0].to_date.strftime('%d.%m.%Y') }
+    @dates = @graph_data.map { |e| e[0].to_date.strftime('%d.%m') }
     @moneys = @graph_data.map { |e| e[1] }    
-    @period_sum = Operation.reports_data_by_sum(@start_date, @end_date, @otype, @category_id)
+    @period_sum = Operation.reports_sum(@start_date, @end_date, @otype, @category_id)
   end
 
   private

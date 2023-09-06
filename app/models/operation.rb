@@ -44,14 +44,14 @@ class Operation < ApplicationRecord
     def self.reports_data_by_dates(start_date, end_date, otype, category_id)
       if category_id == "0" 
         Operation.where(odate: start_date..end_date, otype: otype).order(:odate)
-        .group(:odate).sum(:amount).map { |op| [op[0].to_date.to_s, op[1]] }
+        .group(:odate).sum(:amount)
       else
         Operation.where(odate: start_date..end_date, otype: otype, category_id: category_id).order(:odate)
-        .group(:odate).sum(:amount).map { |op| [op[0].to_date.to_s, op[1]] }
+        .group(:odate).sum(:amount)
       end    
     end
 
-    def self.reports_data_by_sum(start_date, end_date, otype, category_id)
+    def self.reports_sum(start_date, end_date, otype, category_id)
       if category_id == "0" 
         Operation.where(odate: start_date..end_date, otype: otype).sum(:amount)
       else
