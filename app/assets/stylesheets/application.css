@@ -221,6 +221,9 @@ main {
 	width: 100%;
 	text-align: left;
 	padding-left: 20px;
+	overflow: visible;
+	white-space: initial;	
+	text-overflow: clip;
 }
 
 .form div {
