@@ -2,17 +2,19 @@ require "test_helper"
 
 class CategoryTest < ActiveSupport::TestCase
 
-test "check the 'First cat' description" do
-  category_first = Category.find_by(name: 'First cat')
-  assert_equal("First cat description", category_first.description)
-end
+  test "check the 'First cat' description" do
+    category_first = Category.find_by(name: 'First cat')
+    assert_equal("First cat description", category_first.description)
+  end
 
-test "saving and gathering" do
-  new_category = Category.new(name: "new category", description: "new description", ctype: 0)
-  new_category.save()
-  new_cat = Category.find_by(name: "new category")
-  assert_equal("new description", new_cat.description)
-end
+  test "saving and gathering" do
+    new_category = Category.new(name: "new category", description: "new description", ctype: 0)
+    new_category.save()
+    new_cat = Category.find_by(name: "new category")
+    assert_equal("new description", new_cat.description)
+  end
+
+#testing creating new category
 
   test "return false if name is missed" do
     new_category = Category.new(description: "some description", ctype: 0)
@@ -47,8 +49,5 @@ end
     new_category = Category.new(name: "new category", description: "new description", ctype: 1)
     assert(new_category.valid?) 
   end
-
-
-
-
+  
 end
