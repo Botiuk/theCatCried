@@ -8,24 +8,31 @@
 
 require "faker"
 
-(18..50).each do |id|
-  Operation.create(
-    id: id,
-    amount: Faker::Number.between(from: 1000, to: 15000),
-    odate: Faker::Date.between(from: "2022-11-20", to: "2023-03-05"),
-    description: Faker::TvShows::DrWho.quote,
-    category_id: Faker::Number.between(from: 1, to: 9),
-    otype: 1,
-  )
-end
+case Rails.env
+when "development"
+  
+  (18..50).each do |id|
+    Operation.create(
+      id: id,
+      amount: Faker::Number.between(from: 1000, to: 15000),
+      odate: Faker::Date.between(from: "2022-11-20", to: "2023-03-05"),
+      description: Faker::TvShows::DrWho.quote,
+      category_id: Faker::Number.between(from: 1, to: 9),
+      otype: 1,
+    )
+  end
 
-(51..500).each do |id|
-  Operation.create(
-    id: id,
-    amount: Faker::Number.decimal(l_digits: 3, r_digits: 1),
-    odate: Faker::Date.between(from: "2022-11-20", to: "2023-03-05"),
-    description: Faker::TvShows::Simpsons.quote,
-    category_id: Faker::Number.between(from: 10, to: 40),
-    otype: 0,
-  )
+  (51..500).each do |id|
+    Operation.create(
+      id: id,
+      amount: Faker::Number.decimal(l_digits: 3, r_digits: 1),
+      odate: Faker::Date.between(from: "2022-11-20", to: "2023-03-05"),
+      description: Faker::TvShows::Simpsons.quote,
+      category_id: Faker::Number.between(from: 10, to: 40),
+      otype: 0,
+    )
+  end
+
+when "production"
+
 end
