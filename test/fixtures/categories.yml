@@ -3,9 +3,59 @@
 first:
   name: First cat
   description: First cat description
-  ctype: 0
+  ctype: 1
 
 second:
   name: Second cat
   description: Second cat description
   ctype: 1
+
+third:
+  name: Third cat
+  description: Third cat description
+  ctype: 1
+
+fourth:
+  name: Fourth cat
+  description: Fourth cat description
+  ctype: 1
+
+fifth:
+  name: Fifth cat
+  description: Fifth cat description
+  ctype: 0
+
+sixth:
+  name: Sixth cat
+  description: Sixth cat description
+  ctype: 0
+
+seventh:
+  name: Seventh cat
+  description: Seventh cat description
+  ctype: 0
+
+eighth:
+  name: Eight cat
+  description: Eight cat description
+  ctype: 0
+
+ninth:
+  name: Ninth cat
+  description: Ninth cat description
+  ctype: 0
+
+tenth:
+  name: Tenth cat
+  description: Tenth cat description
+  ctype: 0
+
+eleventh:
+  name: Eleventh cat
+  description: Eleventh cat description
+  ctype: 0
+
+twelfth:
+  name: Twelfth cat
+  description: Twelfth cat description
+  ctype: 0
