@@ -14,6 +14,22 @@ class CategoryTest < ActiveSupport::TestCase
     assert_equal("new description", new_cat.description)
   end
 
+  test "saving and updating" do
+    new_category = Category.new(name: "new category", description: "new description", ctype: 0)
+    new_category.save()
+    new_category.update(name: "update category")
+    update_category = Category.find_by(name: "update category")
+    assert_equal("new description", update_category.description)
+  end
+
+  test "saving and destroying" do
+    new_category = Category.new(name: "destroy category", description: "new description", ctype: 0)
+    new_category.save()
+    new_category.destroy()
+    destroy_category = Category.find_by(name: "destroy category")
+    assert_nil(destroy_category)
+  end
+
 #testing creating new category
 
   test "return false if name is missed" do

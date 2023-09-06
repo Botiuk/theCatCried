@@ -8,10 +8,26 @@ class OperationTest < ActiveSupport::TestCase
   end
 
   test "saving and gathering" do
-    new_operation = Operation.new(amount: 5, odate: "2023-01-11 09:45:43", description: "new description", category_id: Category.find_by(name: 'First cat').id, otype: 0)
+    new_operation = Operation.new(amount: 5, odate: "2023-01-05 09:45:43", description: "new description", category_id: Category.find_by(name: 'First cat').id, otype: 0)
     new_operation.save()
-    new_op = Operation.find_by(odate: "2023-01-11 09:45:43")
+    new_op = Operation.find_by(odate: "2023-01-05 09:45:43")
     assert_equal("new description", new_op.description)
+  end
+
+  test "saving and updating" do
+    new_operation = Operation.new(amount: 10, odate: "2023-01-10 09:45:43", description: "new description", category_id: Category.find_by(name: 'First cat').id, otype: 0)
+    new_operation.save()
+    new_operation.update(odate: "2023-02-12 09:45:43")
+    update_operation = Operation.find_by(odate: "2023-02-12 09:45:43")
+    assert_equal(10, update_operation.amount)
+  end
+
+  test "saving and destroying" do
+    new_operation = Operation.new(amount: 15, odate: "2023-01-15 09:45:43", description: "new description", category_id: Category.find_by(name: 'First cat').id, otype: 0)
+    new_operation.save()
+    new_operation.destroy()
+    destroy_operation = Operation.find_by(odate: "2023-01-15 09:45:43")
+    assert_nil(destroy_operation)
   end
 
 #testing creating new operation
