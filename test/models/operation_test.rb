@@ -74,12 +74,17 @@ class OperationTest < ActiveSupport::TestCase
 
 #testing reports_data_by_dates
 
-  test "check reports_data_by_dates with false dates period" do
+    test "check reports_data_by_dates with fix_1 and fix_2" do
+      graph_data = Operation.reports_data_by_dates("2023-01-10", "2023-02-12", "1", Category.find_by(name: 'First cat').id)
+      assert_equal([["2023-01-11", 9.99], ["2023-02-11", 99.99]], graph_data)
+    end
+
+  test "check reports_data_by_dates with empty dates period" do
     graph_data = Operation.reports_data_by_dates("2020-09-01", "2020-10-01", "1", Category.find_by(name: 'Third cat').id)
     assert_empty(graph_data)
   end
 
-  test "check reports_data_by_dates with true dates period from faker" do
+  test "check reports_data_by_dates with dates period from faker" do
     graph_data = Operation.reports_data_by_dates("2022-11-01", "2023-01-01", "1", Category.find_by(name: 'Third cat').id)
     assert_not_empty(graph_data)
   end
@@ -110,6 +115,11 @@ class OperationTest < ActiveSupport::TestCase
   end
 
 #testing reports_data_by_category
+
+    test "check reports_data_by_category with fix_1 and fix_2" do
+      diagram_data = Operation.reports_data_by_category("2023-01-10", "2023-02-12", "1", Category.find_by(name: 'First cat').id)
+      assert_equal([["First cat", 109.98]], diagram_data)
+    end
 
   test "check reports_data_by_category with false dates period" do
     diagram_data = Operation.reports_data_by_category("2020-09-01", "2020-10-01", "1", Category.find_by(name: 'Third cat').id)
