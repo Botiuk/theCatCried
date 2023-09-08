@@ -44,7 +44,7 @@ when "production"
     )
   end
 
-  (11..30).each do |id|
+  (11..20).each do |id|
     Category.create(
       id: id,
       name: Faker::ElectricalComponents.unique.passive,
@@ -53,24 +53,24 @@ when "production"
     )
   end
 
-  (1..100).each do |id|
+  (1..50).each do |id|
     Operation.create(
       id: id,
-      amount: Faker::Number.between(from: 1000, to: 15000),
-      odate: Faker::Date.between(from: "2022-11-20", to: "2023-03-12"),
+      amount: Faker::Number.between(from: 1000, to: 10000),
+      odate: Faker::Date.between(from: "2023-02-01", to: "2023-03-12"),
       description: Faker::TvShows::DrWho.quote,
       category_id: Faker::Number.between(from: 1, to: 10),
       otype: 1,
     )
   end
 
-  (101..500).each do |id|
+  (51..400).each do |id|
     Operation.create(
       id: id,
       amount: Faker::Number.decimal(l_digits: 3, r_digits: 1),
-      odate: Faker::Date.between(from: "2022-11-20", to: "2023-03-12"),
+      odate: Faker::Date.between(from: "2023-02-01", to: "2023-03-12"),
       description: Faker::TvShows::Simpsons.quote,
-      category_id: Faker::Number.between(from: 11, to: 30),
+      category_id: Faker::Number.between(from: 11, to: 20),
       otype: 0,
     )
   end
