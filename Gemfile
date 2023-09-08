@@ -61,7 +61,10 @@ group :development do
   gem "sqlite3", "~> 1.4"
 
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem "web-console"
+  gem "web-console"  
+
+  # deploy Fly.io
+  gem "dockerfile-rails", ">= 1.0" 
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
