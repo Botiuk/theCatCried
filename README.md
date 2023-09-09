@@ -1,24 +1,3 @@
-# README
+# theCatCried
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+The expression "the cat cried" is a Ukrainian phraseology that means a small amount of something. This phrase was chosen as funny for the first project on the Rails framework because it is a personal financial manager. The need for a new way of earning prompted me to start mastering a new profession. The phrase "money like a cat cried" is the most common use of this phraseology.
