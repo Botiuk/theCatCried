@@ -122,13 +122,13 @@ main {
 	margin: 15px auto;
 }
 
-.op_odate, .op_amount, .op_category, .op_description, .td_button, .cat_name, .cat_description {
+.op_odate, .op_amount, .op_category, .op_description, .td_button, .td_button_show, .cat_name, .cat_description {
 	padding: 5px;
 	box-sizing: border-box;
 }
 
 .op_odate {
-	width: 12%;		
+	width: 10%;		
 	font-style: italic;
 }
 
@@ -148,8 +148,31 @@ main {
 	font-size: 95%;
 }
 
-.td_button {
+.td_button, .td_button_show {
 	width: 47px;
+}
+
+@media screen and (max-width: 550px) {
+	.op_odate {
+		width: 25%;
+	}
+	
+	.op_amount {
+		width: 35%;
+	}
+	
+	.op_category {
+		width: 40%;
+	}
+	
+	.op_description, .td_button {
+		visibility: hidden;
+		display: none;
+	}
+
+	.td_button_show {
+		width: 47px;
+	}
 }
 
 .cat_name {
@@ -185,7 +208,7 @@ main {
 	justify-content: center;
 }
 
-.button_on_top a, .button_on_bottom a, .td_button a, .button_in_item a, .index_button a {
+.button_on_top a, .button_on_bottom a, .td_button a, .td_button_show a, .button_in_item a, .index_button a {
 	display: block;
 	color: black;
 	background-color: lightblue;
@@ -206,12 +229,12 @@ main {
 	font-weight: bolder;
 }
 
-.td_button a, .button_in_item a {
+.td_button a, .td_button_show a, .button_in_item a {
 	margin: 0;
 	padding: 5px 10px;
 }
 
-.button_on_top a:hover, .button_on_bottom a:hover, .td_button a:hover, 
+.button_on_top a:hover, .button_on_bottom a:hover, .td_button a:hover, .td_button_show a:hover,
 .button_in_item a:hover, .index_button a:hover {
 	background-color: lightseagreen;
 	color: lightgray;
