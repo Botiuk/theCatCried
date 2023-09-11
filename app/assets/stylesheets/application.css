@@ -310,11 +310,20 @@ main {
 
 footer {
 	background-color: lightseagreen;
-	padding: 10px;
+	padding: 10px;	
+	color: darkslategray; 
 } 
 
 footer th {	
 	font-style: italic;
-	color: darkslategray; 
 	font-weight: normal;
+}
+
+footer td {	
+	font-style: normal;
+}
+
+footer a {	
+	text-decoration: underline;
+	color: darkslategray;
 }
