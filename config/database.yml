@@ -22,8 +22,8 @@ test:
 
 production:
   Username:    postgres
-  Password:    <%= ENV['Fly_theCatCried'] %>
-  Hostname:    spring-meadow-1427-db.internal
-  Flycast:     fdaa:1:9e3a:0:1::8
+  Password:    <%= ENV['Fly_theCatCried-dev'] %>
+  Hostname:    young-rain-8563-db.internal
+  Flycast:     fdaa:1:9e3a:0:1::d
   Proxy port:  5432
   Postgres port:  5433
