@@ -11,24 +11,42 @@ require "faker"
 case Rails.env
 when "development"
   
-  (18..50).each do |id|
+  (1..15).each do |id|
+    Category.create(
+      id: id,
+      name: Faker::Job.unique.field,
+      description: Faker::Company.catch_phrase,
+      ctype: 1,
+    )
+  end
+
+  (16..50).each do |id|
+    Category.create(
+      id: id,
+      name: Faker::Food.unique.dish,
+      description: Faker::GreekPhilosophers.quote,
+      ctype: 0,
+    )
+  end
+  
+  (1..250).each do |id|
     Operation.create(
       id: id,
       amount: Faker::Number.between(from: 1000, to: 15000),
-      odate: Faker::Date.between(from: "2022-11-20", to: "2023-03-05"),
+      odate: Faker::Date.between(from: (Date.today - 365), to: Date.today),
       description: Faker::TvShows::DrWho.quote,
-      category_id: Faker::Number.between(from: 1, to: 9),
+      category_id: Faker::Number.between(from: 1, to: 15),
       otype: 1,
     )
   end
 
-  (51..500).each do |id|
+  (251..3500).each do |id|
     Operation.create(
       id: id,
       amount: Faker::Number.decimal(l_digits: 3, r_digits: 1),
-      odate: Faker::Date.between(from: "2022-11-20", to: "2023-03-05"),
+      odate: Faker::Date.between(from: (Date.today - 365), to: Date.today),
       description: Faker::TvShows::Simpsons.quote,
-      category_id: Faker::Number.between(from: 10, to: 40),
+      category_id: Faker::Number.between(from: 16, to: 50),
       otype: 0,
     )
   end
@@ -53,22 +71,22 @@ when "production"
     )
   end
 
-  (1..50).each do |id|
+  (1..20).each do |id|
     Operation.create(
       id: id,
       amount: Faker::Number.between(from: 1000, to: 10000),
-      odate: Faker::Date.between(from: "2023-02-01", to: "2023-03-12"),
+      odate: Faker::Date.between(from: (Date.today - 31), to: Date.today),
       description: Faker::TvShows::DrWho.quote,
       category_id: Faker::Number.between(from: 1, to: 10),
       otype: 1,
     )
   end
 
-  (51..400).each do |id|
+  (21..200).each do |id|
     Operation.create(
       id: id,
       amount: Faker::Number.decimal(l_digits: 3, r_digits: 1),
-      odate: Faker::Date.between(from: "2023-02-01", to: "2023-03-12"),
+      odate: Faker::Date.between(from: (Date.today - 31), to: Date.today),
       description: Faker::TvShows::Simpsons.quote,
       category_id: Faker::Number.between(from: 11, to: 20),
       otype: 0,
