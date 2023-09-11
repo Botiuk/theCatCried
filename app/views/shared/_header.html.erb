@@ -10,7 +10,8 @@
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/"><i class="bi bi-house-fill"></i> На головну</a>
+          <%= link_to '<i class="bi bi-house-fill"></i> На головну'.html_safe, root_path, 
+          class: "nav-link active", 'aria-current': "page" %>
         </li>
         
         <li class="nav-item dropdown">
@@ -18,14 +19,20 @@
             <i class="bi bi-database-fill"></i> Операції
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/operations/new?otype=outcome">
-              <i class="bi bi-bag-plus-fill"></i> Додати витрату</a></li>          
+            <li>
+              <%= link_to '<i class="bi bi-bag-plus-fill"></i> Додати витрату'.html_safe, 
+              new_operation_path(:otype => "outcome"), :method => :post, class: "dropdown-item" %>
+            </li>          
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/operations/new?otype=income">
-              <i class="bi bi-bag-plus-fill"></i> Додати дохід</a></li> 
+            <li>
+              <%= link_to '<i class="bi bi-bag-plus-fill"></i> Додати дохід'.html_safe, 
+              new_operation_path(:otype => "income"), :method => :post, class: "dropdown-item"  %>
+            </li> 
             <li><hr class="dropdown-divider"></li>  
-            <li><a class="dropdown-item" href="/operations">
-              <i class="bi bi-list-columns-reverse"></i> Журнал операцій</a></li> 
+            <li>
+              <%= link_to '<i class="bi bi-list-columns-reverse"></i> Журнал операцій'.html_safe, 
+              operations_path, class: "dropdown-item" %>
+            </li> 
           </ul>
         </li>
 
@@ -34,19 +41,25 @@
             <i class="bi bi-tags-fill"></i> Категорії
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/categories/new?ctype=outcome">
-              <i class="bi bi-bookmark-plus-fill"></i> Додати категорію витрат</a></li>
+            <li>
+              <%= link_to '<i class="bi bi-bookmark-plus-fill"></i> Додати категорію витрат'.html_safe, 
+              new_category_path(:ctype => "outcome"), :method => :post, class: "dropdown-item" %>
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/categories/new?ctype=income">
-              <i class="bi bi-bookmark-plus-fill"></i> Додати категорію доходів</a></li>                      
+            <li>
+              <%= link_to '<i class="bi bi-bookmark-plus-fill"></i> Додати категорію доходів'.html_safe, 
+              new_category_path(:ctype => "income"), :method => :post, class: "dropdown-item" %>
+            </li>                      
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="/categories">
-              <i class="bi bi-list-columns-reverse"></i> Перелік категорій</a></li>
+            <li>
+              <%= link_to '<i class="bi bi-list-columns-reverse"></i> Перелік категорій'.html_safe, 
+              categories_path, class: "dropdown-item" %>
+            </li>
           </ul>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="/reports"><i class="bi bi-file-earmark-bar-graph-fill"></i> Звіт</a>
+          <%= link_to '<i class="bi bi-file-earmark-bar-graph-fill"></i> Звіт'.html_safe, 
+          reports_path, class: "nav-link" %>
         </li>
       </ul>
 
