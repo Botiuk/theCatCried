@@ -6,9 +6,15 @@ uk:
   button:
     add:
       outcome-main_html: " Додати<br>дохід"
-      outcome-main-cat_html: " Додати<br>категорію"
+      outcome: " Додати дохід"
       income-main_html: " Додати<br>витрату"
-      income-main-cat_html: " Додати<br>категорію"
+      income: " Додати витрату"
+      main-cat_html: " Додати<br>категорію"      
+      outcome-cat: " Додати категорію витрат"
+      income-cat: " Додати категорію доходів"
     categories-list: " Перелік категорій"
     operations-list: " Журнал операцій"
     report: " Звіт"
+    home: " На головну"
+    operations: " Операції"
+    categories: " Категорії" 

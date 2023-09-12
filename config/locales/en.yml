@@ -6,9 +6,15 @@ en:
   button:
     add:
       outcome-main_html: " Add<br>expense"
-      outcome-main-cat_html: " Add<br>category"
+      outcome: " Add expense"
       income-main_html: " Add<br>earning"
-      income-main-cat_html: " Add<br>category"
+      income: " Add earning"      
+      main-cat_html: " Add<br>category"
+      outcome-cat: " Add an expense category"
+      income-cat: " Add an earnings category"
     categories-list: " List of categories"
     operations-list: " Operations log"
     report: " Report"
+    home: " Home"
+    operations: " Operations"
+    categories: " Categories" 
