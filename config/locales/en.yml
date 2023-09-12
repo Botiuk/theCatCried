@@ -5,6 +5,17 @@ en:
   other: "Other"
   phrase: "So that your wallet doesn't have so little money 'like a cat cried' - learn to write code!"
   developer: "Svitlana Botiuk"
+  forms:
+      submit: Submit
+      messages:
+        errors:
+          one: "One error prohibited this record from being saved:"
+          other: "%{count} errors prohibited this record from being saved:"
+  activerecord:
+    attributes:
+      operation: 
+        amount: "Amount"
+        description: "Description"
   button:
     add:
       outcome-main_html: " Add<br>expense"
@@ -20,6 +31,7 @@ en:
     home: " Home"
     operations: " Operations"
     categories: " Categories"
+    submit: " Submit"
   operations:
     index:
       title: "Operations log"
@@ -31,3 +43,10 @@ en:
       title:
         outcome: "New expense"
         income: "New earning"
+    form:
+      amount: "Amount:"
+      odate: "Date:"
+      category_id: "Category:"
+      description: "Description:"
+      description-placeholder: "Enter a description of the operation"
+      dbempty_html: "There are no categories corresponding to the selected operation type.<br>First you need to create at least one such category"

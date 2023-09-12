@@ -1,8 +1,7 @@
 <%= form_with(model: operation) do |form| %>
   <% if operation.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(operation.errors.count, "error") %> prohibited this operation from being saved:</h2>
-
+      <h2><%= t 'forms.messages.errors', count: operation.errors.count %></h2>
       <ul>
         <% operation.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -19,17 +18,20 @@
 
       <% if @categories.size == 0 %>
 
-          <p style="color: red; font-weight: bold">Немає категорій, які відповідають вибраному типу операцій.
-          <br>Спочатку потрібно створити хоч одну таку категорію
+          <p style="color: red; font-weight: bold"><%= t('.dbempty_html') %>
           </p>
           
           <% if operation.otype == "outcome" %>
             <div class = "button_in_item">
-              <%= link_to '<i class="bi bi-bookmark-plus-fill"></i> Додати категорію витрат'.html_safe, new_category_path(:ctype => "outcome"), :method => :post %>
+              <%= link_to new_category_path(:ctype => "outcome"), :method => :post do %>
+                <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.outcome-cat') %>
+              <% end %>
             </div>
           <% else %>
             <div class = "button_in_item">
-              <%= link_to '<i class="bi bi-bookmark-plus-fill"></i> Додати категорію доходів'.html_safe, new_category_path(:ctype => "income"), :method => :post %>
+              <%= link_to new_category_path(:ctype => "income"), :method => :post do %>
+                <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.income-cat') %>
+              <% end %>
             </div>
           <% end %>
         
@@ -42,28 +44,28 @@
           </div>
 
           <div>
-            <%= form.label :amount, "Сума:", style: "display: block" %>
+            <%= form.label :amount, t('.amount'), style: "display: block" %>
             <%= form.number_field :amount, min: 0.0, step: 0.01%>
           </div>
 
           <div>
-            <%= form.label :odate, "Дата:", style: "display: block" %>
+            <%= form.label :odate, t('.odate'), style: "display: block" %>
             <%= form.date_field :odate %>
           </div>
 
           <div>
-            <%= form.label :category_id, "Категорія:", style: "display: block" %>
+            <%= form.label :category_id, t('.category_id'), style: "display: block" %>
             <%= select(:operation, :category_id, options_for_select(@categories)) %>
           </div>
 
           <div>
-            <%= form.label :description, "Опис:", style: "display: block" %>
-            <%= form.text_area :description, size: "30x5", placeholder: "Ввести опис операції" %>
+            <%= form.label :description, t('.description'), style: "display: block" %>
+            <%= form.text_area :description, size: "30x5", placeholder: t('.description-placeholder') %>
           </div>
 
           <div>
             <%= form.button nil, class: "btn btn-success" do %>
-              <i class="bi bi-check-lg"></i> Підтвердити
+              <i class="bi bi-check-lg"></i><%= t('button.submit') %>
             <% end %>
           </div>
 

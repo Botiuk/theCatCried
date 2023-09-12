@@ -5,6 +5,18 @@ uk:
   other: "Інше"
   phrase: "Щоб грошей в гаманці було не 'як кіт наплакав', - вчіться писати код!"
   developer: "Світлана Ботюк"
+  forms:
+      messages:
+        errors:
+          one: "Одна помилка не дає зберегти цей запис:"
+          few: "%{count} помилки не дають зберегти цей запис:"
+          many: "%{count} помилок не дають зберегти цей запис:"
+          other: "%{count} помилка:"
+  activerecord:
+    attributes:
+      operation: 
+        amount: "Сума"
+        description: "Опис"
   button:
     add:
       outcome-main_html: " Додати<br>дохід"
@@ -20,6 +32,7 @@ uk:
     home: " На головну"
     operations: " Операції"
     categories: " Категорії"
+    submit: " Підтвердити"
   operations:
     index:
       title: "Журнал операцій"
@@ -31,3 +44,10 @@ uk:
       title:
         outcome: "Нова витрата"
         income: "Новий дохід"
+    form:
+      amount: "Сума:"
+      odate: "Дата:"
+      category_id: "Категорія:"
+      description: "Опис:"
+      description-placeholder: "Введіть опис операції"
+      dbempty_html: "Немає категорій, які відповідають вибраному типу операцій.<br>Спочатку потрібно створити хоч одну таку категорію"
