@@ -27,7 +27,7 @@ class OperationsController < ApplicationController
     @operation = Operation.new(operation_params)
     @categories = Category.ctype_formhelper(@operation)
       if @operation.save
-        redirect_to operation_url(@operation), notice: "Операція успішно створена"    
+        redirect_to operation_url(@operation), notice: t('operations.notice.create')   
       else
         render :new, status: :unprocessable_entity
       end
@@ -35,7 +35,7 @@ class OperationsController < ApplicationController
 
   def update
       if @operation.update(operation_params)
-        redirect_to operation_url(@operation), notice: "Операція успішно оновлена"
+        redirect_to operation_url(@operation), notice: t('operations.notice.update')  
       else
         render :edit, status: :unprocessable_entity
       end
@@ -43,7 +43,7 @@ class OperationsController < ApplicationController
 
   def destroy
     @operation.destroy
-    redirect_to operations_url, notice: "Операція успішно видалена"
+    redirect_to operations_url, notice: t('operations.notice.destroy')  
   end
 
   private

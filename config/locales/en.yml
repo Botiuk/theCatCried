@@ -61,3 +61,7 @@ en:
       odate: "Date:"
       category_id: "Category:"
       description: "Description:"
+    notice:
+      create: "The operation successfully created"
+      update: "The operation was successfully updated"
+      destroy: "The operation was successfully deleted"
