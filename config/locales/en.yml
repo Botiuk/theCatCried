@@ -27,3 +27,7 @@ en:
         text: "Display only transactions from the category:"
         button: " To filter"
       dbempty_html: "No record of previous operations.<br>Add a new one!"
+    new:
+      title:
+        outcome: "New expense"
+        income: "New earning"
