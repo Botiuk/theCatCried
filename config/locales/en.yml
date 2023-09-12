@@ -26,3 +26,4 @@ en:
       filter:
         text: "Display only transactions from the category:"
         button: " To filter"
+      dbempty_html: "No record of previous operations.<br>Add a new one!"
