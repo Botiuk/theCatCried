@@ -67,3 +67,5 @@ en:
       destroy: "The operation was successfully deleted"
     delete:
       confirm: "Are you sure?"
+    search:
+      title: "Journal of operations by category"
