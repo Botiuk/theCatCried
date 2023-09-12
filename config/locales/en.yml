@@ -31,7 +31,9 @@ en:
     operations: " Operations"
     categories: " Categories"
     submit: " Submit"
-    show: " More about operation"
+    show: " In more detail"
+    edit: " Edit"
+    delete: " Delete"
   operations:
     index:
       title: "Operations log"
@@ -52,3 +54,10 @@ en:
       dbempty_html: "There are no categories corresponding to the selected operation type.<br>First you need to create at least one such category"
     edit:
       title: "Editing an operation"
+    show:
+      title: "More about operation"
+      id: "Operation id:"
+      amount: "Amount:"
+      odate: "Date:"
+      category_id: "Category:"
+      description: "Description:"

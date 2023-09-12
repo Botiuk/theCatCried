@@ -1,13 +1,21 @@
 <p style="color: green"><%= notice %></p>
 <p style="color: red"><%= alert %></p>
 
-<h3>Детальніше про операцію</h3>
+<h3><%= t('.title') %></h3>
 
 <div class = "button_on_top">
-    <%= link_to '<i class="bi bi-house-fill"></i> На головну'.html_safe, root_path %>
-    <%= link_to '<i class="bi bi-list-columns-reverse"></i> Журнал операцій'.html_safe, operations_path %>
-    <%= link_to '<i class="bi bi-pencil-fill"></i> Редагувати'.html_safe, edit_operation_path(@operation) %>
-    <%= link_to '<i class="bi bi-trash3-fill"></i> Видалити'.html_safe, @operation, data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } %>
+    <%= link_to root_path do %>
+        <i class="bi bi-house-fill"></i><%= t('button.home') %>
+    <% end %>
+    <%= link_to operations_path do %>
+        <i class="bi bi-list-columns-reverse"></i><%= t('button.operations-list') %>
+    <% end %>
+    <%= link_to edit_operation_path(@operation) do %>
+        <i class="bi bi-pencil-fill"></i><%= t('button.edit') %>
+    <% end %>
+    <%= link_to @operation, data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } do %>
+        <i class="bi bi-trash3-fill"></i><%= t('button.delete') %> 
+    <% end %>
 </div>
 
 <% if @operation.otype == "outcome" %>
@@ -17,19 +25,19 @@
 <% end %>
     <table>
         <tr class = "one_item_show">
-            <td><strong>Номер операції: </strong><%= @operation.id %></td>
+            <td><strong><%= t('.id') %> </strong><%= @operation.id %></td>
         </tr>
         <tr class = "one_item_show">
-            <td><strong>Дата: </strong><%= @operation.odate.to_date.strftime('%d.%m.%Y') %></td>
+            <td><strong><%= t('.odate') %> </strong><%= @operation.odate.to_date.strftime('%d.%m.%Y') %></td>
         </tr>
         <tr class = "one_item_show">
-            <td><strong>Сума: </strong><%= @operation.amount %></td>
+            <td><strong><%= t('.amount') %> </strong><%= @operation.amount %></td>
         </tr>
         <tr class = "one_item_show">
-            <td><strong>Категорія: </strong><%= Category.find(@operation.category_id).name %></td>
+            <td><strong><%= t('.category_id') %> </strong><%= Category.find(@operation.category_id).name %></td>
         </tr>
         <tr class = "one_item_show">
-            <td><strong>Опис: </strong><%= @operation.description %></td>
+            <td><strong><%= t('.description') %> </strong><%= @operation.description %></td>
         </tr>
     </table>
 
