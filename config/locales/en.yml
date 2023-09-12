@@ -6,7 +6,6 @@ en:
   phrase: "So that your wallet doesn't have so little money 'like a cat cried' - learn to write code!"
   developer: "Svitlana Botiuk"
   forms:
-      submit: Submit
       messages:
         errors:
           one: "One error prohibited this record from being saved:"
@@ -32,6 +31,7 @@ en:
     operations: " Operations"
     categories: " Categories"
     submit: " Submit"
+    show: " More about operation"
   operations:
     index:
       title: "Operations log"
@@ -50,3 +50,5 @@ en:
       description: "Description:"
       description-placeholder: "Enter a description of the operation"
       dbempty_html: "There are no categories corresponding to the selected operation type.<br>First you need to create at least one such category"
+    edit:
+      title: "Editing an operation"
