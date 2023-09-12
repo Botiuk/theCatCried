@@ -20,3 +20,9 @@ en:
     home: " Home"
     operations: " Operations"
     categories: " Categories"
+  operations:
+    index:
+      title: "Operations log"
+      filter:
+        text: "Display only transactions from the category:"
+        button: " To filter"

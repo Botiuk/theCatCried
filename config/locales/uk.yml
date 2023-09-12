@@ -20,3 +20,9 @@ uk:
     home: " На головну"
     operations: " Операції"
     categories: " Категорії"
+  operations:
+    index:
+      title: "Журнал операцій"
+      filter:
+        text: "Відобразити лише операції з категорії:"
+        button: " Фільтрувати"

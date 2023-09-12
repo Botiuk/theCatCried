@@ -1,20 +1,26 @@
 <p style="color: green"><%= notice %></p>
 <p style="color: red"><%= alert %></p>
 
-<h3>Журнал операцій</h3>
+<h3><%= t('.title') %></h3>
 
 <div class = "button_on_top">
-  <%= link_to '<i class="bi bi-house-fill"></i> На головну'.html_safe, root_path %>
-  <%= link_to '<i class="bi bi-bag-plus-fill"></i> Додати витрату'.html_safe, new_operation_path(:otype => "outcome"), :method => :post %>
-  <%= link_to '<i class="bi bi-bag-plus-fill"></i> Додати дохід'.html_safe, new_operation_path(:otype => "income"), :method => :post %>
+  <%= link_to root_path do %>
+    <i class="bi bi-house-fill"></i><%= t('button.home') %>
+  <% end %>
+  <%= link_to new_operation_path(:otype => "outcome"), :method => :post do %>
+    <i class="bi bi-bag-plus-fill"></i><%= t('button.add.outcome') %>
+  <% end %>
+  <%= link_to new_operation_path(:otype => "income"), :method => :post do %>
+    <i class="bi bi-bag-plus-fill"></i><%= t('button.add.income') %>
+  <% end %>
 </div>
 
 <div class = "search">
   <%= form_tag(search_path, :method => "get") do %>
-    <%= label_tag(:category_id, "Відобразити лише операції категорії:") %>
+    <%= label_tag(:category_id, t('.filter.text')) %>
     <%= select_tag(:category_id, options_for_select(@categories)) %>
     <%= button_tag(type: "submit", :name => nil, class: "btn btn-secondary btn-sm") do %>
-      <i class="bi bi-funnel"></i> Фільтрувати
+      <i class="bi bi-funnel"></i><%= t('.filter.button') %>
     <% end %>  
   <% end %>
 </div>  
