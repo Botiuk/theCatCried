@@ -1,18 +1,26 @@
 <div class = "index_come">
 
     <div class = "index_outcome"> 
-        <h3>Витрата</h3>
+        <h3><%= t('outcome') %></h3>
         <div class = "index_button">
-            <%= link_to '<i class="bi bi-bag-plus-fill"></i> Додати<br>витрату'.html_safe, new_operation_path(:otype => "outcome"), :method => :post %>
-            <%= link_to '<i class="bi bi-bookmark-plus-fill"></i> Додати<br>категорію'.html_safe, new_category_path(:ctype => "outcome"), :method => :post %>
+            <%= link_to new_operation_path(:otype => "outcome"), :method => :post do %>
+                <i class="bi bi-bag-plus-fill"></i><%= t('button.add.outcome-main_html') %>
+            <% end %>
+            <%= link_to new_category_path(:ctype => "outcome"), :method => :post do %>
+                <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.outcome-main-cat_html') %>
+            <% end %>
         </div>
     </div>
 
     <div class = "index_income"> 
-        <h3>Дохід</h3>
+        <h3><%= t('income') %></h3>
         <div class = "index_button">
-            <%= link_to '<i class="bi bi-bag-plus-fill"></i> Додати<br>дохід'.html_safe, new_operation_path(:otype => "income"), :method => :post  %>
-            <%= link_to '<i class="bi bi-bookmark-plus-fill"></i> Додати<br>категорію'.html_safe, new_category_path(:ctype => "income"), :method => :post %>
+            <%= link_to new_operation_path(:otype => "income"), :method => :post do %>
+                <i class="bi bi-bag-plus-fill"></i><%= t('button.add.income-main_html') %> 
+            <% end %>
+            <%= link_to new_category_path(:ctype => "income"), :method => :post do %>
+                <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.income-main-cat_html') %>
+            <% end %>
         </div>
     </div>
 
@@ -24,15 +32,21 @@
     <% else %>
         <div class = "one_item_income">
     <% end %> 
-            <h3>Баланс: <%= $total_amount %> грн</h3>
+            <h3><%= t('balance') %> <%= $total_amount %> <%= t('number.currency.format.unit') %></h3>
     </div>
 </div>
 
 <div class = "index_other">
-    <h3>Інше</h3>
+    <h3><%= t('other') %></h3>
     <div class = "index_button">
-        <%= link_to '<i class="bi bi-list-columns-reverse"></i> Журнал операцій'.html_safe, operations_path %>
-        <%= link_to '<i class="bi bi-list-columns-reverse"></i> Перелік категорій'.html_safe, categories_path %>
-        <%= link_to '<i class="bi bi-file-earmark-bar-graph-fill"></i> Звіт'.html_safe, reports_path %>
+        <%= link_to operations_path do %>
+            <i class="bi bi-list-columns-reverse"></i><%= t('button.operations-list') %>
+        <% end %>
+        <%= link_to categories_path do %>
+            <i class="bi bi-list-columns-reverse"></i><%= t('button.categories-list') %>
+        <% end %>
+        <%= link_to reports_path do %>
+            <i class="bi bi-file-earmark-bar-graph-fill"></i><%= t('button.report') %>
+        <% end %>
     </div>
 </div>

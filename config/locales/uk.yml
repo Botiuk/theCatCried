@@ -1,0 +1,14 @@
+uk:
+  balance: "Баланс:"
+  outcome: "Витрати"
+  income: "Доходи"
+  other: "Інше"
+  button:
+    add:
+      outcome-main_html: " Додати<br>дохід"
+      outcome-main-cat_html: " Додати<br>категорію"
+      income-main_html: " Додати<br>витрату"
+      income-main-cat_html: " Додати<br>категорію"
+    categories-list: " Перелік категорій"
+    operations-list: " Журнал операцій"
+    report: " Звіт"
