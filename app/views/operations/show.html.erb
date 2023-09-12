@@ -13,7 +13,7 @@
     <%= link_to edit_operation_path(@operation) do %>
         <i class="bi bi-pencil-fill"></i><%= t('button.edit') %>
     <% end %>
-    <%= link_to @operation, data: { turbo_method: :delete, turbo_confirm: 'Точно видалити?' } do %>
+    <%= link_to @operation, data: { turbo_method: :delete, turbo_confirm: t('operations.delete.confirm') } do %>
         <i class="bi bi-trash3-fill"></i><%= t('button.delete') %> 
     <% end %>
 </div>
