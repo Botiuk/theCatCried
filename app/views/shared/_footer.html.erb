@@ -1,8 +1,12 @@
 <table>
     <tr>
-        <th>"Щоб грошей в гаманці було не "як кіт наплакав", - пиши код!"</th>
+        <th><%= t('phrase') %></th>
     </tr>
     <tr>
-        <td><%= "\u00A9"%> <%= $copyright_year %> <%= link_to "Svitlana Botiuk", "https://github.com/Botiuk" %> </td>        
+        <td>
+            <%= "\u00A9"%> <%= $copyright_year %> <%= link_to "https://github.com/Botiuk" do %>
+                <%= t('developer') %>
+            <% end %>        
+        </td>        
     </tr>
 </table> 

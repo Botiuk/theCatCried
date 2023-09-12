@@ -3,13 +3,15 @@ uk:
   outcome: "Витрати"
   income: "Доходи"
   other: "Інше"
+  phrase: "Щоб грошей в гаманці було не 'як кіт наплакав', - вчіться писати код!"
+  developer: "Світлана Ботюк"
   button:
     add:
       outcome-main_html: " Додати<br>дохід"
       outcome: " Додати дохід"
       income-main_html: " Додати<br>витрату"
       income: " Додати витрату"
-      main-cat_html: " Додати<br>категорію"      
+      main-cat_html: " Додати<br>категорію"
       outcome-cat: " Додати категорію витрат"
       income-cat: " Додати категорію доходів"
     categories-list: " Перелік категорій"
@@ -17,4 +19,4 @@ uk:
     report: " Звіт"
     home: " На головну"
     operations: " Операції"
-    categories: " Категорії" 
+    categories: " Категорії"

@@ -3,12 +3,14 @@ en:
   outcome: "Expenses"
   income: "Earnings"
   other: "Other"
+  phrase: "So that your wallet doesn't have so little money 'like a cat cried' - learn to write code!"
+  developer: "Svitlana Botiuk"
   button:
     add:
       outcome-main_html: " Add<br>expense"
       outcome: " Add expense"
       income-main_html: " Add<br>earning"
-      income: " Add earning"      
+      income: " Add earning"
       main-cat_html: " Add<br>category"
       outcome-cat: " Add an expense category"
       income-cat: " Add an earnings category"
@@ -17,4 +19,4 @@ en:
     report: " Report"
     home: " Home"
     operations: " Operations"
-    categories: " Categories" 
+    categories: " Categories"
