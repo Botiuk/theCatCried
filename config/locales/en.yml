@@ -110,3 +110,5 @@ en:
       destroy: "The category successfully deleted"
     alert:
       destroy: "Unable to delete! There are operations with this category"
+    delete:
+      confirm: "Are you sure? A category will only be deleted if there are no operation records associated with it"

@@ -18,7 +18,7 @@
                 </td>
                 <td class = "td_button">
                     <%= link_to '<i class="bi bi-trash3-fill"></i>'.html_safe, category, 
-                        data: { turbo_method: :delete, turbo_confirm: 'Точно видалити? Категорія видалиться лише якщо з нею не має операцій' } %>
+                        data: { turbo_method: :delete, turbo_confirm: t('categories.delete.confirm') } %>
                 </td>
             </tr>
         </table>

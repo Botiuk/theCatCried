@@ -13,7 +13,7 @@
     <%= link_to edit_category_path(@category) do %>
         <i class="bi bi-pencil-fill"></i><%= t('button.edit') %>
     <% end %>
-    <%= link_to @category, data: { turbo_method: :delete, turbo_confirm: 'Точно видалити? Категорія видалиться лише якщо з нею не має операцій' } do %>
+    <%= link_to @category, data: { turbo_method: :delete, turbo_confirm: t('categories.delete.confirm') } do %>
         <i class="bi bi-trash3-fill"></i><%= t('button.delete') %> 
     <% end %>
 </div>
