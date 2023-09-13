@@ -99,3 +99,8 @@ en:
       description-placeholder: "Enter a description of the category"
     edit:
       title: "Editing a category"
+    show:
+      title: "More about category"
+      id: "Category id:"
+      name: "Name:"
+      description: "Description:"

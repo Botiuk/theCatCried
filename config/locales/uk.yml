@@ -101,3 +101,8 @@ uk:
       description-placeholder: "Ввести опис категорії"
     edit:
       title: "Редагування категорії"
+    show:
+      title: "Детальніше про категорію"
+      id: "Номер категорії:"
+      name: "Назва:"
+      description: "Опис:"
