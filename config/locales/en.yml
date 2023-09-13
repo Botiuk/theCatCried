@@ -97,3 +97,5 @@ en:
       name-placeholder: "Enter the name of the category"
       description: "Description:"
       description-placeholder: "Enter a description of the category"
+    edit:
+      title: "Editing a category"

@@ -99,3 +99,5 @@ uk:
       name-placeholder: "Ввести назву категорії"
       description: "Опис:"
       description-placeholder: "Ввести опис категорії"
+    edit:
+      title: "Редагування категорії"
