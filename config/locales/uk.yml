@@ -6,6 +6,7 @@ uk:
   other: "Інше"
   phrase: "Щоб грошей в гаманці було не 'як кіт наплакав', - вчіться писати код!"
   developer: "Світлана Ботюк"
+
   forms:
       messages:
         errors:
@@ -13,11 +14,13 @@ uk:
           few: "%{count} помилки не дають зберегти цей запис:"
           many: "%{count} помилок не дають зберегти цей запис:"
           other: "%{count} помилка:"
+
   activerecord:
     attributes:
       operation: 
         amount: "Сума"
         description: "Опис"
+
   button:
     add:
       outcome-main_html: " Додати<br>дохід"
@@ -37,6 +40,7 @@ uk:
     show: " Детальніше"
     edit: " Редагувати"
     delete: " Видалити"
+
   operations:
     index:
       title: "Журнал операцій"
@@ -72,8 +76,14 @@ uk:
       confirm: "Точно видалити?"
     search:
       title: "Журнал операцій по категорії"
+
   views:
     pagination:
       previous: "&lsaquo; Попередня"
       next: "Наступна &rsaquo;"
       truncate: "&hellip;"
+
+  categories:
+    index:
+      title: "Перелік категорій"
+      dbempty_html: "Немає записів про створені категорії.<br>Додай нову!"

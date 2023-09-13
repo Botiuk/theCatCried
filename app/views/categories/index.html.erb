@@ -1,18 +1,33 @@
 <p style="color: green"><%= notice %></p>
 <p style="color: red"><%= alert %></p>
 
-<h3>Перелік категорій</h3>
+<h3><%= t('.title') %></h3>
 
 <div class = "button_on_top">
-  <%= link_to '<i class="bi bi-house-fill"></i> На головну'.html_safe, root_path %>
-  <%= link_to '<i class="bi bi-bookmark-plus-fill"></i> Додати категорію витрат'.html_safe, new_category_path(:ctype => "outcome"), :method => :post %>
-  <%= link_to '<i class="bi bi-bookmark-plus-fill"></i> Додати категорію доходів'.html_safe, new_category_path(:ctype => "income"), :method => :post %>
-</div>
-
-<div id="categories">
-  <% @categories.each do |category| %>
-    <%= render category %>
+  <%= link_to root_path do %>
+    <i class="bi bi-house-fill"></i><%= t('button.home') %>
+  <% end %>
+  <%= link_to new_category_path(:ctype => "outcome"), :method => :post do %>
+    <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.outcome-cat') %>
+  <% end %>
+  <%= link_to new_category_path(:ctype => "income"), :method => :post do %>
+    <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.income-cat') %>
   <% end %>
 </div>
 
-<%= paginate @categories, window: 1, outer_window: 1 %>
+<% if @categories.size != 0 %>
+
+  <div id="categories">
+    <% @categories.each do |category| %>
+      <%= render category %>
+    <% end %>
+  </div>
+
+  <%= paginate @categories, window: 1, outer_window: 1 %>
+
+<% else %>
+  <div class = "empty_item">        
+    <p style="color: red; font-weight: bold"><%= t('.dbempty_html') %>
+    </p>
+  </div>
+<% end %>

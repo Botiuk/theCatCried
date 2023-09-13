@@ -6,16 +6,19 @@ en:
   other: "Other"
   phrase: "So that your wallet doesn't have so little money 'like a cat cried' - learn to write code!"
   developer: "Svitlana Botiuk"
+
   forms:
       messages:
         errors:
           one: "One error prohibited this record from being saved:"
           other: "%{count} errors prohibited this record from being saved:"
+
   activerecord:
     attributes:
       operation: 
         amount: "Amount"
         description: "Description"
+
   button:
     add:
       outcome-main_html: " Add<br>expense"
@@ -35,6 +38,7 @@ en:
     show: " In more detail"
     edit: " Edit"
     delete: " Delete"
+
   operations:
     index:
       title: "Operations log"
@@ -70,8 +74,14 @@ en:
       confirm: "Are you sure?"
     search:
       title: "Journal of operations by category"
+
   views:
     pagination:
       previous: "&lsaquo; Previous"
       next: "Next &rsaquo;"
       truncate: "&hellip;"
+
+  categories:
+    index:
+      title: "List of categories"
+      dbempty_html: "There are no records of created categories.<br>Add a new one!"
