@@ -85,3 +85,7 @@ en:
     index:
       title: "List of categories"
       dbempty_html: "There are no records of created categories.<br>Add a new one!"
+    new:
+      title:
+        outcome: "New expense category"
+        income: "New earnings category"
