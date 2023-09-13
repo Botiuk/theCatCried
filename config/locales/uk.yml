@@ -72,3 +72,8 @@ uk:
       confirm: "Точно видалити?"
     search:
       title: "Журнал операцій по категорії"
+  views:
+    pagination:
+      previous: "&lsaquo; Попередня"
+      next: "Наступна &rsaquo;"
+      truncate: "&hellip;"

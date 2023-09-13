@@ -70,3 +70,8 @@ en:
       confirm: "Are you sure?"
     search:
       title: "Journal of operations by category"
+  views:
+    pagination:
+      previous: "&lsaquo; Previous"
+      next: "Next &rsaquo;"
+      truncate: "&hellip;"
