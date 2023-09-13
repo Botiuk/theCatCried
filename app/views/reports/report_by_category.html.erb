@@ -1,29 +1,28 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <% if @otype == "outcome" %>
-    <h3>Розподіл витрат за категоріями</h3>    
+    <h3><%= t('.title.outcome') %></h3>    
     <div class = "one_item_outcome">
 <% else %>
-    <h3>Розподіл доходів за категоріями</h3>    
+    <h3><%= t('.title.income') %></h3>    
     <div class = "one_item_income">
 <% end %>
-  <h4>За період <%= @start_date.to_date.strftime('%d.%m.%Y') %> - <%= @end_date.to_date.strftime('%d.%m.%Y') %></h4>
+  <h4><%= t('.period') %> <%= @start_date.to_date.strftime('%d.%m.%Y') %> - <%= @end_date.to_date.strftime('%d.%m.%Y') %></h4>
   <% if @category_id == "0" %>
-      <h5>(всі категорії)</h5>
+      <h5>(<%= t('.category.all') %>)</h5>
     <% else %>
-      <h5>(категорія: "<%= @category_name %>")</h5>
+      <h5>(<%= t('.category.one') %> "<%= @category_name %>")</h5>
     <% end %>
     
     <% if @cat_name.size == 0 %>
-        <p style = "color: red; font-weight: bold">За вибраний період часу, таких операцій немає.
-        <br>Спробуй створити звіт з іншими параметрами запиту</p>
+        <p style = "color: red; font-weight: bold"><%= t('.empty_html') %></p>
     <% else %>   
     
     <div class = "report_content">
         <div class = "report_item_table">
             <table class ="report_table">
                 <tr>
-                    <th>Категорія</th>
-                    <th>Сума</th>
+                    <th><%= t('.table.category') %></th>
+                    <th><%= t('.table.amount') %></th>
                 </tr>
                 <% @diagram_data.each do |diagram| %>
                 <tr>
@@ -32,7 +31,7 @@
                 </tr>
                 <% end %>                
                 <tr>
-                    <th colspan = "2", style = "text-align: left">Всього: <%= @period_sum %> грн</th>
+                    <th colspan = "2", style = "text-align: left"><%= t('.table.total') %> <%= @period_sum %> <%= t('number.currency.format.unit') %></th>
                 </tr>
             </table>
         </div>
@@ -45,7 +44,7 @@
             const data = {
             labels:  <%= raw @cat_name %>,
             datasets: [{
-                label: 'Сума',
+                label: '',
                 data: <%= @cat_moneys %>,
                 backgroundColor: <%= raw @colors %>,
                 hoverOffset: 4
@@ -69,6 +68,10 @@
 </div>
 
 <div class = "button_on_bottom">
-  <%= link_to '<i class="bi bi-house-fill"></i> На головну'.html_safe, root_path %>
-  <%= link_to '<i class="bi bi-file-earmark-bar-graph-fill"></i> Звіт'.html_safe, reports_path %>
+  <%= link_to root_path do %>
+    <i class="bi bi-house-fill"></i><%= t('button.home') %>
+  <% end %>
+  <%= link_to reports_path do %>
+    <i class="bi bi-file-earmark-bar-graph-fill"></i><%= t('button.report') %>
+  <% end %>
 </div>

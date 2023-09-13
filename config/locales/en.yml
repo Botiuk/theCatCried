@@ -131,4 +131,17 @@ en:
         label: "Type of operation:"
         outcome: "Expense"
         income: "Earning"
-      category: "Category:"    
+      category: "Category:"
+    report_by_category:
+      title:
+        outcome: "Distribution of expenses by categories"
+        income: "Distribution of earnings by categories"
+      period: "For the period"
+      category:
+        all: "all categories"
+        one: "category:"
+      empty_html: "There are no such operations for the selected time period.<br>Try to create a report with other query parameters"
+      table:
+        category: "Category"
+        amount: "Amount"
+        total: "Total:"
