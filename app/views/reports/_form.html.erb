@@ -3,23 +3,23 @@
     <div class = "form">
 
         <div>
-            <%= form.label :start_date, "Початкова дата:", style: "display: block" %>
+            <%= form.label :start_date, t('.start-date'), style: "display: block" %>
             <%= form.date_field :start_date, :value => (Time.now.to_date - 6) %>
         </div>
 
         <div>
-            <%= form.label :end_date, "Кінцева дата:", style: "display: block" %>
+            <%= form.label :end_date, t('.end-date'), style: "display: block" %>
             <%= form.date_field :end_date, :value => Time.now.to_date %>
         </div>
 
         <div>
-            <%= form.label :otype, "Тип операції:" %>
+            <%= form.label :otype, t('.otype.label') %>
             <br>
             <div class = "radio_button">
                 <%= form.radio_button :otype, "outcome", checked: true %>
-                <%= form.label :otype_outcome, "Витрата" %>
+                <%= form.label :otype_outcome, t('.otype.outcome') %>
                 <%= form.radio_button :otype, "income" %>
-                <%= form.label :otype_income, "Дохід" %>
+                <%= form.label :otype_income, t('.otype.income') %>
             </div>
         </div>
        
@@ -40,7 +40,7 @@
         </script>      
 
         <div>
-            <%= form.label :category_id, "Категорія:", style: "display: block" %>
+            <%= form.label :category_id, t('.category'), style: "display: block" %>
             <div id = "cat_outcome">
                 <%= select_tag(:category_id_out, options_for_select(@categories_outcome)) %>
             </div>
@@ -51,10 +51,10 @@
 
         <div>
             <%= form.button :name => nil, formaction: "reports/report_by_dates", class: "btn btn-success" do %>
-              <i class="bi bi-graph-up"></i> По дням
+              <i class="bi bi-graph-up"></i><%= t('button.submit-dates') %>
             <% end %>
             <%= form.button :name => nil, formaction: "reports/report_by_category", class: "btn btn-success" do %>
-              <i class="bi bi-pie-chart"></i> За категоріями
+              <i class="bi bi-pie-chart"></i><%= t('button.submit-category') %>
             <% end %>
         </div>
     

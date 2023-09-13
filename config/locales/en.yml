@@ -38,6 +38,8 @@ en:
     operations: " Operations"
     categories: " Categories"
     submit: " Submit"
+    submit-dates: " By days"
+    submit-category: " By categories"
     show: " In more detail"
     edit: " Edit"
     delete: " Delete"
@@ -116,3 +118,11 @@ en:
   reports:
     index:
       title: "Report"
+    form:
+      start-date: "Start date:"
+      end-date: "End date:"
+      otype:
+        label: "Type of operation:"
+        outcome: "Expense"
+        income: "Earning"
+      category: "Category:"    

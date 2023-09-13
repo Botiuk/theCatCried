@@ -40,6 +40,8 @@ uk:
     operations: " Операції"
     categories: " Категорії"
     submit: " Підтвердити"
+    submit-dates: " По дням"
+    submit-category: " За категоріями"
     show: " Детальніше"
     edit: " Редагувати"
     delete: " Видалити"
@@ -118,3 +120,11 @@ uk:
   reports:
     index:
       title: "Звіт"
+    form:
+      start-date: "Початкова дата:"
+      end-date: "Кінцева дата:"
+      otype:
+        label: "Тип операції:"
+        outcome: "Витрата"
+        income: "Дохід"
+      category: "Категорія:"    
