@@ -18,6 +18,9 @@ en:
       operation: 
         amount: "Amount"
         description: "Description"
+      category:
+        name: "Name"
+        description: "Description"
 
   button:
     add:
@@ -89,3 +92,8 @@ en:
       title:
         outcome: "New expense category"
         income: "New earnings category"
+    form:
+      name: "Name:"
+      name-placeholder: "Enter the name of the category"
+      description: "Description:"
+      description-placeholder: "Enter a description of the category"

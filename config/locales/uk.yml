@@ -20,6 +20,9 @@ uk:
       operation: 
         amount: "Сума"
         description: "Опис"
+      category:
+        name: "Поле 'Назва'"        
+        description: "Опис"
 
   button:
     add:
@@ -91,3 +94,8 @@ uk:
       title:
         outcome: "Нова категорія витрат"
         income: "Нова категорія доходів"
+    form:
+      name: "Назва:"
+      name-placeholder: "Ввести назву категорії"
+      description: "Опис:"
+      description-placeholder: "Ввести опис категорії"

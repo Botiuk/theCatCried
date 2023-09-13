@@ -1,7 +1,7 @@
 <%= form_with(model: category) do |form| %>
   <% if category.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(category.errors.count, "error") %> prohibited this category from being saved:</h2>
+      <h2><%= t 'forms.messages.errors', count: category.errors.count %></h2>
 
       <ul>
         <% category.errors.each do |error| %>
@@ -24,18 +24,18 @@
         </div>
       
         <div>
-          <%= form.label :name, "Назва:", style: "display: block" %>
-          <%= form.text_field :name, placeholder: "Ввести назву категорії" %>
+          <%= form.label :name, t('.name'), style: "display: block" %>
+          <%= form.text_field :name, size: "25x1",  placeholder: t('.name-placeholder') %>
         </div>
 
         <div>
-          <%= form.label :description, "Опис:", style: "display: block" %>
-          <%= form.text_area :description, size: "30x5", placeholder: "Ввести опис категорії" %>
+          <%= form.label :description, t('.description'), style: "display: block" %>
+          <%= form.text_area :description, size: "30x5", placeholder: t('.description-placeholder') %>
         </div>
 
         <div>
           <%= form.button nil, class: "btn btn-success" do %>
-            <i class="bi bi-check-lg"></i> Підтвердити
+            <i class="bi bi-check-lg"></i><%= t('button.submit') %>
           <% end %>
         </div>
 
