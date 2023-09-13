@@ -71,8 +71,8 @@ en:
       description: "Description:"
     notice:
       create: "The operation successfully created"
-      update: "The operation was successfully updated"
-      destroy: "The operation was successfully deleted"
+      update: "The operation successfully updated"
+      destroy: "The operation successfully deleted"
     delete:
       confirm: "Are you sure?"
     search:
@@ -104,3 +104,9 @@ en:
       id: "Category id:"
       name: "Name:"
       description: "Description:"
+    notice:
+      create: "The category successfully created"
+      update: "The category successfully updated"
+      destroy: "The category successfully deleted"
+    alert:
+      destroy: "Unable to delete! There are operations with this category"

@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
       if @category.save
-        redirect_to category_url(@category), notice: "Категорія успішно створена"
+        redirect_to category_url(@category), notice: t('categories.notice.create')
       else
         render :new, status: :unprocessable_entity
       end
@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
 
   def update
       if @category.update(category_params)
-        redirect_to category_url(@category), notice: "Категорія успішно оновлена"
+        redirect_to category_url(@category), notice: t('categories.notice.update')
       else
         render :edit, status: :unprocessable_entity
       end
@@ -35,10 +35,10 @@ class CategoriesController < ApplicationController
   def destroy
       if Operation.cat_destroy(@category.id) == 0 
         @category.destroy
-        redirect_to categories_url, notice: "Категорія успішно видалена"
+        redirect_to categories_url, notice: t('categories.notice.destroy')
       else
         redirect_to category_url(@category), 
-          alert: "Неможливо видалити! Є операції з даною категорією", status: :unprocessable_entity
+          alert: t('categories.alert.destroy'), status: :unprocessable_entity
       end
   end
 
