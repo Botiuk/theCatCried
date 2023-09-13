@@ -7,6 +7,12 @@ uk:
   phrase: "Щоб грошей в гаманці було не 'як кіт наплакав', - вчіться писати код!"
   developer: "Світлана Ботюк"
 
+  models:
+      category:
+        reports-otype:
+          outcome: "Всі категорії витрат"
+          income: "Всі категорії доходів"
+
   forms:
       messages:
         errors:

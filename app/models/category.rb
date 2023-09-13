@@ -36,9 +36,9 @@ class Category < ApplicationRecord
 
     def self.reports_formhelper(otype)
       if otype == "outcome"
-        [ ["Всі категорії витрат", "0"] ] + Category.where(ctype: "outcome").order(:name).pluck(:name, :id)
+        [ [I18n.t('models.category.reports-otype.outcome'), "0"] ] + Category.where(ctype: "outcome").order(:name).pluck(:name, :id)
       else
-        [ ["Всі категорії доходів", "0"] ] + Category.where(ctype: "income").order(:name).pluck(:name, :id)
+        [ [I18n.t('models.category.reports-otype.income'), "0"] ] + Category.where(ctype: "income").order(:name).pluck(:name, :id)
       end
     end
 

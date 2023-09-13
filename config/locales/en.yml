@@ -7,6 +7,12 @@ en:
   phrase: "So that your wallet doesn't have so little money 'like a cat cried' - learn to write code!"
   developer: "Svitlana Botiuk"
 
+  models:
+      category:
+        reports-otype:
+          outcome: "All categories of expenses"
+          income: "All categories of earnings"
+
   forms:
       messages:
         errors:
