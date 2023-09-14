@@ -6,7 +6,7 @@
     <h3><%= t('.title.income') %></h3>    
     <div class = "one_item_income">
 <% end %>
-  <h4><%= t('.period') %> <%= @start_date.to_date.strftime('%d.%m.%Y') %> - <%= @end_date.to_date.strftime('%d.%m.%Y') %></h4>
+  <h4><%= t('.period') %> <%= @start_date.to_date.strftime('%e %b %Y') %> - <%= @end_date.to_date.strftime('%e %b %Y') %></h4>
   <% if @category_id == "0" %>
       <h5>(<%= t('.category.all') %>)</h5>
     <% else %>
@@ -31,7 +31,7 @@
                 </tr>
                 <% end %>                
                 <tr>
-                    <th colspan = "2", style = "text-align: left"><%= t('.table.total') %> <%= @period_sum %> <%= t('number.currency.format.unit') %></th>
+                    <th colspan = "2"><%= t('.table.total') %> <%= @period_sum %> <%= t('number.currency.format.unit') %></th>
                 </tr>
             </table>
         </div>
