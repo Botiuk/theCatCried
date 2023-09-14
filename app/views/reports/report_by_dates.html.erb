@@ -6,7 +6,7 @@
     <h3><%= t('.title.income') %></h3>    
     <div class = "one_item_income">
 <% end %>
-  <h4><%= t('.period') %> <%= @start_date.to_date.strftime('%e %b %Y') %> - <%= @end_date.to_date.strftime('%e %b %Y') %></h4>
+  <h4><%= t('.period') %> <%= I18n.l(@start_date.to_date, format: :long) %> - <%= I18n.l(@end_date.to_date, format: :long) %></h4>
     <% if @category_id == "0" %>
       <h5>(<%= t('.category.all') %>)</h5>
     <% else %>
@@ -27,7 +27,7 @@
           </tr>
           <% @graph_data.each do |graph| %>
             <tr>
-             <td><%= graph[0].to_date.strftime('%e %b') %></td>
+             <td><%= I18n.l(graph[0].to_date, format: :short) %></td>
              <td><%= graph[1] %></td>
             </tr>
           <% end %>

@@ -17,7 +17,7 @@ class ReportsController < ApplicationController
   def report_by_dates
     report_data_view
     @graph_data = Operation.reports_data_by_dates(@start_date, @end_date, @otype, @category_id)
-    @dates = @graph_data.map { |e| e[0].to_date.strftime('%e %b') }
+    @dates = @graph_data.map { |e| I18n.l(e[0].to_date, format: :short) }
     @moneys = @graph_data.map { |e| e[1] }    
     @period_sum = Operation.reports_sum(@start_date, @end_date, @otype, @category_id)
   end

@@ -1,4 +1,9 @@
 en:
+  date:
+    formats:
+      long: "%B %e, %Y"
+      short: "%b %e"
+
   appname: "theCatCried"
   balance: "Balance:"
   outcome: "Expenses"

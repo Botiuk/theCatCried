@@ -1,4 +1,9 @@
-uk:
+uk:  
+  date:
+    formats:
+      long: "%e %B %Y"
+      short: "%e %b"
+
   appname: "КітНаплакав"
   balance: "Баланс:"
   outcome: "Витрати"
