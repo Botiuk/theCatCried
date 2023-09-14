@@ -22,7 +22,7 @@
             <table class ="report_table">
                 <tr>
                     <th><%= t('.table.category') %></th>
-                    <th><%= t('.table.amount') %></th>
+                    <th><%= t('.table.amount') %>, <%= t('number.currency.format.unit') %></th>
                 </tr>
                 <% @diagram_data.each do |diagram| %>
                 <tr>

@@ -31,7 +31,7 @@
             <td><strong><%= t('.odate') %> </strong><%= I18n.l(@operation.odate.to_date, format: :long) %></td>
         </tr>
         <tr class = "one_item_show">
-            <td><strong><%= t('.amount') %> </strong><%= @operation.amount %></td>
+            <td><strong><%= t('.amount') %> </strong><%= @operation.amount %> <%= t('number.currency.format.unit') %></td>
         </tr>
         <tr class = "one_item_show">
             <td><strong><%= t('.category_id') %> </strong><%= Category.find(@operation.category_id).name %></td>

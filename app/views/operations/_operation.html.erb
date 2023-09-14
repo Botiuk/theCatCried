@@ -8,7 +8,7 @@
     <table>
         <tr class = "one_item">
             <td class = "op_odate"><%= I18n.l(operation.odate.to_date, format: :short) %></td>
-            <td class = "op_amount"><%= operation.amount %></td>
+            <td class = "op_amount"><%= operation.amount %> <%= t('number.currency.format.unit') %></td>
             <td class = "op_category"><%= Category.find(operation.category_id).name %></td>
             <td class = "op_description"><%= operation.description %></td>
             <td class = "td_button_show">
