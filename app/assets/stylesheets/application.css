@@ -1,20 +1,4 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
-
- /*General styles*/
+/*General styles*/
 body {
 	font-family: Arial, San-Serif;
 	font-size: 100%;
@@ -47,13 +31,39 @@ td {
 	text-overflow: ellipsis;
   }
 
- /*Header*/
+/*Header*/
 header {
 	background-color: lightseagreen;
 	padding: 10px;
 }
+
+/*Locals flag*/
+.flag {
+	width: 16px;
+	height: 16px;
+	display: inline-block;
+	background: url('flags.png') no-repeat;
+	overflow: hidden;
+	text-indent: -9999px;
+	text-align: left;
+}
+  
+.uk-flag {
+	background-position: -1px -17px;
+}
+
+.en-flag {
+	background-position: -1px -0px;
+}
+  
+.nav {
+	.flag {
+		position: relative;
+		top: 2px;
+	}
+}
  
- /*Main*/
+/*Main*/
 main {
 	background-color: whitesmoke;
 	padding: 10px;
@@ -306,8 +316,7 @@ main {
 	padding: 5px 10px;
 }
 
- /*Footer*/
-
+/*Footer*/
 footer {
 	background-color: lightseagreen;
 	padding: 10px;	

@@ -1,4 +1,7 @@
 uk:  
+  en: "Англійська"
+  uk: "Українська"
+
   date:
     formats:
       long: "%e %B %Y"

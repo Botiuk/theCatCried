@@ -1,4 +1,7 @@
 en:
+  en: "English"
+  uk: "Ukraine"
+  
   date:
     formats:
       long: "%B %e, %Y"
