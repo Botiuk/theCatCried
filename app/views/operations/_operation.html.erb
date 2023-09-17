@@ -12,7 +12,9 @@
             <td class = "op_category"><%= Category.find(operation.category_id).name %></td>
             <td class = "op_description"><%= operation.description %></td>
             <td class = "td_button_show">
-                <%= link_to '<i class="bi bi-file-earmark-text-fill"></i>'.html_safe, operation %>
+                <%= link_to operation do %>
+                    <i class="bi bi-file-earmark-text-fill"></i>
+                <% end %>
             </td>
             <td class = "td_button">
                 <%= link_to '<i class="bi bi-pencil-fill"></i>'.html_safe, edit_operation_path(operation) %>
