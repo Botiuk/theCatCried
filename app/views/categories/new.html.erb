@@ -8,7 +8,7 @@
   <%= link_to root_path do %>
     <i class="bi bi-house-fill"></i><%= t('button.home') %>
   <% end %>
-  <%= link_to categories_path do %>
+  <%= link_to categories_path(:page => 1) do %>
     <i class="bi bi-list-columns-reverse"></i><%= t('button.categories-list') %>
   <% end %>
 </div>
