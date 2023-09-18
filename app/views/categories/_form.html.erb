@@ -20,6 +20,10 @@
       <div class = "form">
 
         <div>
+          <%= hidden_field_tag :previous_request, request.referer %>
+        </div>
+
+        <div>
           <%= form.hidden_field :ctype %>
         </div>
       

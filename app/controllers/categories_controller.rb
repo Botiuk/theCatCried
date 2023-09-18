@@ -26,7 +26,7 @@ class CategoriesController < ApplicationController
 
   def update
       if @category.update(category_params)
-        redirect_to category_url(@category), notice: t('categories.notice.update')
+        redirect_to params[:previous_request], notice: t('categories.notice.update')
       else
         render :edit, status: :unprocessable_entity
       end
@@ -37,8 +37,7 @@ class CategoriesController < ApplicationController
         @category.destroy
         redirect_to categories_url, notice: t('categories.notice.destroy')
       else
-        redirect_to category_url(@category), 
-          alert: t('categories.alert.destroy'), status: :unprocessable_entity
+        redirect_to category_url(@category), alert: t('categories.alert.destroy'), status: :unprocessable_entity
       end
   end
 
