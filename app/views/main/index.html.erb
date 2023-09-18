@@ -39,7 +39,7 @@
 <div class = "index_other">
     <h3><%= t('other') %></h3>
     <div class = "index_button">
-        <%= link_to operations_path do %>
+        <%= link_to operations_path(:page => 1) do %>
             <i class="bi bi-list-columns-reverse"></i><%= t('button.operations-list') %>
         <% end %>
         <%= link_to categories_path do %>
