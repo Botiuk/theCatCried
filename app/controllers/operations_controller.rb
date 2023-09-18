@@ -43,7 +43,7 @@ class OperationsController < ApplicationController
 
   def destroy
     @operation.destroy
-    redirect_to operations_url, notice: t('operations.notice.destroy')  
+    redirect_to (request.referrer || operation_url), notice: t('operations.notice.destroy')
   end
 
   private
@@ -55,4 +55,5 @@ class OperationsController < ApplicationController
     def operation_params
       params.require(:operation).permit(:amount, :odate, :description, :category_id, :otype)
     end
+
 end
