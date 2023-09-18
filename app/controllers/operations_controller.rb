@@ -2,7 +2,10 @@ class OperationsController < ApplicationController
   before_action :set_operation, only: %i[ show edit update destroy ]
 
   def index
-    @operations = Operation.list_order.page(params[:page])
+    if params[:page]
+      session[:operations_index_page] = params[:page]
+    end
+    @operations = Operation.list_order.page(session[:operations_index_page])
     @categories = Category.search_formhelper
   end
 
@@ -43,7 +46,7 @@ class OperationsController < ApplicationController
 
   def destroy
     @operation.destroy
-    redirect_to (request.referrer || operation_url), notice: t('operations.notice.destroy')
+    redirect_to operations_url, notice: t('operations.notice.destroy')
   end
 
   private
