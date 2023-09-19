@@ -25,19 +25,19 @@
 <% end %>
     <table>
         <tr class = "one_item_show">
-            <td><strong><%= t('.id') %> </strong><%= @operation.id %></td>
+            <td><strong><%= t('.id') %></strong> <%= @operation.id %></td>
         </tr>
         <tr class = "one_item_show">
-            <td><strong><%= t('.odate') %> </strong><%= I18n.l(@operation.odate.to_date, format: :long) %></td>
+            <td><strong><%= t('.odate') %></strong> <%= I18n.l(@operation.odate.to_date, format: :long) %></td>
         </tr>
         <tr class = "one_item_show">
-            <td><strong><%= t('.amount') %> </strong><%= @operation.amount %> <%= t('number.currency.format.unit') %></td>
+            <td><strong><%= t('.amount') %></strong> <%= t('number.currency.format.unit') %> <%= @operation.amount %></td>
         </tr>
         <tr class = "one_item_show">
-            <td><strong><%= t('.category_id') %> </strong><%= Category.find(@operation.category_id).name %></td>
+            <td><strong><%= t('.category_id') %></strong> <%= Category.find(@operation.category_id).name %></td>
         </tr>
         <tr class = "one_item_show">
-            <td><strong><%= t('.description') %> </strong><%= @operation.description %></td>
+            <td><strong><%= t('.description') %></strong> <%= @operation.description %></td>
         </tr>
     </table>
 
