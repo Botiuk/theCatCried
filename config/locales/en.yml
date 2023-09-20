@@ -93,6 +93,7 @@ en:
       confirm: "Are you sure?"
     search:
       title: "Journal of operations by category"
+      dbempty_html: "There are no transaction records matching the selected category.<br>First you need to create at least one such transaction"
 
   views:
     pagination:
