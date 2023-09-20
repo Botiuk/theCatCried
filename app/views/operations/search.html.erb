@@ -15,12 +15,18 @@
   <% end %>
 </div>  
 
-<div id="operations">
+<% if @operations.size != 0 %>
+  <div id="operations">
 
-  <% @operations.each do |operation| %>
-  <%= render operation %>
-  <% end %>
-  
-</div>
+    <% @operations.each do |operation| %>
+    <%= render operation %>
+    <% end %>
+    
+  </div>
 
-<%= paginate @operations, window: 1, outer_window: 1 %>
+  <%= paginate @operations, window: 1, outer_window: 1 %>
+<% else %>
+  <div class = "empty_item">        
+    <p style="color: red; font-weight: bold"><%= t('.dbempty_html') %></p>
+  </div>
+<% end %>
