@@ -69,6 +69,20 @@ main {
 	padding: 10px;
 }
 
+.notice {
+	color: green;	
+}
+
+.alert {
+	color: red;
+}
+
+.notice, .alert {
+	font-weight: bolder;
+	margin: 0;
+	padding: 0;
+}
+
 .index_come, .index_balance {
 	max-width: 800px;
 	justify-content: center;
