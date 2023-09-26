@@ -7,6 +7,31 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+        <li class="nav-item dropdown">
+          <%= link_to '#', class: 'nav-link dropdown-toggle', data: {"bs-toggle": 'dropdown'} do %>
+            <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>              
+          <% end %>
+          <ul class="dropdown-menu">
+            <% I18n.available_locales.each do |locale| %>
+              <li>
+                <% if I18n.locale == locale %>
+                  <%= tag.span t(locale), class: 'dropdown-item' %>
+                <% else %>
+                  <%= link_to t(locale), request.query_parameters.merge(locale: locale), class: 'dropdown-item' %>
+                <% end %>
+                <% if locale.to_s == "en" %>
+                  <li><hr class="dropdown-divider"></li>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+        </li>
+
+      </ul>
+
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item">
@@ -71,39 +96,37 @@
         </li>
 
       </ul>
-     
+           
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-
-        <li class="nav-item">
-          <% if user_signed_in? %>
-            Logged in as <strong><%= current_user.email %></strong>.
-            <%= link_to "Edit profile", edit_user_registration_path, class: "" %> |
-            <%= link_to "Logout", destroy_user_session_path, method: :delete, class: ""  %>
-          <% else %>
-            <%= link_to "Sign up", new_user_registration_path, class: "" %> |
-            <%= link_to "Login", new_user_session_path, class: ""  %>
-          <% end %>
-        </li>  
-
+      <% if user_signed_in? %>
         <li class="nav-item dropdown">
-          <%= link_to '#', class: 'nav-link dropdown-toggle', data: {"bs-toggle": 'dropdown'} do %>
-            <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>              
-          <% end %>
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <strong><%= current_user.email %></strong>
+          </a>
           <ul class="dropdown-menu dropdown-menu-end">
-            <% I18n.available_locales.each do |locale| %>
-              <li>
-                <% if I18n.locale == locale %>
-                  <%= tag.span t(locale), class: 'dropdown-item' %>
-                <% else %>
-                  <%= link_to t(locale), request.query_parameters.merge(locale: locale), class: 'dropdown-item' %>
-                <% end %>
-                <% if locale.to_s == "en" %>
-                  <li><hr class="dropdown-divider"></li>
-                <% end %>
-              </li>
-            <% end %>
+            <li>
+              <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: "dropdown-item"  %>
+            </li>
           </ul>
         </li>
+      <% else %>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-door-open-fill"></i><%= t('button.authorization') %>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end">
+            <li>
+              <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item"%>
+            <li><hr class="dropdown-divider"></li>
+            <li>
+              <%= link_to "Login", new_user_session_path, class: "dropdown-item"  %>
+            </li>
+          </ul>
+        </li>
+      <% end %>
       </ul>
 
     </div>

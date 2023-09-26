@@ -51,6 +51,7 @@ en:
     home: " Home"
     operations: " Operations"
     categories: " Categories"
+    authorization: " Exit"
     submit: " Submit"
     submit-dates: " By days"
     submit-category: " By categories"
