@@ -1,6 +1,7 @@
 class Category < ApplicationRecord
 
   has_many :operations
+  belongs_to :user
 
   validates :name, presence: true, uniqueness: true
   validates :description, presence: true
