@@ -1,4 +1,5 @@
 class MainController < ApplicationController
+  skip_before_action :authenticate_user!
 
   def index
     $total_amount = Operation.total_amount
