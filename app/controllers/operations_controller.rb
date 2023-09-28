@@ -56,7 +56,7 @@ class OperationsController < ApplicationController
     end
 
     def operation_params
-      params.require(:operation).permit(:amount, :odate, :description, :category_id, :otype)
+      params.require(:operation).permit(:amount, :odate, :description, :category_id, :otype, :user_id)
     end
 
 end
