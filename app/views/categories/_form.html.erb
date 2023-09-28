@@ -26,6 +26,10 @@
         <div>
           <%= form.hidden_field :ctype %>
         </div>
+
+        <div>
+          <%= form.hidden_field :user_id, :value => current_user.id, readonly: true %>
+        </div>
       
         <div>
           <%= form.label :name, t('.name'), style: "display: block" %>
