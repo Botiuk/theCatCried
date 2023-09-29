@@ -1,8 +1,8 @@
 class ReportsController < ApplicationController
   
   def index
-    @categories_outcome = Category.reports_formhelper("outcome")
-    @categories_income = Category.reports_formhelper("income")
+    @categories_outcome = Category.reports_formhelper("outcome", current_user.id)
+    @categories_income = Category.reports_formhelper("income", current_user.id)
   end
       
   def report_by_category
