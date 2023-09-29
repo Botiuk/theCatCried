@@ -5,7 +5,7 @@ class CategoriesController < ApplicationController
     if params[:page]
       session[:categories_index_page] = params[:page]
     end
-    @categories = Category.list_order.page(session[:categories_index_page])
+    @categories = Category.list_order(current_user.id).page(session[:categories_index_page])
   end
 
   def show
