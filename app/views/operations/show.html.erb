@@ -22,9 +22,6 @@
 <% end %>
     <table>
         <tr class = "one_item_show">
-            <td><strong><%= t('.id') %></strong> <%= @operation.id %></td>
-        </tr>
-        <tr class = "one_item_show">
             <td><strong><%= t('.odate') %></strong> <%= I18n.l(@operation.odate.to_date, format: :long) %></td>
         </tr>
         <tr class = "one_item_show">
