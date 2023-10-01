@@ -1,37 +1,43 @@
 <h3><%= t('.title') %></h3>
+<% if @operation.user_id == current_user.id %>
 
-<div class = "button_on_top">
-    <%= link_to root_path do %>
-        <i class="bi bi-house-fill"></i><%= t('button.home') %>
-    <% end %>
-    <%= link_to operations_path do %>
-        <i class="bi bi-list-columns-reverse"></i><%= t('button.operations-list') %>
-    <% end %>
-    <%= link_to edit_operation_path(@operation) do %>
-        <i class="bi bi-pencil-fill"></i><%= t('button.edit') %>
-    <% end %>
-    <%= link_to @operation, data: { turbo_method: :delete, turbo_confirm: t('operations.delete.confirm') } do %>
-        <i class="bi bi-trash3-fill"></i><%= t('button.delete') %> 
-    <% end %>
-</div>
+    <div class = "button_on_top">
+        <%= link_to root_path do %>
+            <i class="bi bi-house-fill"></i><%= t('button.home') %>
+        <% end %>
+        <%= link_to operations_path do %>
+            <i class="bi bi-list-columns-reverse"></i><%= t('button.operations-list') %>
+        <% end %>
+        <%= link_to edit_operation_path(@operation) do %>
+            <i class="bi bi-pencil-fill"></i><%= t('button.edit') %>
+        <% end %>
+        <%= link_to @operation, data: { turbo_method: :delete, turbo_confirm: t('operations.delete.confirm') } do %>
+            <i class="bi bi-trash3-fill"></i><%= t('button.delete') %> 
+        <% end %>
+    </div>
 
-<% if @operation.otype == "outcome" %>
-    <div class = "one_item_outcome">
+    <% if @operation.otype == "outcome" %>
+        <div class = "one_item_outcome">
+    <% else %>
+        <div class = "one_item_income">
+    <% end %>
+        <table>
+            <tr class = "one_item_show">
+                <td><strong><%= t('.odate') %></strong> <%= I18n.l(@operation.odate.to_date, format: :long) %></td>
+            </tr>
+            <tr class = "one_item_show">
+                <td><strong><%= t('.amount') %></strong> <%= t('number.currency.format.unit') %> <%= @operation.amount %></td>
+            </tr>
+            <tr class = "one_item_show">
+                <td><strong><%= t('.category_id') %></strong> <%= Category.find(@operation.category_id).name %></td>
+            </tr>
+            <tr class = "one_item_show">
+                <td><strong><%= t('.description') %></strong> <%= @operation.description %></td>
+            </tr>
+        </table>
+
 <% else %>
-    <div class = "one_item_income">
+    <div class = "empty_item">        
+      <p style="color: red; font-weight: bold"><%= t('other_user_id') %></p>
+    </div>
 <% end %>
-    <table>
-        <tr class = "one_item_show">
-            <td><strong><%= t('.odate') %></strong> <%= I18n.l(@operation.odate.to_date, format: :long) %></td>
-        </tr>
-        <tr class = "one_item_show">
-            <td><strong><%= t('.amount') %></strong> <%= t('number.currency.format.unit') %> <%= @operation.amount %></td>
-        </tr>
-        <tr class = "one_item_show">
-            <td><strong><%= t('.category_id') %></strong> <%= Category.find(@operation.category_id).name %></td>
-        </tr>
-        <tr class = "one_item_show">
-            <td><strong><%= t('.description') %></strong> <%= @operation.description %></td>
-        </tr>
-    </table>
-
