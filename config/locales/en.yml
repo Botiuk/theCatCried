@@ -22,6 +22,7 @@ en:
   other: "Other"
   phrase: "So that your wallet doesn't have so little money 'like a cat cried' - learn to write code!"
   developer: "Svitlana Botiuk"
+  other_user_id: "There is no information to display"
 
   models:
       category:

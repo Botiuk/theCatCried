@@ -21,7 +21,8 @@ uk:
   income: "Доходи"
   other: "Інше"
   phrase: "Щоб грошей в гаманці було не 'як кіт наплакав', - пиши код!"
-  developer: "Svitlana Botiuk"
+  developer: "Svitlana Botiuk"  
+  other_user_id: "Немає інформації для відображення"
 
   models:
       category:
