@@ -1,31 +1,38 @@
 <h3><%= t('.title') %></h3>
+<% if @category.user_id == current_user.id %>
 
 <div class = "button_on_top">
-    <%= link_to root_path do %>
-        <i class="bi bi-house-fill"></i><%= t('button.home') %>
-    <% end %>
-    <%= link_to categories_path do %>
-        <i class="bi bi-list-columns-reverse"></i><%= t('button.categories-list') %>
-    <% end %>
-    <%= link_to edit_category_path(@category) do %>
-        <i class="bi bi-pencil-fill"></i><%= t('button.edit') %>
-    <% end %>
-    <%= link_to @category, data: { turbo_method: :delete, turbo_confirm: t('categories.delete.confirm') } do %>
-        <i class="bi bi-trash3-fill"></i><%= t('button.delete') %> 
-    <% end %>
-</div>
+        <%= link_to root_path do %>
+            <i class="bi bi-house-fill"></i><%= t('button.home') %>
+        <% end %>
+        <%= link_to categories_path do %>
+            <i class="bi bi-list-columns-reverse"></i><%= t('button.categories-list') %>
+        <% end %>
+        <%= link_to edit_category_path(@category) do %>
+            <i class="bi bi-pencil-fill"></i><%= t('button.edit') %>
+        <% end %>
+        <%= link_to @category, data: { turbo_method: :delete, turbo_confirm: t('categories.delete.confirm') } do %>
+            <i class="bi bi-trash3-fill"></i><%= t('button.delete') %> 
+        <% end %>
+    </div>
 
-<% if @category.ctype == "outcome" %>
-    <div class = "one_item_outcome">
+    <% if @category.ctype == "outcome" %>
+        <div class = "one_item_outcome">
+    <% else %>
+        <div class = "one_item_income">
+    <% end %>
+            <table>            
+                <tr class = "one_item_show">
+                    <td><strong><%= t('.name') %> </strong><%= @category.name %></td>
+                </tr>
+                <tr class = "one_item_show">        
+                    <td><strong><%= t('.description') %> </strong><%= @category.description %></td>
+                </tr>
+            </table>
+    </div>
+
 <% else %>
-    <div class = "one_item_income">
+    <div class = "empty_item">        
+      <p style="color: red; font-weight: bold"><%= t('other_user_id') %></p>
+    </div>  
 <% end %>
-        <table>            
-            <tr class = "one_item_show">
-                <td><strong><%= t('.name') %> </strong><%= @category.name %></td>
-            </tr>
-            <tr class = "one_item_show">        
-                <td><strong><%= t('.description') %> </strong><%= @category.description %></td>
-            </tr>
-        </table>
-</div>

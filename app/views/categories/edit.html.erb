@@ -1,15 +1,22 @@
 <h3><%= t('.title') %></h3>
+<% if @category.user_id == current_user.id %>
 
-<div class = "button_on_top">    
-    <%= link_to root_path do %>
-        <i class="bi bi-house-fill"></i><%= t('button.home') %>
-    <% end %>
-    <%= link_to categories_path do %>
-        <i class="bi bi-list-columns-reverse"></i><%= t('button.categories-list') %>
-    <% end %>
-    <%= link_to @category do %>
-        <i class="bi bi-file-earmark-text-fill"></i><%= t('button.show') %>
-    <% end %>
-</div>
+    <div class = "button_on_top">    
+        <%= link_to root_path do %>
+            <i class="bi bi-house-fill"></i><%= t('button.home') %>
+        <% end %>
+        <%= link_to categories_path do %>
+            <i class="bi bi-list-columns-reverse"></i><%= t('button.categories-list') %>
+        <% end %>
+        <%= link_to @category do %>
+            <i class="bi bi-file-earmark-text-fill"></i><%= t('button.show') %>
+        <% end %>
+    </div>
 
-<%= render "form", category: @category %>
+    <%= render "form", category: @category %>
+
+<% else %>    
+    <div class = "empty_item">        
+      <p style="color: red; font-weight: bold"><%= t('other_user_id') %></p>
+    </div> 
+<% end %>
