@@ -11,7 +11,7 @@ class OperationsController < ApplicationController
 
   def search
     @operations = Operation.search_op(params[:category_id]).page(params[:page])
-    @search_name = Category.name_from_id(params[:category_id])
+    @category = Category.find(params[:category_id])
   end
 
   def show
@@ -19,7 +19,7 @@ class OperationsController < ApplicationController
 
   def new
     @operation = Operation.new(:otype => params[:otype], :odate => Time.now.to_date)
-    @categories = Category.ctype_formhelper(@operation, current_user.id)    
+    @categories = Category.ctype_formhelper(@operation, current_user.id)
   end
 
   def edit

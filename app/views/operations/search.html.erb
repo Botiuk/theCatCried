@@ -1,32 +1,41 @@
-<h3><%= t('.title') %> "<%= @search_name %>" </h3>
+<h3><%= t('.title') %>
+<% if @category.user_id == current_user.id %>
+ "<%= @category.name %>" </h3>
 
-<div class = "button_on_top">
-  <%= link_to root_path do %>
-    <i class="bi bi-house-fill"></i><%= t('button.home') %>
-  <% end %>
-  <%= link_to operations_path do %>
-        <i class="bi bi-list-columns-reverse"></i><%= t('button.operations-list') %>
+  <div class = "button_on_top">
+    <%= link_to root_path do %>
+      <i class="bi bi-house-fill"></i><%= t('button.home') %>
     <% end %>
-  <%= link_to new_operation_path(:otype => "outcome"), :method => :post do %>
-    <i class="bi bi-bag-plus-fill"></i><%= t('button.add.outcome') %>
-  <% end %>
-  <%= link_to new_operation_path(:otype => "income"), :method => :post do %>
-    <i class="bi bi-bag-plus-fill"></i><%= t('button.add.income') %>
-  <% end %>
-</div>  
-
-<% if @operations.size != 0 %>
-  <div id="operations">
-
-    <% @operations.each do |operation| %>
-    <%= render operation %>
+    <%= link_to operations_path do %>
+          <i class="bi bi-list-columns-reverse"></i><%= t('button.operations-list') %>
+      <% end %>
+    <%= link_to new_operation_path(:otype => "outcome"), :method => :post do %>
+      <i class="bi bi-bag-plus-fill"></i><%= t('button.add.outcome') %>
     <% end %>
-    
-  </div>
+    <%= link_to new_operation_path(:otype => "income"), :method => :post do %>
+      <i class="bi bi-bag-plus-fill"></i><%= t('button.add.income') %>
+    <% end %>
+  </div>  
 
-  <%= paginate @operations, window: 1, outer_window: 1 %>
+  <% if @operations.size != 0 %>
+    <div id="operations">
+
+      <% @operations.each do |operation| %>
+      <%= render operation %>
+      <% end %>
+      
+    </div>
+
+    <%= paginate @operations, window: 1, outer_window: 1 %>
+  <% else %>
+    <div class = "empty_item">        
+      <p style="color: red; font-weight: bold"><%= t('.dbempty_html') %></p>
+    </div>
+  <% end %>
+
 <% else %>
-  <div class = "empty_item">        
-    <p style="color: red; font-weight: bold"><%= t('.dbempty_html') %></p>
-  </div>
+</h3>
+    <div class = "empty_item">        
+      <p style="color: red; font-weight: bold"><%= t('other_user_id') %></p>
+    </div>
 <% end %>
