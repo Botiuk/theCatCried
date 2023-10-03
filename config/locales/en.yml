@@ -212,3 +212,9 @@ en:
         delete:
           button: "Delete my account"
           confirmation: "Are you sure?"
+    sessions:
+      new:
+        title: "Log in"
+        email: "Email:"
+        password: "Password:"
+        remember: "Remember me"

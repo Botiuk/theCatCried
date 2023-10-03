@@ -214,3 +214,9 @@ uk:
         delete:
           button: "Видалити мій профіль"
           confirmation: "Ви впевнені?"
+    sessions:
+      new:
+        title: "Ввійти"
+        email: "Пошта:"
+        password: "Пароль:"
+        remember: "Запам'ятати мене"
