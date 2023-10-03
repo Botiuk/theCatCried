@@ -241,3 +241,8 @@ en:
         title: "Resend confirmation instructions"
         email: "Email:"
         button: "Resend"
+    unlocks:
+      new:      
+        title: "Resend unlock instructions"
+        email: "Email:"
+        button: "Resend"
