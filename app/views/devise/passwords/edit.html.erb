@@ -1,4 +1,4 @@
-<h2>Change your password</h2>
+<h2><%= t('.title') %></h2>
 
 <div class = "devise_item">
 
@@ -7,7 +7,7 @@
     <%= f.hidden_field :reset_password_token %>
 
     <div class="field">
-      <%= f.label :password, "New password:" %><br />
+      <%= f.label :password, t('.newpassword') %><br />
       <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em><br />
       <% end %>
@@ -15,13 +15,13 @@
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, "Confirm new password:" %><br />
+      <%= f.label :password_confirmation, t('.confirmnewpassword') %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
     </div>
 
     <div class="actions">
       <%= f.button nil, class: "btn btn-success" do %>
-        <i class="bi bi-key"></i> Change my password
+        <i class="bi bi-key"></i> <%= t('.button') %>
       <% end %>
     </div>
 

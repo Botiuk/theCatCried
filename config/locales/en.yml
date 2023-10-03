@@ -226,3 +226,13 @@ en:
         confirmation: "Didn't receive confirmation instructions?"
         unlock: "Didn't receive unlock instructions?"
         signin: "Sign in with"
+    passwords:
+      new:
+        title: "Forgot your password?"
+        email: "My email:"
+        button: "Send me reset password instructions"
+      edit:
+        title: "Change your password"
+        newpassword: "New password:"
+        confirmnewpassword: "Confirm new password:"
+        button: "Change my password"
