@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_27_093016) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_03_054552) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_27_093016) do
   end
 
   create_table "operations", force: :cascade do |t|
-    t.decimal "amount", precision: 10, scale: 2, default: "0.0"
+    t.decimal "amount", precision: 10, scale: 2
     t.datetime "odate"
     t.string "description"
     t.integer "category_id", null: false
