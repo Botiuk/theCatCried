@@ -236,3 +236,8 @@ en:
         newpassword: "New password:"
         confirmnewpassword: "Confirm new password:"
         button: "Change my password"
+    confirmations:
+      new:
+        title: "Resend confirmation instructions"
+        email: "Email:"
+        button: "Resend"
