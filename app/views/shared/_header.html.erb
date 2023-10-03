@@ -108,10 +108,10 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li>
-                <%= link_to "Edit profile", edit_user_registration_path, class: "dropdown-item" %>
+                <%= link_to t('button.authorization.edit'), edit_user_registration_path, class: "dropdown-item" %>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <%= link_to "Logout", destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "dropdown-item"  %>
+                <%= link_to t('button.authorization.logout'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "dropdown-item"  %>
               </li>
             </ul>
           </li>
@@ -120,14 +120,14 @@
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="bi bi-door-open-fill"></i><%= t('button.authorization') %>
+              <i class="bi bi-door-open-fill"></i><%= t('button.authorization.main') %>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
               <li>
-                <%= link_to "Login", new_user_session_path, class: "dropdown-item"  %>                
+                <%= link_to t('button.authorization.login'), new_user_session_path, class: "dropdown-item" %>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <%= link_to "Sign up", new_user_registration_path, class: "dropdown-item"%>                
+                <%= link_to t('button.authorization.signup'), new_user_registration_path, class: "dropdown-item"%>                
               </li>
             </ul>
           </li>

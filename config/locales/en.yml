@@ -60,7 +60,12 @@ en:
     home: " Home"
     operations: " Operations"
     categories: " Categories"
-    authorization: " Exit"
+    authorization:
+      main: " Exit"
+      login: "Log in"
+      logout: "Log out"
+      signup: "Sign up"
+      edit: "Edit profile"
     submit: " Submit"
     submit-dates: " By days"
     submit-category: " By categories"
