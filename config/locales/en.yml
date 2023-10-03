@@ -218,3 +218,11 @@ en:
         email: "Email:"
         password: "Password:"
         remember: "Remember me"
+    shared:
+      links:
+        login: "Log in"
+        signup: "Sign up"
+        forgot: "Forgot your password?"
+        confirmation: "Didn't receive confirmation instructions?"
+        unlock: "Didn't receive unlock instructions?"
+        signin: "Sign in with"
