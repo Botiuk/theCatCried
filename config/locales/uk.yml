@@ -184,3 +184,33 @@ uk:
         date: "Дата"
         amount: "Сума"
         total: "Всього:"
+  
+  devise:
+    registrations:
+      new:
+        title: "Зареєструватися"
+        username: "Ім'я користувача:"
+        email: "Пошта:"
+        password:
+          new: "Пароль"
+          newconfirm: "Підтвердження паролю:"
+          characters: "символів мінімум"
+      edit:
+        title:
+          edit: "Редагувати профіль"
+          changeprofile: "Змінити профіль"
+          changepassword: "Змінити пароль"
+        username: "Ім'я користувача:"
+        email: "Пошта:"        
+        emailconfirm: "Наразі очікується підтвердження для:"
+        password:
+          current: "Поточний пароль:"
+          new: "Новий пароль:"
+          newconfirm: "Підтвердження нового паролю:"
+          characters: "символів мінімум"        
+          placeholder:
+            current: "Підтвердіть Ваші зміни"
+            new: "Якщо хочете його міняти"
+        delete:
+          button: "Видалити мій профіль"
+          confirmation: "Ви впевнені?"

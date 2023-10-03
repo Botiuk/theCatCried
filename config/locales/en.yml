@@ -182,3 +182,33 @@ en:
         date: "Date"
         amount: "Amount"
         total: "Total:"
+  
+  devise:
+    registrations:
+      new:
+        title: "Sign up"
+        username: "Username:"
+        email: "Email:"
+        password:
+          new: "Password"
+          newconfirm: "Password confirmation:"
+          characters: "characters minimum"
+      edit:
+        title:
+          edit: "Edit profile"
+          changeprofile: "Change profile"
+          changepassword: "Change password"
+        username: "Username:"
+        email: "Email:"
+        emailconfirm: "Currently waiting confirmation for:"
+        password:
+          current: "Current password:"
+          new: "New password:"
+          newconfirm: "New password confirmation:"
+          characters: "characters minimum"        
+          placeholder:
+            current: "Confirm your changes"
+            new: "If you want to change it"
+        delete:
+          button: "Delete my account"
+          confirmation: "Are you sure?"

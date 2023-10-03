@@ -1,9 +1,9 @@
-<h2>Edit profile</h2>
+<h2><%= t('.title.edit') %></h2>
 
 <div class = "devise_item">
 
   <div  style = "text-align: right">
-    <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
+    <%= button_to t('.delete.button'), registration_path(resource_name), data: { confirm: t('.delete.confirmation'), turbo_confirm: t('.delete.confirmation') }, method: :delete, class: "btn btn-danger" %>
     <br />
   </div>
 
@@ -12,40 +12,40 @@
 
     <table>
       <tr>
-        <th>Change profile</th>
-        <th>Change password</th>
+        <th><%= t('.title.changeprofile') %></th>
+        <th><%= t('.title.changepassword') %></th>
       </tr>
       <tr>
         <td>
           <div class="field">
-            <%= f.label :username, "Username:" %><br />
+            <%= f.label :username, t('.username') %><br />
             <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
           </div>
 
           <br/>
 
           <div class="field" >
-              <%= f.label :email, "Email:" %><br />
+              <%= f.label :email, t('.email') %><br />
               <%= f.email_field :email, autocomplete: "email" %>
           </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <div><%= t('.emailconfirm') %> <%= resource.unconfirmed_email %></div>
           <% end %>
         </td>
         <td>
           <div class="field">
-            <%= f.label :password, "New password:" %><br />
-            <%= f.password_field :password, autocomplete: "new-password", placeholder: "If you want to change it" %>
+            <%= f.label :password, t('.password.new') %><br />
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: t('.password.placeholder.new') %>
             <% if @minimum_password_length %>
               <br />
-              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <em>(<%= @minimum_password_length %> <%= t('.password.characters') %>)</em>
             <% end %>
           </div>
 
           <div class="field">
-            <%= f.label :password_confirmation, "New password confirmation:"  %><br />
-            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "If you want to change it" %>
+            <%= f.label :password_confirmation, t('.password.newconfirm')  %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: t('.password.placeholder.new') %>
           </div>
         </td>
       </tr>              
@@ -53,8 +53,8 @@
         <td colspan = "2">
           <br />
           <div class="field">
-            <%= f.label :current_password, "Current password:"  %>
-            <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Confirm your changes" %>
+            <%= f.label :current_password, t('.password.current')  %>
+            <%= f.password_field :current_password, autocomplete: "current-password", placeholder: t('.password.placeholder.current') %>
             
             <%= f.button nil, class: "btn btn-success" do %>
               <i class="bi bi-check-lg"></i><%= t('button.submit') %>
