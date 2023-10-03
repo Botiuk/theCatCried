@@ -8,12 +8,21 @@ en:
       short: "%b %e"
 
   appname: "theCatCried"
+  about:
+    title: "Welcome to the manager of personal financial resources!"
+    text_html: "<p>The main goal of this application is to control and log all your earnings and expenses. This will allow you to analyze your budget and help you spend wisely.</p> 
+    <p>For access to all functions of the application, <b>please login or sign up</b>. After that, you receive access to three main functions - category, operation, and report.</p>
+    <p>The operation may be one of two types - earnings and expense. That's why, categories divided also to two types. First, you must create categories because they form a list from which you choose when creating a new operation. After that, you can create operations.</p>
+    <p>In the operations log and list of categories, you can look for each record in detail, edit them, and delete them. But if the category is not empty, there are operation records associated with it, you can not delete her. First, you must change the category for this operation or operations.</p> 
+    <p>In the operations log is a function of search by category, which helps you look at records associated with it. </p>
+    <p>Reports show in visual form the cash flow in your wallet. You can create reports for a certain period of time for a single category or an entire type in the form of graphs by day and in form of charts by category.</p>"
   balance: "Balance:"
   outcome: "Expenses"
   income: "Earnings"
   other: "Other"
   phrase: "So that your wallet doesn't have so little money 'like a cat cried' - learn to write code!"
   developer: "Svitlana Botiuk"
+  other_user_id: "There is no information to display"
 
   models:
       category:
@@ -51,6 +60,12 @@ en:
     home: " Home"
     operations: " Operations"
     categories: " Categories"
+    authorization:
+      main: " Exit"
+      login: "Log in"
+      logout: "Log out"
+      signup: "Sign up"
+      edit: "Edit profile"
     submit: " Submit"
     submit-dates: " By days"
     submit-category: " By categories"
@@ -167,3 +182,67 @@ en:
         date: "Date"
         amount: "Amount"
         total: "Total:"
+  
+  devise:
+    registrations:
+      new:
+        title: "Sign up"
+        username: "Username:"
+        email: "Email:"
+        password:
+          new: "Password"
+          newconfirm: "Password confirmation:"
+          characters: "characters minimum"
+      edit:
+        title:
+          edit: "Edit profile"
+          changeprofile: "Change profile"
+          changepassword: "Change password"
+        username: "Username:"
+        email: "Email:"
+        emailconfirm: "Currently waiting confirmation for:"
+        password:
+          current: "Current password:"
+          new: "New password:"
+          newconfirm: "New password confirmation:"
+          characters: "characters minimum"        
+          placeholder:
+            current: "Confirm your changes"
+            new: "If you want to change it"
+        delete:
+          button: "Delete my account"
+          confirmation: "Are you sure?"
+    sessions:
+      new:
+        title: "Log in"
+        email: "Email:"
+        password: "Password:"
+        remember: "Remember me"
+    shared:
+      links:
+        login: "Log in"
+        signup: "Sign up"
+        forgot: "Forgot your password?"
+        confirmation: "Didn't receive confirmation instructions?"
+        unlock: "Didn't receive unlock instructions?"
+        signin: "Sign in with"
+    passwords:
+      new:
+        title: "Forgot your password?"
+        email: "My email:"
+        button: "Send me reset password instructions"
+      edit:
+        title: "Change your password"
+        newpassword: "New password:"
+        confirmnewpassword: "Confirm new password:"
+        button: "Change my password"
+    confirmations:
+      new:
+        title: "Resend confirmation instructions"
+        email: "Email:"
+        button: "Resend"
+    unlocks:
+      new:      
+        title: "Resend unlock instructions"
+        email: "Email:"
+        button: "Resend"

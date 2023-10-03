@@ -1,0 +1,69 @@
+<h2><%= t('.title.edit') %></h2>
+
+<div class = "devise_item">
+
+  <div  style = "text-align: right">
+    <%= button_to t('.delete.button'), registration_path(resource_name), data: { confirm: t('.delete.confirmation'), turbo_confirm: t('.delete.confirmation') }, method: :delete, class: "btn btn-danger" %>
+    <br />
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <table>
+      <tr>
+        <th><%= t('.title.changeprofile') %></th>
+        <th><%= t('.title.changepassword') %></th>
+      </tr>
+      <tr>
+        <td>
+          <div class="field">
+            <%= f.label :username, t('.username') %><br />
+            <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+          </div>
+
+          <br/>
+
+          <div class="field" >
+              <%= f.label :email, t('.email') %><br />
+              <%= f.email_field :email, autocomplete: "email" %>
+          </div>
+
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div><%= t('.emailconfirm') %> <%= resource.unconfirmed_email %></div>
+          <% end %>
+        </td>
+        <td>
+          <div class="field">
+            <%= f.label :password, t('.password.new') %><br />
+            <%= f.password_field :password, autocomplete: "new-password", placeholder: t('.password.placeholder.new') %>
+            <% if @minimum_password_length %>
+              <br />
+              <em>(<%= @minimum_password_length %> <%= t('.password.characters') %>)</em>
+            <% end %>
+          </div>
+
+          <div class="field">
+            <%= f.label :password_confirmation, t('.password.newconfirm')  %><br />
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: t('.password.placeholder.new') %>
+          </div>
+        </td>
+      </tr>              
+      <tr>
+        <td colspan = "2">
+          <br />
+          <div class="field">
+            <%= f.label :current_password, t('.password.current')  %>
+            <%= f.password_field :current_password, autocomplete: "current-password", placeholder: t('.password.placeholder.current') %>
+            
+            <%= f.button nil, class: "btn btn-success" do %>
+              <i class="bi bi-check-lg"></i><%= t('button.submit') %>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    </table>
+    
+  <% end %>
+
+</div>

@@ -1,6 +1,8 @@
 class Operation < ApplicationRecord
   
   belongs_to :category
+  belongs_to :user
+
 
   validates :amount, presence: true, numericality: { greater_than: 0 }
   validates :odate, presence: true
@@ -15,12 +17,12 @@ class Operation < ApplicationRecord
 
   private
 
-    def self.total_amount
-      Operation.where(otype: "income").sum(:amount) - Operation.where(otype: "outcome").sum(:amount)
+    def self.total_amount(user)
+      Operation.where(user_id: user, otype: "income").sum(:amount) - Operation.where(user_id: user, otype: "outcome").sum(:amount)
     end
 
-    def self.list_order
-      Operation.order(:odate).reverse_order
+    def self.list_order(user)
+      Operation.where(user_id: user).order(:odate).reverse_order
     end
 
     def self.search_op(category_id)

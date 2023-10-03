@@ -69,6 +69,20 @@ main {
 	padding: 10px;
 }
 
+.notice {
+	color: green;	
+}
+
+.alert {
+	color: red;
+}
+
+.notice, .alert {
+	font-weight: bolder;
+	margin: 0;
+	padding: 0;
+}
+
 .index_come, .index_balance {
 	max-width: 800px;
 	justify-content: center;
@@ -107,13 +121,19 @@ main {
 	background-color: rgb(193, 250, 193);
 }
 
-.index_other, .report_item, .empty_item {
+.index_other, .report_item, .empty_item, .about_text, .devise_item {
 	max-width: 800px;
 	width: 100%;
 	margin: 15px auto;
 	padding: 15px;
 	box-shadow: 1px 5px 10px #888888;
 	background-color: gainsboro;
+}
+
+.about_text p {
+	text-align: justify;
+	text-indent: 20px;
+	font-size: medium;
 }
 
 .index_button {

@@ -7,77 +7,14 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-        <li class="nav-item">
-          <%= link_to  root_path, class: "nav-link active", 'aria-current': "page" do %>
-            <i class="bi bi-house-fill"></i><%= t('button.home') %>
-          <% end %>
-        </li>
-        
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-database-fill"></i><%= t('button.operations') %>
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <%= link_to new_operation_path(:otype => "outcome"), :method => :post, class: "dropdown-item" do %>
-               <i class="bi bi-bag-plus-fill"></i><%= t('button.add.outcome') %>
-              <% end %>
-            </li>          
-            <li><hr class="dropdown-divider"></li>
-            <li>
-              <%= link_to new_operation_path(:otype => "income"), :method => :post, class: "dropdown-item"  do %>
-                <i class="bi bi-bag-plus-fill"></i><%= t('button.add.income') %>
-              <% end %>
-            </li> 
-            <li><hr class="dropdown-divider"></li>  
-            <li>
-              <%= link_to operations_path(:page => 1), class: "dropdown-item" do %>
-                <i class="bi bi-list-columns-reverse"></i><%= t('button.operations-list') %>
-              <% end %>
-            </li> 
-          </ul>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-tags-fill"></i><%= t('button.categories') %>
-          </a>
-          <ul class="dropdown-menu">
-            <li>
-              <%= link_to new_category_path(:ctype => "outcome"), :method => :post, class: "dropdown-item" do %>
-                <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.outcome-cat') %>
-              <% end %>
-            <li><hr class="dropdown-divider"></li>
-            <li>
-              <%= link_to new_category_path(:ctype => "income"), :method => :post, class: "dropdown-item" do %>
-                <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.income-cat') %>
-              <% end %>
-            </li>                      
-            <li><hr class="dropdown-divider"></li>
-            <li>
-              <%= link_to categories_path(:page => 1), class: "dropdown-item" do %>
-                <i class="bi bi-list-columns-reverse"></i><%= t('button.categories-list') %>
-              <% end %>
-            </li>
-          </ul>
-        </li>
-
-        <li class="nav-item">
-          <%= link_to reports_path, class: "nav-link" do %>
-            <i class="bi bi-file-earmark-bar-graph-fill"></i><%= t('button.report') %>
-          <% end %>
-        </li>
-
-      </ul>
-      
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item dropdown">
           <%= link_to '#', class: 'nav-link dropdown-toggle', data: {"bs-toggle": 'dropdown'} do %>
             <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>              
           <% end %>
-          <ul class="dropdown-menu dropdown-menu-end">
+          <ul class="dropdown-menu">
             <% I18n.available_locales.each do |locale| %>
               <li>
                 <% if I18n.locale == locale %>
@@ -92,6 +29,110 @@
             <% end %>
           </ul>
         </li>
+
+      </ul>
+
+      <% if user_signed_in? %>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <%= link_to  root_path, class: "nav-link active", 'aria-current': "page" do %>
+              <i class="bi bi-house-fill"></i><%= t('button.home') %>
+            <% end %>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-database-fill"></i><%= t('button.operations') %>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to new_operation_path(:otype => "outcome"), :method => :post, class: "dropdown-item" do %>
+                <i class="bi bi-bag-plus-fill"></i><%= t('button.add.outcome') %>
+                <% end %>
+              </li>          
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <%= link_to new_operation_path(:otype => "income"), :method => :post, class: "dropdown-item"  do %>
+                  <i class="bi bi-bag-plus-fill"></i><%= t('button.add.income') %>
+                <% end %>
+              </li> 
+              <li><hr class="dropdown-divider"></li>  
+              <li>
+                <%= link_to operations_path(:page => 1), class: "dropdown-item" do %>
+                  <i class="bi bi-list-columns-reverse"></i><%= t('button.operations-list') %>
+                <% end %>
+              </li> 
+            </ul>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-tags-fill"></i><%= t('button.categories') %>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <%= link_to new_category_path(:ctype => "outcome"), :method => :post, class: "dropdown-item" do %>
+                  <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.outcome-cat') %>
+                <% end %>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <%= link_to new_category_path(:ctype => "income"), :method => :post, class: "dropdown-item" do %>
+                  <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.income-cat') %>
+                <% end %>
+              </li>                      
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <%= link_to categories_path(:page => 1), class: "dropdown-item" do %>
+                  <i class="bi bi-list-columns-reverse"></i><%= t('button.categories-list') %>
+                <% end %>
+              </li>
+            </ul>
+          </li>
+
+          <li class="nav-item">
+            <%= link_to reports_path, class: "nav-link" do %>
+              <i class="bi bi-file-earmark-bar-graph-fill"></i><%= t('button.report') %>
+            <% end %>
+          </li>
+
+        </ul>        
+      <% end %>
+           
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if user_signed_in? %>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <strong><%= current_user.username %></strong>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <%= link_to t('button.authorization.edit'), edit_user_registration_path, class: "dropdown-item" %>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <%= link_to t('button.authorization.logout'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "dropdown-item"  %>
+              </li>
+            </ul>
+          </li>
+
+        <% else %>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="bi bi-door-open-fill"></i><%= t('button.authorization.main') %>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end">
+              <li>
+                <%= link_to t('button.authorization.login'), new_user_session_path, class: "dropdown-item" %>
+              <li><hr class="dropdown-divider"></li>
+              <li>
+                <%= link_to t('button.authorization.signup'), new_user_registration_path, class: "dropdown-item"%>                
+              </li>
+            </ul>
+          </li>
+
+        <% end %>
       </ul>
 
     </div>

@@ -5,13 +5,13 @@ class OperationsController < ApplicationController
     if params[:page]
       session[:operations_index_page] = params[:page]
     end
-    @operations = Operation.list_order.page(session[:operations_index_page])
-    @categories = Category.search_formhelper
+    @operations = Operation.list_order(current_user.id).page(session[:operations_index_page])
+    @categories = Category.search_formhelper(current_user.id)
   end
 
   def search
     @operations = Operation.search_op(params[:category_id]).page(params[:page])
-    @search_name = Category.name_from_id(params[:category_id])
+    @category = Category.find(params[:category_id])
   end
 
   def show
@@ -19,16 +19,16 @@ class OperationsController < ApplicationController
 
   def new
     @operation = Operation.new(:otype => params[:otype], :odate => Time.now.to_date)
-    @categories = Category.ctype_formhelper(@operation)    
+    @categories = Category.ctype_formhelper(@operation, current_user.id)
   end
 
   def edit
-    @categories = Category.edit_formhelper(@operation)
+    @categories = Category.edit_formhelper(@operation, current_user.id)
   end
 
   def create
     @operation = Operation.new(operation_params)
-    @categories = Category.ctype_formhelper(@operation)
+    @categories = Category.ctype_formhelper(@operation, current_user.id)
       if @operation.save
         redirect_to operation_url(@operation), notice: t('operations.notice.create')   
       else
@@ -56,7 +56,7 @@ class OperationsController < ApplicationController
     end
 
     def operation_params
-      params.require(:operation).permit(:amount, :odate, :description, :category_id, :otype)
+      params.require(:operation).permit(:amount, :odate, :description, :category_id, :otype, :user_id)
     end
 
 end

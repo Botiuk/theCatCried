@@ -1,52 +1,63 @@
-<div class = "index_come">
+<% if user_signed_in? %>
 
-    <div class = "index_outcome"> 
-        <h3><%= t('outcome') %></h3>
+    <div class = "index_come">
+
+        <div class = "index_outcome"> 
+            <h3><%= t('outcome') %></h3>
+            <div class = "index_button">
+                <%= link_to new_operation_path(:otype => "outcome"), :method => :post do %>
+                    <i class="bi bi-bag-plus-fill"></i><%= t('button.add.outcome-main_html') %>
+                <% end %>
+                <%= link_to new_category_path(:ctype => "outcome"), :method => :post do %>
+                    <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.main-cat_html') %>
+                <% end %>
+            </div>
+        </div>
+
+        <div class = "index_income"> 
+            <h3><%= t('income') %></h3>
+            <div class = "index_button">
+                <%= link_to new_operation_path(:otype => "income"), :method => :post do %>
+                    <i class="bi bi-bag-plus-fill"></i><%= t('button.add.income-main_html') %> 
+                <% end %>
+                <%= link_to new_category_path(:ctype => "income"), :method => :post do %>
+                    <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.main-cat_html') %>
+                <% end %>
+            </div>
+        </div>
+
+    </div>
+
+    <div class = "index_balance">
+        <% if $total_amount < 0 %>
+            <div class = "one_item_outcome">
+        <% else %>
+            <div class = "one_item_income">
+        <% end %> 
+                <h3><%= t('balance') %> <%= t('number.currency.format.unit') %> <%= $total_amount %></h3>
+        </div>
+    </div>
+
+    <div class = "index_other">
+        <h3><%= t('other') %></h3>
         <div class = "index_button">
-            <%= link_to new_operation_path(:otype => "outcome"), :method => :post do %>
-                <i class="bi bi-bag-plus-fill"></i><%= t('button.add.outcome-main_html') %>
+            <%= link_to operations_path(:page => 1) do %>
+                <i class="bi bi-list-columns-reverse"></i><%= t('button.operations-list') %>
             <% end %>
-            <%= link_to new_category_path(:ctype => "outcome"), :method => :post do %>
-                <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.main-cat_html') %>
+            <%= link_to categories_path(:page => 1) do %>
+                <i class="bi bi-list-columns-reverse"></i><%= t('button.categories-list') %>
+            <% end %>
+            <%= link_to reports_path do %>
+                <i class="bi bi-file-earmark-bar-graph-fill"></i><%= t('button.report') %>
             <% end %>
         </div>
     </div>
 
-    <div class = "index_income"> 
-        <h3><%= t('income') %></h3>
-        <div class = "index_button">
-            <%= link_to new_operation_path(:otype => "income"), :method => :post do %>
-                <i class="bi bi-bag-plus-fill"></i><%= t('button.add.income-main_html') %> 
-            <% end %>
-            <%= link_to new_category_path(:ctype => "income"), :method => :post do %>
-                <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.main-cat_html') %>
-            <% end %>
-        </div>
+<% else %>
+
+    <h3><%= t('about.title') %></h3>
+    <div class = "about_text">
+        <%= t('about.text_html') %>
     </div>
 
-</div>
-
-<div class = "index_balance">
-    <% if $total_amount < 0 %>
-        <div class = "one_item_outcome">
-    <% else %>
-        <div class = "one_item_income">
-    <% end %> 
-            <h3><%= t('balance') %> <%= t('number.currency.format.unit') %> <%= $total_amount %></h3>
-    </div>
-</div>
-
-<div class = "index_other">
-    <h3><%= t('other') %></h3>
-    <div class = "index_button">
-        <%= link_to operations_path(:page => 1) do %>
-            <i class="bi bi-list-columns-reverse"></i><%= t('button.operations-list') %>
-        <% end %>
-        <%= link_to categories_path(:page => 1) do %>
-            <i class="bi bi-list-columns-reverse"></i><%= t('button.categories-list') %>
-        <% end %>
-        <%= link_to reports_path do %>
-            <i class="bi bi-file-earmark-bar-graph-fill"></i><%= t('button.report') %>
-        <% end %>
-    </div>
-</div>
+<% end %>
