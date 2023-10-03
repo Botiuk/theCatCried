@@ -121,7 +121,7 @@ main {
 	background-color: rgb(193, 250, 193);
 }
 
-.index_other, .report_item, .empty_item, .about_text {
+.index_other, .report_item, .empty_item, .about_text, .devise_item {
 	max-width: 800px;
 	width: 100%;
 	margin: 15px auto;
