@@ -8,7 +8,7 @@ en:
       short: "%b %e"
 
   appname: "theCatCried"
-  about:
+  welcome:
     title: "Welcome to the manager of personal financial resources!"
     text_html: "<p>The main goal of this application is to control and log all your earnings and expenses. This will allow you to analyze your budget and help you spend wisely.</p> 
     <p>For access to all functions of the application, <b>please login or sign up</b>. After that, you receive access to three main functions - category, operation, and report.</p>
