@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+    
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
     devise_for :users, controllers: {
       sessions: 'users/sessions'
@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     get 'reports/report_by_dates', to: 'reports#report_by_dates'
     get '/search', to: 'operations#search'
     get 'main/index', to: 'main#index'
+    get 'about', to: 'about#index'
     resources :operations
     resources :categories
 
