@@ -5,47 +5,91 @@ when "development"
 
   # First create two users!
  
-  (1..15).each do |id|
+  (1..10).each do |id|
     Category.create(
       id: id,
       name: Faker::Job.unique.field,
       description: Faker::Company.catch_phrase,
       ctype: 1,
-      user_id: Faker::Number.between(from: 1, to: 2),
+      user_id: 1,
     )
   end
 
-  (16..50).each do |id|
+  (11..20).each do |id|
+    Category.create(
+      id: id,
+      name: Faker::Book.unique.title,
+      description: Faker::Movies::HarryPotter.quote,
+      ctype: 1,
+      user_id: 2,
+    )
+  end
+
+  (21..35).each do |id|
     Category.create(
       id: id,
       name: Faker::Food.unique.dish,
       description: Faker::GreekPhilosophers.quote,
       ctype: 0,
-      user_id: Faker::Number.between(from: 1, to: 2),
+      user_id: 1,
+    )
+  end
+
+  (36..50).each do |id|
+    Category.create(
+      id: id,
+      name: Faker::Hobby.unique.activity,
+      description: Faker::Movies::StarWars.quote,
+      ctype: 0,
+      user_id: 2,
     )
   end
   
-  (1..250).each do |id|
+  (1..125).each do |id|
+    Operation.create(
+      id: id,
+      amount: Faker::Number.between(from: 1000, to: 15000),
+      odate: Faker::Date.between(from: (Date.today - 365), to: Date.today),
+      description: Faker::TvShows::Friends.quote,
+      category_id: Faker::Number.between(from: 1, to: 10),
+      otype: 1,
+      user_id: 1,
+    )
+  end
+
+  (126..250).each do |id|
     Operation.create(
       id: id,
       amount: Faker::Number.between(from: 1000, to: 15000),
       odate: Faker::Date.between(from: (Date.today - 365), to: Date.today),
       description: Faker::TvShows::DrWho.quote,
-      category_id: Faker::Number.between(from: 1, to: 15),
+      category_id: Faker::Number.between(from: 11, to: 20),
       otype: 1,
-      user_id: Faker::Number.between(from: 1, to: 2),
+      user_id: 2,
     )
   end
 
-  (251..3500).each do |id|
+  (251..1750).each do |id|
+    Operation.create(
+      id: id,
+      amount: Faker::Number.decimal(l_digits: 3, r_digits: 1),
+      odate: Faker::Date.between(from: (Date.today - 365), to: Date.today),
+      description: Faker::TvShows::Stargate.quote,
+      category_id: Faker::Number.between(from: 21, to: 35),
+      otype: 0,
+      user_id: 1,
+    )
+  end
+
+  (1751..3500).each do |id|
     Operation.create(
       id: id,
       amount: Faker::Number.decimal(l_digits: 3, r_digits: 1),
       odate: Faker::Date.between(from: (Date.today - 365), to: Date.today),
       description: Faker::TvShows::Simpsons.quote,
-      category_id: Faker::Number.between(from: 16, to: 50),
+      category_id: Faker::Number.between(from: 36, to: 50),
       otype: 0,
-      user_id: Faker::Number.between(from: 1, to: 2),
+      user_id: 2,
     )
   end
 
