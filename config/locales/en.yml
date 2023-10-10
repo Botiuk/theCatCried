@@ -161,6 +161,7 @@ en:
       title:
         outcome: "Distribution of expenses by categories"
         income: "Distribution of earnings by categories"
+        other: "Distribution by categories"
       period: "For the period"
       category:
         all: "all categories"
@@ -174,6 +175,7 @@ en:
       title:
         outcome: "Distribution of expenses by days"
         income: "Distribution of earnings by days"
+        other: "Distribution by days"
       period: "For the period"
       category:
         all: "all categories"

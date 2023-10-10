@@ -1,77 +1,84 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<% if @otype == "outcome" %>
-    <h3><%= t('.title.outcome') %></h3>    
-    <div class = "one_item_outcome">
-<% else %>
-    <h3><%= t('.title.income') %></h3>    
-    <div class = "one_item_income">
-<% end %>
-  <h4><%= t('.period') %> <%= I18n.l(@start_date.to_date, format: :long) %> - <%= I18n.l(@end_date.to_date, format: :long) %></h4>
-  <% if @category_id == "0" %>
-      <h5>(<%= t('.category.all') %>)</h5>
+<% if @user_id.to_i == current_user.id %>
+
+    <% if @otype == "outcome" %>
+        <h3><%= t('.title.outcome') %></h3>    
+        <div class = "one_item_outcome">
     <% else %>
-      <h5>(<%= t('.category.one') %> "<%= @category_name %>")</h5>
+        <h3><%= t('.title.income') %></h3>    
+        <div class = "one_item_income">
     <% end %>
-    
-    <% if @cat_name.size == 0 %>
-        <p style = "color: red; font-weight: bold"><%= t('.empty_html') %></p>
-    <% else %>   
-    
-    <div class = "report_content">
-        <div class = "report_item_table">
-            <table class ="report_table">
-                <tr>
-                    <th><%= t('.table.category') %></th>
-                    <th><%= t('.table.amount') %>, <%= t('number.currency.format.unit') %></th>
-                </tr>
-                <% @diagram_data.each do |diagram| %>
-                <tr>
-                    <td style = "text-align: left"><%= diagram[0] %></td>
-                    <td><%= diagram[1] %></td>
-                </tr>
-                <% end %>                
-                <tr>
-                    <th colspan = "2"><%= t('.table.total') %> <%= t('number.currency.format.unit') %> <%= @period_sum %></th>
-                </tr>
-            </table>
-        </div>
+            <h4><%= t('.period') %> <%= I18n.l(@start_date.to_date, format: :long) %> - <%= I18n.l(@end_date.to_date, format: :long) %></h4>
+            <% if @category_id == "0" %>
+                <h5>(<%= t('.category.all') %>)</h5>
+            <% else %>
+                <h5>(<%= t('.category.one') %> "<%= @category_name %>")</h5>
+            <% end %>
+            
+            <% if @cat_name.size == 0 %>
+                <p style = "color: red; font-weight: bold"><%= t('.empty_html') %></p>
+            <% else %>
+            <div class = "report_content">
+                <div class = "report_item_table">
+                    <table class ="report_table">
+                        <tr>
+                            <th><%= t('.table.category') %></th>
+                            <th><%= t('.table.amount') %>, <%= t('number.currency.format.unit') %></th>
+                        </tr>
+                        <% @diagram_data.each do |diagram| %>
+                        <tr>
+                            <td style = "text-align: left"><%= diagram[0] %></td>
+                            <td><%= diagram[1] %></td>
+                        </tr>
+                        <% end %>                
+                        <tr>
+                            <th colspan = "2"><%= t('.table.total') %> <%= t('number.currency.format.unit') %> <%= @period_sum %></th>
+                        </tr>
+                    </table>
+                </div>
 
-        <div class = "report_item_image">
-            <canvas id="myPie"></canvas>
-            <script>
-            {
-            const ctx = document.getElementById('myPie').getContext('2d');
-            const data = {
-            labels:  <%= raw @cat_name %>,
-            datasets: [{
-                label: '',
-                data: <%= @cat_moneys %>,
-                backgroundColor: <%= raw @colors %>,
-                hoverOffset: 4
-            }]
-            };
+                <div class = "report_item_image">
+                    <canvas id="myPie"></canvas>
+                    <script>
+                    {
+                    const ctx = document.getElementById('myPie').getContext('2d');
+                    const data = {
+                    labels:  <%= raw @cat_name %>,
+                    datasets: [{
+                        label: '',
+                        data: <%= @cat_moneys %>,
+                        backgroundColor: <%= raw @colors %>,
+                        hoverOffset: 4
+                    }]
+                    };
 
-            const config = {
-                type: 'pie',
-                data: data,
-            };
+                    const config = {
+                        type: 'pie',
+                        data: data,
+                    };
 
-            const myPie = new Chart(ctx, config);
-            }
-            </script>
-        
-        </div>
+                    const myPie = new Chart(ctx, config);
+                    }
+                    </script>            
+                </div>
+
+            </div>        
+            <% end %>
+
+         </div>
+
+    <div class = "button_on_bottom">
+    <%= link_to root_path do %>
+        <i class="bi bi-house-fill"></i><%= t('button.home') %>
+    <% end %>
+    <%= link_to reports_path do %>
+        <i class="bi bi-file-earmark-bar-graph-fill"></i><%= t('button.report') %>
+    <% end %>
     </div>
     
-    <% end %> 
-
-</div>
-
-<div class = "button_on_bottom">
-  <%= link_to root_path do %>
-    <i class="bi bi-house-fill"></i><%= t('button.home') %>
-  <% end %>
-  <%= link_to reports_path do %>
-    <i class="bi bi-file-earmark-bar-graph-fill"></i><%= t('button.report') %>
-  <% end %>
-</div>
+<% else %>
+    <h3><%= t('.title.other') %></h3> 
+    <div class = "empty_item">        
+      <p style="color: red; font-weight: bold"><%= t('other_user_id') %></p>
+    </div>
+<% end %>

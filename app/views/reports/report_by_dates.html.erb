@@ -1,80 +1,85 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<% if @otype == "outcome" %>
+<% if @user_id.to_i == current_user.id %>
+
+  <% if @otype == "outcome" %>
     <h3><%= t('.title.outcome') %></h3>    
     <div class = "one_item_outcome">
-<% else %>
+  <% else %>
     <h3><%= t('.title.income') %></h3>    
     <div class = "one_item_income">
-<% end %>
-  <h4><%= t('.period') %> <%= I18n.l(@start_date.to_date, format: :long) %> - <%= I18n.l(@end_date.to_date, format: :long) %></h4>
-    <% if @category_id == "0" %>
-      <h5>(<%= t('.category.all') %>)</h5>
-    <% else %>
-      <h5>(<%= t('.category.one') %> "<%= @category_name %>")</h5>
-    <% end %>
-    
-  <% if @dates.size == 0 %>
-    <p style="color: red; font-weight: bold"><%= t('.empty_html') %></p>
-    
-
-  <% else %> 
-    <div class = "report_content">
-      <div class = "report_item_table">
-        <table class ="report_table">
-         <tr>
-           <th><%= t('.table.date') %></th>
-           <th><%= t('.table.amount') %>, <%= t('number.currency.format.unit') %></th>
-          </tr>
-          <% @graph_data.each do |graph| %>
+  <% end %>
+      <h4><%= t('.period') %> <%= I18n.l(@start_date.to_date, format: :long) %> - <%= I18n.l(@end_date.to_date, format: :long) %></h4>
+      <% if @category_id == "0" %>
+        <h5>(<%= t('.category.all') %>)</h5>
+      <% else %>
+        <h5>(<%= t('.category.one') %> "<%= @category_name %>")</h5>
+      <% end %>
+        
+      <% if @dates.size == 0 %>
+        <p style="color: red; font-weight: bold"><%= t('.empty_html') %></p>     
+      <% else %> 
+        <div class = "report_content">
+          <div class = "report_item_table">
+            <table class ="report_table">
             <tr>
-             <td><%= I18n.l(graph[0].to_date, format: :short) %></td>
-             <td><%= graph[1] %></td>
-            </tr>
-          <% end %>
-            <tr>
-            <th colspan = "2"><%= t('.table.total') %> <%= t('number.currency.format.unit') %> <%= @period_sum %></th>
-            </tr>
-        </table>
-      </div>
+              <th><%= t('.table.date') %></th>
+              <th><%= t('.table.amount') %>, <%= t('number.currency.format.unit') %></th>
+              </tr>
+              <% @graph_data.each do |graph| %>
+                <tr>
+                <td><%= I18n.l(graph[0].to_date, format: :short) %></td>
+                <td><%= graph[1] %></td>
+                </tr>
+              <% end %>
+                <tr>
+                <th colspan = "2"><%= t('.table.total') %> <%= t('number.currency.format.unit') %> <%= @period_sum %></th>
+                </tr>
+            </table>
+          </div>
 
-      <div class = "report_item_image">       
-        <canvas id="myChart"></canvas>
-        <script>
-        {
-          const ctx = document.getElementById('myChart').getContext('2d');
-          const data = {
-            labels: <%= raw @dates %>,
-            datasets: [{
-              label: '',
-              data: <%= @moneys %>,
-              fill: true,
-              borderColor: 'rgb(65, 105, 225)',
-              tension: 0.1
-            }]
-          };
+          <div class = "report_item_image">       
+            <canvas id="myChart"></canvas>
+            <script>
+            {
+              const ctx = document.getElementById('myChart').getContext('2d');
+              const data = {
+                labels: <%= raw @dates %>,
+                datasets: [{
+                  label: '',
+                  data: <%= @moneys %>,
+                  fill: true,
+                  borderColor: 'rgb(65, 105, 225)',
+                  tension: 0.1
+                }]
+              };
 
-          const config = {
-            type: 'line',
-            data: data,        
-          };
-          
-          const myChart = new Chart(ctx, config);
-        }
-        </script>
-      </div>
+              const config = {
+                type: 'line',
+                data: data,        
+              };
+              
+              const myChart = new Chart(ctx, config);
+            }
+            </script>
+          </div>
+
+        </div>    
+      <% end %>
+
     </div>
 
-    
+  <div class = "button_on_bottom">
+    <%= link_to root_path do %>
+      <i class="bi bi-house-fill"></i><%= t('button.home') %>
+    <% end %>
+    <%= link_to reports_path do %>
+      <i class="bi bi-file-earmark-bar-graph-fill"></i><%= t('button.report') %>
+    <% end %>
+  </div>
 
-  <% end %>
-
-</div>
-
-<div class = "button_on_bottom">
-  <%= link_to root_path do %>
-    <i class="bi bi-house-fill"></i><%= t('button.home') %>
-  <% end %>
-  <%= link_to reports_path do %>
-    <i class="bi bi-file-earmark-bar-graph-fill"></i><%= t('button.report') %>
-  <% end %>
-</div>
+<% else %>
+    <h3><%= t('.title.other') %></h3> 
+    <div class = "empty_item">        
+      <p style="color: red; font-weight: bold"><%= t('other_user_id') %></p>
+    </div>
+<% end %>
