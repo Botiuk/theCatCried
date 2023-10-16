@@ -53,6 +53,8 @@ class OperationsController < ApplicationController
 
     def set_operation
       @operation = Operation.find(params[:id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path
     end
 
     def operation_params
