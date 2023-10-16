@@ -12,7 +12,7 @@
             <i class="bi bi-pencil-fill"></i><%= t('button.edit') %>
         <% end %>
         <%= link_to @operation, data: { turbo_method: :delete, turbo_confirm: t('operations.delete.confirm') } do %>
-            <i class="bi bi-trash3-fill"></i><%= t('button.delete') %> 
+            <i class="bi bi-trash3-fill"></i><%= t('button.delete') %>
         <% end %>
     </div>
 
@@ -37,7 +37,7 @@
         </table>
 
 <% else %>
-    <div class = "empty_item">        
+    <div class = "empty_item">
       <p style="color: red; font-weight: bold"><%= t('other_user_id') %></p>
     </div>
 <% end %>

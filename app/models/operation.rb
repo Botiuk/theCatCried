@@ -1,5 +1,5 @@
 class Operation < ApplicationRecord
-  
+
   belongs_to :category
   belongs_to :user
 
@@ -33,32 +33,32 @@ class Operation < ApplicationRecord
       Operation.where(category_id: category_id).size
     end
 
-    def self.reports_data_by_category(start_date, end_date, otype, category_id, user_id)    
-      if category_id == "0" 
+    def self.reports_data_by_category(start_date, end_date, otype, category_id, user_id)
+      if category_id == "0"
         Operation.where(odate: start_date..end_date, otype: otype, user_id: user_id).group(:category_id)
         .sum(:amount).map { |op| [Category.where(id: op[0]).pluck(:name).join, op[1]] }
       else
         Operation.where(odate: start_date..end_date, otype: otype, category_id: category_id).group(:category_id)
         .sum(:amount).map { |op| [Category.where(id: op[0]).pluck(:name).join, op[1]] }
-      end    
+      end
     end
 
     def self.reports_data_by_dates(start_date, end_date, otype, category_id, user_id)
-      if category_id == "0" 
+      if category_id == "0"
         Operation.where(odate: start_date..end_date, otype: otype, user_id: user_id).order(:odate)
         .group(:odate).sum(:amount)
       else
         Operation.where(odate: start_date..end_date, otype: otype, category_id: category_id).order(:odate)
         .group(:odate).sum(:amount)
-      end    
+      end
     end
 
     def self.reports_sum(start_date, end_date, otype, category_id, user_id)
-      if category_id == "0" 
+      if category_id == "0"
         Operation.where(odate: start_date..end_date, otype: otype, user_id: user_id).sum(:amount)
       else
         Operation.where(odate: start_date..end_date, otype: otype, category_id: category_id).sum(:amount)
-      end   
+      end
     end
 
 end

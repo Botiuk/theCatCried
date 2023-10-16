@@ -26,12 +26,12 @@
                 <%= form.label :otype_income, t('.otype.income') %>
             </div>
         </div>
-       
+
         <script>
             {$(document).ready(function(){
                 $("#cat_outcome").show();
                 $("#cat_income").hide();
-                $("input:radio[name='otype']").change(function(){                      
+                $("input:radio[name='otype']").change(function(){
                         if(this.value == 'outcome' && this.checked){
                             $("#cat_outcome").show();
                             $("#cat_income").hide();
@@ -41,7 +41,7 @@
                         }
                 });
             });}
-        </script>      
+        </script>
 
         <div>
             <%= form.label :category_id, t('.category'), style: "display: block" %>
@@ -50,7 +50,7 @@
             </div>
             <div id = "cat_income" style = "display: none">
                 <%= select_tag(:category_id_in, options_for_select(@categories_income)) %>
-            </div>    
+            </div>
         </div>
 
         <div>
@@ -61,7 +61,6 @@
               <i class="bi bi-pie-chart"></i><%= t('button.submit-category') %>
             <% end %>
         </div>
-    
 
     </div>
 

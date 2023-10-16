@@ -39,37 +39,37 @@ class OperationTest < ActiveSupport::TestCase
 
   test "return false if amount negative" do
     new_operation = Operation.new(amount: -5, odate: "2023-01-11 07:45:43", description: "some description", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
-    assert_not(new_operation.valid?) 
+    assert_not(new_operation.valid?)
   end
 
   test "return false if amount zero" do
     new_operation = Operation.new(amount: 0, odate: "2023-01-11 07:45:43", description: "some description", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
-    assert_not(new_operation.valid?) 
+    assert_not(new_operation.valid?)
   end
 
   test "return false if odate missed" do
     new_operation = Operation.new(amount: 5, description: "some description", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
-    assert_not(new_operation.valid?) 
+    assert_not(new_operation.valid?)
   end
 
   test "return false if description missed" do
     new_operation = Operation.new(amount: 5, odate: "2023-01-11 07:45:43", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
-    assert_not(new_operation.valid?) 
+    assert_not(new_operation.valid?)
   end
 
   test "return false if category_id missed" do
     new_operation = Operation.new(amount: 5, odate: "2023-01-11 07:45:43", description: "some description", otype: 1, user_id: User.find_by(username: 'First').id)
-    assert_not(new_operation.valid?) 
+    assert_not(new_operation.valid?)
   end
 
   test "return false if otype missed" do
     new_operation = Operation.new(amount: 5, odate: "2023-01-11 07:45:43", description: "some description", category_id: Category.find_by(name: 'First cat').id, user_id: User.find_by(username: 'First').id)
-    assert_not(new_operation.valid?) 
+    assert_not(new_operation.valid?)
   end
 
   test "return true if everything is good" do
     new_operation = Operation.new(amount: 5, odate: "2023-01-11 07:45:43", description: "some description", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
-    assert(new_operation.valid?) 
+    assert(new_operation.valid?)
   end
 
 #testing reports_data_by_dates

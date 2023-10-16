@@ -30,7 +30,7 @@ class OperationsController < ApplicationController
     @operation = Operation.new(operation_params)
     @categories = Category.ctype_formhelper(@operation, current_user.id)
       if @operation.save
-        redirect_to operation_url(@operation), notice: t('operations.notice.create')   
+        redirect_to operation_url(@operation), notice: t('operations.notice.create')
       else
         render :new, status: :unprocessable_entity
       end
@@ -38,7 +38,7 @@ class OperationsController < ApplicationController
 
   def update
       if @operation.update(operation_params)
-        redirect_to params[:previous_request], notice: t('operations.notice.update')  
+        redirect_to params[:previous_request], notice: t('operations.notice.update')
       else
         render :edit, status: :unprocessable_entity
       end
@@ -50,7 +50,7 @@ class OperationsController < ApplicationController
   end
 
   private
-    
+
     def set_operation
       @operation = Operation.find(params[:id])
     end

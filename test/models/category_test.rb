@@ -63,7 +63,7 @@ class CategoryTest < ActiveSupport::TestCase
 
   test "return true if everything is good" do
     new_category = Category.new(name: "new category", description: "new description", ctype: 1, user_id: User.find_by(username: 'Second').id)
-    assert(new_category.valid?) 
+    assert(new_category.valid?)
   end
-  
+
 end

@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-light">
-  <div class="container-fluid">   
-  
+  <div class="container-fluid">
+
     <%= link_to  root_path, class: 'navbar-brand' do %>
       <%= image_tag 'icons8-cat-32.png' %> <%= t('appname') %>
     <% end %>
@@ -9,12 +9,12 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    
+
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
         <li class="nav-item dropdown">
           <%= link_to '#', class: 'nav-link dropdown-toggle', data: {"bs-toggle": 'dropdown'} do %>
-            <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>              
+            <%= tag.div '', class: "flag #{I18n.locale}-flag mt-1" %>
           <% end %>
           <ul class="dropdown-menu">
             <% I18n.available_locales.each do |locale| %>
@@ -42,7 +42,7 @@
               <i class="bi bi-house-fill"></i><%= t('button.home') %>
             <% end %>
           </li>
-          
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
               <i class="bi bi-database-fill"></i><%= t('button.operations') %>
@@ -52,19 +52,19 @@
                 <%= link_to new_operation_path(:otype => "outcome"), :method => :post, class: "dropdown-item" do %>
                 <i class="bi bi-bag-plus-fill"></i><%= t('button.add.outcome') %>
                 <% end %>
-              </li>          
+              </li>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <%= link_to new_operation_path(:otype => "income"), :method => :post, class: "dropdown-item"  do %>
                   <i class="bi bi-bag-plus-fill"></i><%= t('button.add.income') %>
                 <% end %>
-              </li> 
-              <li><hr class="dropdown-divider"></li>  
+              </li>
+              <li><hr class="dropdown-divider"></li>
               <li>
                 <%= link_to operations_path(:page => 1), class: "dropdown-item" do %>
                   <i class="bi bi-list-columns-reverse"></i><%= t('button.operations-list') %>
                 <% end %>
-              </li> 
+              </li>
             </ul>
           </li>
 
@@ -82,7 +82,7 @@
                 <%= link_to new_category_path(:ctype => "income"), :method => :post, class: "dropdown-item" do %>
                   <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.income-cat') %>
                 <% end %>
-              </li>                      
+              </li>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <%= link_to categories_path(:page => 1), class: "dropdown-item" do %>
@@ -104,9 +104,9 @@
             <% end %>
           </li>
 
-        </ul>        
+        </ul>
       <% end %>
-           
+
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% if user_signed_in? %>
 
@@ -135,7 +135,7 @@
                 <%= link_to t('button.authorization.login'), new_user_session_path, class: "dropdown-item" %>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <%= link_to t('button.authorization.signup'), new_user_registration_path, class: "dropdown-item"%>                
+                <%= link_to t('button.authorization.signup'), new_user_registration_path, class: "dropdown-item"%>
               </li>
             </ul>
           </li>

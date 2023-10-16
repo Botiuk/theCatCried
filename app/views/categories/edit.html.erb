@@ -1,7 +1,7 @@
 <h3><%= t('.title') %></h3>
 <% if @category.user_id == current_user.id %>
 
-    <div class = "button_on_top">    
+    <div class = "button_on_top">
         <%= link_to root_path do %>
             <i class="bi bi-house-fill"></i><%= t('button.home') %>
         <% end %>
@@ -15,8 +15,8 @@
 
     <%= render "form", category: @category %>
 
-<% else %>    
-    <div class = "empty_item">        
+<% else %>
+    <div class = "empty_item">
       <p style="color: red; font-weight: bold"><%= t('other_user_id') %></p>
-    </div> 
+    </div>
 <% end %>

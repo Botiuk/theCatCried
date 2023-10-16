@@ -30,7 +30,7 @@
         <div>
           <%= form.hidden_field :user_id, :value => current_user.id, readonly: true %>
         </div>
-      
+
         <div>
           <%= form.label :name, t('.name'), style: "display: block" %>
           <%= form.text_field :name, size: "25x1",  placeholder: t('.name-placeholder'), autofocus: true %>

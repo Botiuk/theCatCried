@@ -1,7 +1,7 @@
 en:
   en: "English"
   uk: "Ukraine"
-  
+
   date:
     formats:
       long: "%B %e, %Y"
@@ -10,10 +10,10 @@ en:
   appname: "theCatCried"
   welcome:
     title: "Welcome to the manager of personal financial resources!"
-    text_html: "<p>The main goal of this application is to control and log all your earnings and expenses. This will allow you to analyze your budget and help you spend wisely.</p> 
+    text_html: "<p>The main goal of this application is to control and log all your earnings and expenses. This will allow you to analyze your budget and help you spend wisely.</p>
     <p>For access to all functions of the application, <b>please login or sign up</b>. After that, you receive access to three main functions - category, operation, and report.</p>
     <p>The operation may be one of two types - earnings and expense. That's why, categories divided also to two types. First, you must create categories because they form a list from which you choose when creating a new operation. After that, you can create operations.</p>
-    <p>In the operations log and list of categories, you can look for each record in detail, edit them, and delete them. But if the category is not empty, there are operation records associated with it, you can not delete her. First, you must change the category for this operation or operations.</p> 
+    <p>In the operations log and list of categories, you can look for each record in detail, edit them, and delete them. But if the category is not empty, there are operation records associated with it, you can not delete her. First, you must change the category for this operation or operations.</p>
     <p>In the operations log is a function of search by category, which helps you look at records associated with it. </p>
     <p>Reports show in visual form the cash flow in your wallet. You can create reports for a certain period of time for a single category or an entire type in the form of graphs by day and in form of charts by category.</p>"
   balance: "Balance:"
@@ -38,7 +38,7 @@ en:
 
   activerecord:
     attributes:
-      operation: 
+      operation:
         amount: "Amount"
         description: "Description"
       category:
@@ -145,7 +145,7 @@ en:
       destroy: "Unable to delete! There are operations with this category"
     delete:
       confirm: "Are you sure? A category will only be deleted if there are no operation records associated with it"
-  
+
   reports:
     index:
       title: "Report"
@@ -185,7 +185,7 @@ en:
         date: "Date"
         amount: "Amount"
         total: "Total:"
-  
+
   devise:
     registrations:
       new:
@@ -208,7 +208,7 @@ en:
           current: "Current password:"
           new: "New password:"
           newconfirm: "New password confirmation:"
-          characters: "characters minimum"        
+          characters: "characters minimum"
           placeholder:
             current: "Confirm your changes"
             new: "If you want to change it"
@@ -245,7 +245,7 @@ en:
         email: "Email:"
         button: "Resend"
     unlocks:
-      new:      
+      new:
         title: "Resend unlock instructions"
         email: "Email:"
         button: "Resend"
@@ -253,11 +253,11 @@ en:
   about:
     index:
       title: "About manager"
-      text_html: "<p>The main goal of this application is to control and log all your earnings and expenses. This will allow you to analyze your budget and help you spend wisely.</p> 
+      text_html: "<p>The main goal of this application is to control and log all your earnings and expenses. This will allow you to analyze your budget and help you spend wisely.</p>
     <p>After login or sign up, you receive access to three main functions - category, operation, and report.</p>
     <p>The operation may be one of two types - earnings and expense. That's why, categories divided also to two types. First, you must create categories because they form a list from which you choose when creating a new operation. After that, you can create operations.</p>
     <p>When creating a Category, you need to enter her name and a short description.</p>
     <p>When creating an Operation, you need to enter the amount, select the date (the current one is automatically specified), select the appropriate category, and enter a short description.</p>
-    <p>In the operations log and list of categories, you can look for each record in detail, edit them, and delete them. But if the category is not empty, there are operation records associated with it, you can not delete her. First, you must change the category for this operation or operations.</p> 
+    <p>In the operations log and list of categories, you can look for each record in detail, edit them, and delete them. But if the category is not empty, there are operation records associated with it, you can not delete her. First, you must change the category for this operation or operations.</p>
     <p>In the operations log is a function of search by category, which helps you look at records associated with it. </p>
     <p>Reports show in visual form the cash flow in your wallet. You can create reports for a certain period of time for a single category or an entire type in the form of graphs by day and in form of charts by category.</p>"

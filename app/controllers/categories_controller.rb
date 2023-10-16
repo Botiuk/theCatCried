@@ -36,7 +36,7 @@ class CategoriesController < ApplicationController
   end
 
   def destroy
-      if Operation.cat_destroy(@category.id) == 0 
+      if Operation.cat_destroy(@category.id) == 0
         @category.destroy
         redirect_to categories_url, notice: t('categories.notice.destroy')
       else
@@ -45,7 +45,7 @@ class CategoriesController < ApplicationController
   end
 
   private
-  
+
     def set_category
       @category = Category.find(params[:id])
     end
@@ -53,5 +53,5 @@ class CategoriesController < ApplicationController
     def category_params
       params.require(:category).permit(:name, :description, :ctype, :user_id)
     end
-    
+
 end

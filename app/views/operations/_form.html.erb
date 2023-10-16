@@ -20,7 +20,7 @@
 
           <p style="color: red; font-weight: bold"><%= t('.dbempty_html') %>
           </p>
-          
+
           <% if operation.otype == "outcome" %>
             <div class = "button_in_item">
               <%= link_to new_category_path(:ctype => "outcome"), :method => :post do %>
@@ -34,11 +34,11 @@
               <% end %>
             </div>
           <% end %>
-        
+
       <% else %>
 
       <div class = "form">
-      
+
           <div>
             <%= hidden_field_tag :previous_request, request.referer %>
           </div>
@@ -52,7 +52,7 @@
           </div>
 
           <div>
-            <%= form.label :amount, t('.amount'), style: "display: block" %> 
+            <%= form.label :amount, t('.amount'), style: "display: block" %>
             <%= t('number.currency.format.unit') %> <%= form.number_field :amount, min: 0, step: 0.1, autofocus: true %>
           </div>
 
@@ -80,8 +80,6 @@
         </div>
 
       <% end %>
-  </div>    
+  </div>
 
 <% end %>
-
-

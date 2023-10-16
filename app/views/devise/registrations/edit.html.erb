@@ -48,14 +48,14 @@
             <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: t('.password.placeholder.new') %>
           </div>
         </td>
-      </tr>              
+      </tr>
       <tr>
         <td colspan = "2">
           <br />
           <div class="field">
             <%= f.label :current_password, t('.password.current')  %>
             <%= f.password_field :current_password, autocomplete: "current-password", placeholder: t('.password.placeholder.current') %>
-            
+
             <%= f.button nil, class: "btn btn-success" do %>
               <i class="bi bi-check-lg"></i><%= t('button.submit') %>
             <% end %>
@@ -63,7 +63,7 @@
         </td>
       </tr>
     </table>
-    
+
   <% end %>
 
 </div>

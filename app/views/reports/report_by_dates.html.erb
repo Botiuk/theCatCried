@@ -2,10 +2,10 @@
 <% if @user_id.to_i == current_user.id %>
 
   <% if @otype == "outcome" %>
-    <h3><%= t('.title.outcome') %></h3>    
+    <h3><%= t('.title.outcome') %></h3>
     <div class = "one_item_outcome">
   <% else %>
-    <h3><%= t('.title.income') %></h3>    
+    <h3><%= t('.title.income') %></h3>
     <div class = "one_item_income">
   <% end %>
       <h4><%= t('.period') %> <%= I18n.l(@start_date.to_date, format: :long) %> - <%= I18n.l(@end_date.to_date, format: :long) %></h4>
@@ -14,10 +14,10 @@
       <% else %>
         <h5>(<%= t('.category.one') %> "<%= @category_name %>")</h5>
       <% end %>
-        
+
       <% if @dates.size == 0 %>
-        <p style="color: red; font-weight: bold"><%= t('.empty_html') %></p>     
-      <% else %> 
+        <p style="color: red; font-weight: bold"><%= t('.empty_html') %></p>
+      <% else %>
         <div class = "report_content">
           <div class = "report_item_table">
             <table class ="report_table">
@@ -37,7 +37,7 @@
             </table>
           </div>
 
-          <div class = "report_item_image">       
+          <div class = "report_item_image">
             <canvas id="myChart"></canvas>
             <script>
             {
@@ -55,15 +55,15 @@
 
               const config = {
                 type: 'line',
-                data: data,        
+                data: data,
               };
-              
+
               const myChart = new Chart(ctx, config);
             }
             </script>
           </div>
 
-        </div>    
+        </div>
       <% end %>
 
     </div>
@@ -78,8 +78,8 @@
   </div>
 
 <% else %>
-    <h3><%= t('.title.other') %></h3> 
-    <div class = "empty_item">        
+    <h3><%= t('.title.other') %></h3>
+    <div class = "empty_item">
       <p style="color: red; font-weight: bold"><%= t('other_user_id') %></p>
     </div>
 <% end %>

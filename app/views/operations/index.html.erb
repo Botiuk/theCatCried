@@ -20,22 +20,22 @@
       <%= select_tag(:category_id, options_for_select(@categories)) %>
       <%= button_tag(type: "submit", :name => nil, class: "btn btn-secondary btn-sm") do %>
         <i class="bi bi-funnel"></i><%= t('.filter.button') %>
-      <% end %>  
+      <% end %>
     <% end %>
-  </div>  
+  </div>
 
   <div id="operations">
 
     <% @operations.each do |operation| %>
     <%= render operation %>
     <% end %>
-    
+
   </div>
 
   <%= paginate @operations, window: 1, outer_window: 1 %>
 
 <% else %>
-  <div class = "empty_item">        
+  <div class = "empty_item">
     <p style="color: red; font-weight: bold"><%= t('.dbempty_html') %>
     </p>
   </div>

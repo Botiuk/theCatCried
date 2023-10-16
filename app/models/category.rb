@@ -24,7 +24,7 @@ class Category < ApplicationRecord
     end
 
     def self.ctype_formhelper(operation, user)
-      if operation.otype == "outcome" 
+      if operation.otype == "outcome"
         Category.where(ctype: "outcome", user_id: user).order(:name).pluck(:name, :id)
       else
         Category.where(ctype: "income", user_id: user).order(:name).pluck(:name, :id)

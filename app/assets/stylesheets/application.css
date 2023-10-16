@@ -2,15 +2,15 @@
 body {
 	font-family: Arial, San-Serif;
 	font-size: 100%;
-    text-align: center;
+	text-align: center;
 	margin-bottom: 0;
-	display: block;	
-	box-sizing: border-box;	
+	display: block;
+	box-sizing: border-box;
 	background-color: lightseagreen;
 }
 
 a {
-    text-decoration: none; 
+	text-decoration: none;
 	color: darkblue;
 }
 
@@ -18,18 +18,17 @@ h3 {
 	margin: 5px;
 }
 
-
 table {
 	table-layout: fixed;
 	border-collapse: collapse;
 	width: 100%;
-}  
+}
 
 td {
 	overflow: hidden;
-	white-space: nowrap;	
+	white-space: nowrap;
 	text-overflow: ellipsis;
-  }
+}
 
 /*Header*/
 header {
@@ -47,7 +46,7 @@ header {
 	text-indent: -9999px;
 	text-align: left;
 }
-  
+
 .uk-flag {
 	background-position: -1px -17px;
 }
@@ -55,14 +54,14 @@ header {
 .en-flag {
 	background-position: -1px -0px;
 }
-  
+
 .nav {
 	.flag {
 		position: relative;
 		top: 2px;
 	}
 }
- 
+
 /*Main*/
 main {
 	background-color: whitesmoke;
@@ -70,7 +69,7 @@ main {
 }
 
 .notice {
-	color: green;	
+	color: green;
 }
 
 .alert {
@@ -97,7 +96,7 @@ main {
 .index_outcome, .index_income {
 	float: left;
 	padding: 10px;
-	margin: auto; 
+	margin: auto;
 	border-radius: 5px;
 	box-shadow: 1px 5px 10px #888888;
 	outline: none;
@@ -108,8 +107,8 @@ main {
 	padding: 5px;
 	border-radius: 5px;
 	box-shadow: 1px 5px 10px #888888;
-	outline: none; 
-	margin: 15px auto;   
+	outline: none;
+	margin: 15px auto;
 	max-width: 800px;
 }
 
@@ -158,12 +157,12 @@ main {
 }
 
 .op_odate {
-	width: 10%;		
+	width: 10%;
 	font-style: italic;
 }
 
 .op_amount {
-	width: 15%;	
+	width: 15%;
 	text-align: center;
 	color: darkslategray;
 	font-weight: bolder;
@@ -186,15 +185,15 @@ main {
 	.op_odate {
 		width: 25%;
 	}
-	
+
 	.op_amount {
 		width: 35%;
 	}
-	
+
 	.op_category {
 		width: 40%;
 	}
-	
+
 	.op_description, .td_button {
 		visibility: hidden;
 		display: none;
@@ -222,7 +221,7 @@ main {
 	max-width: 800px;
 	width: 100%;
 	margin: auto;
-	padding: 15px;	
+	padding: 15px;
 }
 
 .button_on_top {
@@ -244,7 +243,7 @@ main {
 	background-color: lightblue;
 	cursor: pointer;
 	border: 1px solid transparent;
-	border-radius: 5px;	
+	border-radius: 5px;
 	box-shadow: 1px 2px 4px #888888;
 }
 
@@ -275,7 +274,7 @@ main {
 	text-align: left;
 	padding-left: 20px;
 	overflow: visible;
-	white-space: initial;	
+	white-space: initial;
 	text-overflow: clip;
 }
 
@@ -299,12 +298,12 @@ main {
 	float: left;
 	padding: 10px;
 	margin: 15px auto;
-	outline: none; 
+	outline: none;
 	width: 280px;
 }
 
 .report_item_table {
-	width: 280px;	
+	width: 280px;
 	flex-grow: 0;
 }
 
@@ -314,45 +313,45 @@ main {
 }
 
 .report_table table {
-    table-layout: auto;
+	table-layout: auto;
 	width: 100%;
 }
 
 .report_table tr:nth-child(even) {
-    background-color: aquamarine;
+	background-color: aquamarine;
 }
 
 .report_table tr:nth-child(odd) {
-    background-color: aliceblue;
+	background-color: aliceblue;
 }
 
 .report_table th {
-    background-color: lightblue;
-	text-align: center;		
+	background-color: lightblue;
+	text-align: center;
 	padding: 5px 10px;
 }
 
-.report_table td {	
+.report_table td {
 	padding: 5px 10px;
 }
 
 /*Footer*/
 footer {
 	background-color: lightseagreen;
-	padding: 10px;	
-	color: darkslategray; 
-} 
+	padding: 10px;
+	color: darkslategray;
+}
 
-footer th {	
+footer th {
 	font-style: italic;
 	font-weight: normal;
 }
 
-footer td {	
+footer td {
 	font-style: normal;
 }
 
-footer a {	
+footer a {
 	text-decoration: underline;
 	color: darkslategray;
 }
