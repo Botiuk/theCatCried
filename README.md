@@ -1,5 +1,9 @@
 # theCatCried
 
+Built with: Rails 7.0.4, postgres, Turbo, Stimulus, Bootstrap.
+
+Before seeding the database with its default values, manually create two users.
+
 The main goal of this application is to control and log all your earnings and expenses. This will allow you to analyze your budget and help you spend wisely.
 
 When your login or sign up, you receive access to three main functions - category, operation, and report. The operation may be one of two types - earnings and expense. That's why, categories divided also to two types. First, you must create categories because they form a list from which you choose when creating a new operation. After that, you can create operations.
