@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for young-rain-8563 on 2023-09-11T13:40:22+03:00
+# fly.toml app configuration file generated for sparkling-flower-7650 on 2023-10-09T12:58:06+03:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "young-rain-8563"
+app = "sparkling-flower-7650"
 primary_region = "waw"
 console_command = "/rails/bin/rails console"
 
