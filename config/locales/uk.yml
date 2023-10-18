@@ -49,10 +49,10 @@ uk:
 
   button:
     add:
-      outcome-main_html: " Додати<br>дохід"
-      outcome: " Додати дохід"
-      income-main_html: " Додати<br>витрату"
-      income: " Додати витрату"
+      outcome-main_html: " Додати<br>витрату"
+      outcome: " Додати витрату"
+      income-main_html: " Додати<br>дохід"
+      income: " Додати дохід"
       main-cat_html: " Додати<br>категорію"
       outcome-cat: " Додати категорію витрат"
       income-cat: " Додати категорію доходів"
