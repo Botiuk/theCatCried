@@ -22,11 +22,11 @@ class Operation < ApplicationRecord
     end
 
     def self.list_order(user)
-      Operation.where(user_id: user).order(:odate).reverse_order
+      Operation.where(user_id: user).order(:odate,:id).reverse_order
     end
 
     def self.search_op(category_id)
-      Operation.where(category_id: category_id).order(:odate).reverse_order
+      Operation.where(category_id: category_id).order(:odate,:id).reverse_order
     end
 
     def self.cat_destroy(category_id)
