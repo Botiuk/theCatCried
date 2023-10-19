@@ -50,13 +50,13 @@
             <ul class="dropdown-menu">
               <li>
                 <%= link_to new_operation_path(:otype => "outcome"), :method => :post, class: "dropdown-item" do %>
-                <i class="bi bi-bag-plus-fill"></i><%= t('button.add.outcome') %>
+                <i class="bi bi-bag-plus-fill text-danger"></i><%= t('button.add.outcome') %>
                 <% end %>
               </li>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <%= link_to new_operation_path(:otype => "income"), :method => :post, class: "dropdown-item"  do %>
-                  <i class="bi bi-bag-plus-fill"></i><%= t('button.add.income') %>
+                  <i class="bi bi-bag-plus-fill text-success"></i><%= t('button.add.income') %>
                 <% end %>
               </li>
               <li><hr class="dropdown-divider"></li>
@@ -75,12 +75,12 @@
             <ul class="dropdown-menu">
               <li>
                 <%= link_to new_category_path(:ctype => "outcome"), :method => :post, class: "dropdown-item" do %>
-                  <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.outcome-cat') %>
+                  <i class="bi bi-bookmark-plus-fill text-danger"></i><%= t('button.add.outcome-cat') %>
                 <% end %>
               <li><hr class="dropdown-divider"></li>
               <li>
                 <%= link_to new_category_path(:ctype => "income"), :method => :post, class: "dropdown-item" do %>
-                  <i class="bi bi-bookmark-plus-fill"></i><%= t('button.add.income-cat') %>
+                  <i class="bi bi-bookmark-plus-fill text-success"></i><%= t('button.add.income-cat') %>
                 <% end %>
               </li>
               <li><hr class="dropdown-divider"></li>
