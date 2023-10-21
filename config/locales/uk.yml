@@ -43,15 +43,16 @@ uk:
   activerecord:
     attributes:
       operation:
-        amount: "Сума"
+        amount: "Поле 'Сума'"
         description: "Опис"
       category:
-        name: "Назва"
-        description: "Опис"
+        name: "Поле 'Назва'"
+        description: "Поле 'Опис'"
 
   errors:
     messages:
-      taken: "не унікальна, вже є така категорія"
+      taken: "має бути унікальне! Вже є категорія з такою назвою"
+      blank: "не може бути пусте"
 
   button:
     add:
