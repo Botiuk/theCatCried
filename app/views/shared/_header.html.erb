@@ -119,7 +119,7 @@
                 <%= link_to t('button.authorization.edit'), edit_user_registration_path, class: "dropdown-item" %>
               <li><hr class="dropdown-divider"></li>
               <li>
-                <%= link_to t('button.authorization.logout'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "dropdown-item"  %>
+                <%= button_to t('button.authorization.logout'), destroy_user_session_path, method: :delete, data: { turbo_method: :delete }, class: "dropdown-item"  %>
               </li>
             </ul>
           </li>
