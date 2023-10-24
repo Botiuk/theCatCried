@@ -24,7 +24,7 @@
           <% if operation.otype == "outcome" %>
             <div class = "button_in_item">
               <%= link_to new_category_path(:ctype => "outcome"), :method => :post do %>
-                <i class="bi bi-bookmark-plus-fill text-danger"></i><%= t('button.add.outcome-cat') %>
+                <i class="bi bi-bookmark-dash-fill text-danger"></i><%= t('button.add.outcome-cat') %>
               <% end %>
             </div>
           <% else %>
