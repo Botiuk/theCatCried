@@ -44,15 +44,15 @@ uk:
     attributes:
       operation:
         amount: "Поле 'Сума'"
-        description: "Опис"
+        description: "Опис операції"
       category:
-        name: "Поле 'Назва'"
-        description: "Поле 'Опис'"
+        name: "Назва категорії"
+        description: "Опис категорії"
 
   errors:
     messages:
-      taken: "має бути унікальне! Вже є категорія з такою назвою"
-      blank: "не може бути пусте"
+      taken: "має бути унікальна. Така вже використовується"
+      blank: "має бути заповнено"
 
   button:
     add:
