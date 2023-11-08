@@ -17,7 +17,7 @@
   <div class = "search">
     <%= form_tag(search_path, :method => "get") do %>
       <%= label_tag(:category_id, t('.filter.text')) %>
-      <%= select_tag(:category_id, options_for_select(@categories)) %>
+      <%= select_tag(:category_id, options_for_select(@categories), :include_blank => true) %>
       <%= button_tag(type: "submit", :name => nil, class: "btn btn-secondary btn-sm") do %>
         <i class="bi bi-funnel"></i><%= t('.filter.button') %>
       <% end %>

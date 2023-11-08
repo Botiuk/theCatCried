@@ -63,7 +63,7 @@
 
           <div>
             <%= form.label :category_id, t('.category_id'), style: "display: block" %>
-            <%= select(:operation, :category_id, options_for_select(@categories)) %>
+            <%= select(:operation, :category_id, options_for_select(@categories, :selected => form.object.category_id)) %>
           </div>
 
           <div>

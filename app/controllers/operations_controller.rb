@@ -23,7 +23,7 @@ class OperationsController < ApplicationController
   end
 
   def edit
-    @categories = Category.edit_formhelper(@operation, current_user.id)
+    @categories = Category.ctype_formhelper(@operation, current_user.id)
   end
 
   def create

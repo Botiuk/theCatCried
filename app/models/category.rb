@@ -31,10 +31,6 @@ class Category < ApplicationRecord
       end
     end
 
-    def self.edit_formhelper(operation, user)
-      Category.where(id: operation.category_id).pluck(:name, :id) + self.ctype_formhelper(operation, user)
-    end
-
     def self.reports_formhelper(otype, user)
       if otype == "outcome"
         [ [I18n.t('models.category.reports-otype.outcome'), "0"] ] + Category.where(ctype: "outcome", user_id: user).order(:name).pluck(:name, :id)
