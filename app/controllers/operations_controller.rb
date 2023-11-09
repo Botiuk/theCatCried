@@ -10,8 +10,12 @@ class OperationsController < ApplicationController
   end
 
   def search
-    @operations = Operation.search_op(params[:category_id]).page(params[:page])
-    @category = Category.find(params[:category_id])
+    if params[:category_id].blank?
+      redirect_to operations_url, alert: t('operations.alert.search')
+    else
+      @operations = Operation.search_op(params[:category_id]).page(params[:page])
+      @category = Category.find(params[:category_id])
+    end
   end
 
   def show
@@ -37,11 +41,11 @@ class OperationsController < ApplicationController
   end
 
   def update
-      if @operation.update(operation_params)
-        redirect_to params[:previous_request], notice: t('operations.notice.update')
-      else
-        render :edit, status: :unprocessable_entity
-      end
+    if @operation.update(operation_params)
+      redirect_to params[:previous_request], notice: t('operations.notice.update')
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

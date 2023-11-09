@@ -81,6 +81,7 @@ en:
       title: "Operations log"
       filter:
         text: "Display only transactions from the category:"
+        prompt: " -- select a category -- "
         button: " To filter"
       dbempty_html: "No record of previous operations.<br>Add a new one!"
     new:
@@ -107,6 +108,8 @@ en:
       create: "The operation successfully created"
       update: "The operation successfully updated"
       destroy: "The operation successfully deleted"
+    alert:
+      search: "To filter by category, select it from the list"
     delete:
       confirm: "Are you sure?"
     search:
