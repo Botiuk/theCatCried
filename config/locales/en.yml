@@ -42,6 +42,7 @@ en:
     attributes:
       operation:
         amount: "Amount"
+        category: "Category"
         description: "Description"
       category:
         name: "Name"
@@ -90,8 +91,10 @@ en:
         income: "New earning"
     form:
       amount: "Amount:"
+      amount-placeholder: "Enter an amount"
       odate: "Date:"
       category_id: "Category:"
+      prompt: " -- select a category -- "
       description: "Description:"
       description-placeholder: "Enter a description of the operation (the field can be left blank)"
       dbempty_html: "There are no categories corresponding to the selected operation type.<br>First you need to create at least one such category"

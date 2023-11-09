@@ -44,6 +44,7 @@ uk:
     attributes:
       operation:
         amount: "Поле 'Сума'"
+        category: "Поле 'Категорія'"
         description: "Опис операції"
       category:
         name: "Назва категорії"
@@ -97,8 +98,10 @@ uk:
         income: "Новий дохід"
     form:
       amount: "Сума:"
+      amount-placeholder: "Введіть суму"
       odate: "Дата:"
       category_id: "Категорія:"
+      prompt: " -- вибрати категорію -- "
       description: "Опис:"
       description-placeholder: "Введіть опис операції (поле можна залишити порожнім)"
       dbempty_html: "Немає категорій, які відповідають вибраному типу операцій.<br>Спочатку потрібно створити хоч одну таку категорію"

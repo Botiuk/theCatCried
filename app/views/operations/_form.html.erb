@@ -53,7 +53,7 @@
 
           <div>
             <%= form.label :amount, t('.amount'), style: "display: block" %>
-            <%= t('number.currency.format.unit') %> <%= form.number_field :amount, min: 0, step: 0.1, autofocus: true %>
+            <%= t('number.currency.format.unit') %> <%= form.number_field :amount, min: 0.01, step: 0.01, autofocus: true, placeholder: t('.amount-placeholder') %>
           </div>
 
           <div>
@@ -63,7 +63,7 @@
 
           <div>
             <%= form.label :category_id, t('.category_id'), style: "display: block" %>
-            <%= select(:operation, :category_id, options_for_select(@categories, :selected => form.object.category_id)) %>
+            <%= select(:operation, :category_id, options_for_select(@categories, :selected => form.object.category_id), :prompt => t('.prompt')) %>
           </div>
 
           <div>
