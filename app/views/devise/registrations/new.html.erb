@@ -17,7 +17,7 @@
 
     <div class="field">
       <%= f.label :favorite_locale, t('.favoritelocale') %><br />
-      <%= f.select :favorite_locale, I18n.available_locales, selected: I18n.default_locale %>
+      <%= f.select :favorite_locale, map_locale_names, selected: I18n.default_locale %>
     </div>
 
     <div class="field">
