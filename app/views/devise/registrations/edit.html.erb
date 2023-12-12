@@ -22,11 +22,14 @@
             <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
           </div>
 
-          <br/>
-
           <div class="field" >
               <%= f.label :email, t('.email') %><br />
               <%= f.email_field :email, autocomplete: "email" %>
+          </div>
+
+          <div class="field">
+            <%= f.label :favorite_locale, t('.favoritelocale') %><br />
+            <%= f.select :favorite_locale, I18n.available_locales, selected: current_user.favorite_locale %>
           </div>
 
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

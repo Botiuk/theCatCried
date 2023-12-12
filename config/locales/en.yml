@@ -199,6 +199,7 @@ en:
       new:
         title: "Sign up"
         username: "Username:"
+        favoritelocale: "Language:"
         email: "Email:"
         password:
           new: "Password"
@@ -210,6 +211,7 @@ en:
           changeprofile: "Change profile"
           changepassword: "Change password"
         username: "Username:"
+        favoritelocale: "Language:"
         email: "Email:"
         emailconfirm: "Currently waiting confirmation for:"
         password:

@@ -16,6 +16,11 @@
     </div>
 
     <div class="field">
+      <%= f.label :favorite_locale, t('.favoritelocale') %><br />
+      <%= f.select :favorite_locale, I18n.available_locales, selected: I18n.default_locale %>
+    </div>
+
+    <div class="field">
       <%= f.label :password, t('.password.new') %>
       <% if @minimum_password_length %>
       <em>(<%= @minimum_password_length %> <%= t('.password.characters') %>):</em>
