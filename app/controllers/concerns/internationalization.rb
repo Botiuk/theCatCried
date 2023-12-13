@@ -2,19 +2,19 @@ module Internationalization
   extend ActiveSupport::Concern
 
   included do
-    around_action :switch_locale
+    before_action :set_locale
 
     private
 
-    def switch_locale(&action)
-      locale = locale_from_url || I18n.default_locale
-      response.set_header 'Content-Language', locale
-      I18n.with_locale locale, &action
+    def set_locale
+      I18n.locale = (current_user.favorite_locale if user_signed_in?) || params[:locale] || extract_locale_from_accept_language_header || I18n.default_locale
     end
 
-    def locale_from_url
-      locale = params[:locale]
-      return locale if I18n.available_locales.map(&:to_s).include?(locale)
+    def extract_locale_from_accept_language_header
+      if request.env['HTTP_ACCEPT_LANGUAGE']
+        parsed_locale = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/)[0]
+        I18n.available_locales.map(&:to_s).include?(parsed_locale) ? parsed_locale : nil
+      end
     end
 
     def default_url_options
