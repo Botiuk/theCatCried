@@ -3,7 +3,19 @@ require "faker"
 case Rails.env
 when "development"
 
-  # First create two users!
+  user = User.where(email: "first@theCatCried.com").first_or_initialize
+  user.update!(
+      username: "First",
+      password: "password",
+      password_confirmation: "password"
+  )
+
+  user = User.where(email: "second@theCatCried.com").first_or_initialize
+  user.update!(
+      username: "Second",
+      password: "password",
+      password_confirmation: "password"
+  )
  
   (1..10).each do |id|
     Category.create(
@@ -95,7 +107,12 @@ when "development"
 
 when "production"
 
-  # First create one user!
+  user = User.where(email: "first@theCatCried.com").first_or_initialize
+  user.update!(
+      username: "First",
+      password: "password",
+      password_confirmation: "password"
+  )
 
   (1..5).each do |id|
     Category.create(

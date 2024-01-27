@@ -1,10 +1,8 @@
 # theCatCried
 
-Built with: Rails 7.0.4, postgres, Turbo, Stimulus, Bootstrap.
+Built with: Rails 7.0.4, Ruby 3.2.2, postgres, Turbo, Stimulus, Bootstrap.
 
 Deployed on: https://sparkling-flower-7650.fly.dev/
-
-Before seeding the database with its default values, manually create two users.
 
 The main goal of this application is to control and log all your earnings and expenses. This will allow you to analyze your budget and help you spend wisely.
 
