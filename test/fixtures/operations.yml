@@ -3,7 +3,7 @@
 fix_1:
   id: 1
   amount: 9.99
-  odate: 2023-01-11 07:45:43
+  odate: 2023-01-11
   description: MyString
   category: first
   otype: 1
@@ -12,7 +12,7 @@ fix_1:
 fix_2:
   id: 2
   amount: 99.99
-  odate: 2023-02-11 08:45:43
+  odate: 2023-02-11
   description: MyString
   category: first
   otype: 1
