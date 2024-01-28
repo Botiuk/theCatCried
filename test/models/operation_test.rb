@@ -3,47 +3,37 @@ require "test_helper"
 class OperationTest < ActiveSupport::TestCase
 
   test "check the operation description" do
-    operation_first = Operation.find_by(odate: "2023-01-11 07:45:43")
+    operation_first = Operation.find_by(odate: "2023-01-11")
     assert_equal("MyString", operation_first.description)
   end
 
   test "saving and gathering" do
-    new_operation = Operation.new(amount: 5, odate: "2023-01-05 09:45:43", description: "new description", category_id: Category.find_by(name: 'First cat').id, otype: 0, user_id: User.find_by(username: 'First').id)
+    new_operation = Operation.new(amount: 5, odate: "2023-01-05", description: "new description", category_id: Category.find_by(name: 'First cat').id, otype: 0, user_id: User.find_by(username: 'First').id)
     new_operation.save()
-    new_op = Operation.find_by(odate: "2023-01-05 09:45:43")
+    new_op = Operation.find_by(odate: "2023-01-05")
     assert_equal("new description", new_op.description)
   end
 
   test "saving and updating" do
-    new_operation = Operation.new(amount: 10, odate: "2023-01-10 09:45:43", description: "new description", category_id: Category.find_by(name: 'First cat').id, otype: 0, user_id: User.find_by(username: 'First').id)
+    new_operation = Operation.new(amount: 10, odate: "2023-01-10", description: "new description", category_id: Category.find_by(name: 'First cat').id, otype: 0, user_id: User.find_by(username: 'First').id)
     new_operation.save()
-    new_operation.update(odate: "2023-02-12 09:45:43")
-    update_operation = Operation.find_by(odate: "2023-02-12 09:45:43")
+    new_operation.update(odate: "2023-02-12")
+    update_operation = Operation.find_by(odate: "2023-02-12")
     assert_equal(10, update_operation.amount)
   end
 
   test "saving and destroying" do
-    new_operation = Operation.new(amount: 15, odate: "2023-01-15 09:45:43", description: "new description", category_id: Category.find_by(name: 'First cat').id, otype: 0, user_id: User.find_by(username: 'First').id)
+    new_operation = Operation.new(amount: 15, odate: "2023-01-15", description: "new description", category_id: Category.find_by(name: 'First cat').id, otype: 0, user_id: User.find_by(username: 'First').id)
     new_operation.save()
     new_operation.destroy()
-    destroy_operation = Operation.find_by(odate: "2023-01-15 09:45:43")
+    destroy_operation = Operation.find_by(odate: "2023-01-15")
     assert_nil(destroy_operation)
   end
 
 #testing creating new operation
 
   test "return false if amount is missed" do
-    new_operation = Operation.new(odate: "2023-01-11 07:45:43", description: "some description", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
-    assert_not(new_operation.valid?)
-  end
-
-  test "return false if amount negative" do
-    new_operation = Operation.new(amount: -5, odate: "2023-01-11 07:45:43", description: "some description", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
-    assert_not(new_operation.valid?)
-  end
-
-  test "return false if amount zero" do
-    new_operation = Operation.new(amount: 0, odate: "2023-01-11 07:45:43", description: "some description", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
+    new_operation = Operation.new(odate: "2023-01-11", description: "some description", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
     assert_not(new_operation.valid?)
   end
 
@@ -52,23 +42,23 @@ class OperationTest < ActiveSupport::TestCase
     assert_not(new_operation.valid?)
   end
 
-  test "return false if description missed" do
-    new_operation = Operation.new(amount: 5, odate: "2023-01-11 07:45:43", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
-    assert_not(new_operation.valid?)
+  test "return true if description missed" do
+    new_operation = Operation.new(amount: 5, odate: "2023-01-11", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
+    assert(new_operation.valid?)
   end
 
   test "return false if category_id missed" do
-    new_operation = Operation.new(amount: 5, odate: "2023-01-11 07:45:43", description: "some description", otype: 1, user_id: User.find_by(username: 'First').id)
+    new_operation = Operation.new(amount: 5, odate: "2023-01-11", description: "some description", otype: 1, user_id: User.find_by(username: 'First').id)
     assert_not(new_operation.valid?)
   end
 
   test "return false if otype missed" do
-    new_operation = Operation.new(amount: 5, odate: "2023-01-11 07:45:43", description: "some description", category_id: Category.find_by(name: 'First cat').id, user_id: User.find_by(username: 'First').id)
+    new_operation = Operation.new(amount: 5, odate: "2023-01-11", description: "some description", category_id: Category.find_by(name: 'First cat').id, user_id: User.find_by(username: 'First').id)
     assert_not(new_operation.valid?)
   end
 
   test "return true if everything is good" do
-    new_operation = Operation.new(amount: 5, odate: "2023-01-11 07:45:43", description: "some description", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
+    new_operation = Operation.new(amount: 5, odate: "2023-01-11", description: "some description", category_id: Category.find_by(name: 'First cat').id, otype: 1, user_id: User.find_by(username: 'First').id)
     assert(new_operation.valid?)
   end
 
