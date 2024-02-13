@@ -58,7 +58,7 @@
 
           <div>
             <%= form.label :odate, t('.odate'), style: "display: block" %>
-            <%= form.date_field :odate %>
+            <%= form.date_field :odate, max: Date.today %>
           </div>
 
           <div>
