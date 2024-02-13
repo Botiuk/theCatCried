@@ -27,6 +27,7 @@ class ReportsController < ApplicationController
   def report_data_view
     @start_date = params[:start_date]
     @end_date = params[:end_date]
+    @start_date, @end_date = @end_date, @start_date if @start_date > @end_date
     @otype = params[:otype]
     if @otype == "outcome"
       @category_id = params[:category_id_out]
