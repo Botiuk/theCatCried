@@ -21,9 +21,5 @@ test:
   database: db/test.sqlite3
 
 production:
-  Username:    postgres
-  Password:    <%= ENV['Fly_theCatCried-dev'] %>
-  Hostname:    sparkling-flower-7650-db.internal
-  Flycast:     fdaa:1:9e3a:0:1::19
-  Proxy port:  5432
-  Postgres port:  5433
+  <<: *default
+  database: db/production.sqlite3
