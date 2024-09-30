@@ -1,6 +1,8 @@
 # theCatCried
 
-Built with: Rails 7.0.4, Ruby 3.2.2, postgres, Turbo, Stimulus, Bootstrap.
+Built with: Rails 7.0.4, Ruby 3.3.5, sqlite3, Turbo, Stimulus, Bootstrap, devise.
+
+Test with: Minitest and fixtures.
 
 All interface text was made with I18n, available English and Ukraine locale. Language is automatically set based on the preferred locale of signed in user, or params locale from URL, or browser preferences, else use the default language. My native language is Ukrainian and this is the default language on the app.
 
