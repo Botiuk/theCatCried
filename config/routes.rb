@@ -1,6 +1,7 @@
-Rails.application.routes.draw do
+# frozen_string_literal: true
 
-  scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
+Rails.application.routes.draw do
+  scope '(:locale)', locale: /#{I18n.available_locales.join('|')}/ do
     devise_for :users, controllers: {
       sessions: 'users/sessions'
     }
@@ -14,7 +15,6 @@ Rails.application.routes.draw do
     resources :operations
     resources :categories
 
-    root "main#index"
+    root 'main#index'
   end
-
 end

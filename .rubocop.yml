@@ -11,5 +11,7 @@ AllCops:
 # to add it to every class and module.
 Style/Documentation:
   Enabled: false
-
+  
+Layout/EndOfLine:
+  Enabled: False
   

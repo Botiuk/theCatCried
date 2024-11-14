@@ -1,6 +1,6 @@
 # theCatCried
 
-Built with: Rails 7.0.4, Ruby 3.3.5, sqlite3, Turbo, Stimulus, Bootstrap, devise.
+Built with: Rails 7.2.1.2, Ruby 3.3.5, sqlite3, Turbo, Stimulus, Bootstrap, devise.
 
 Test with: Minitest and fixtures.
 

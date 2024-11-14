@@ -1,6 +1,8 @@
-require_relative "boot"
+# frozen_string_literal: true
 
-require "rails/all"
+require_relative 'boot'
+
+require 'rails/all'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -12,10 +14,9 @@ module TheCatCried
     config.load_defaults 7.0
 
     # Permitted locales available for the application
-    I18n.available_locales = [:en, :uk]
+    I18n.available_locales = %i[en uk]
 
     # Set default locale to something other than :en
     I18n.default_locale = :en
-
   end
 end

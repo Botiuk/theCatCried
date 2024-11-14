@@ -1,10 +1,10 @@
+# frozen_string_literal: true
+
 class OperationsController < ApplicationController
-  before_action :set_operation, only: %i[ show edit update destroy ]
+  before_action :set_operation, only: %i[show edit update destroy]
 
   def index
-    if params[:page]
-      session[:operations_index_page] = params[:page]
-    end
+    session[:operations_index_page] = params[:page] if params[:page]
     @operations = Operation.list_order(current_user.id).page(session[:operations_index_page])
     @categories = Category.search_formhelper(current_user.id)
   end
@@ -18,11 +18,10 @@ class OperationsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
   def new
-    @operation = Operation.new(:otype => params[:otype], :odate => Time.now.to_date)
+    @operation = Operation.new(otype: params[:otype], odate: Time.zone.now.to_date)
     @categories = Category.ctype_formhelper(@operation, current_user.id)
   end
 
@@ -33,11 +32,11 @@ class OperationsController < ApplicationController
   def create
     @operation = Operation.new(operation_params)
     @categories = Category.ctype_formhelper(@operation, current_user.id)
-      if @operation.save
-        redirect_to operation_url(@operation), notice: t('operations.notice.create')
-      else
-        render :new, status: :unprocessable_entity
-      end
+    if @operation.save
+      redirect_to operation_url(@operation), notice: t('operations.notice.create')
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -55,14 +54,13 @@ class OperationsController < ApplicationController
 
   private
 
-    def set_operation
-      @operation = Operation.find(params[:id])
-    rescue ActiveRecord::RecordNotFound
-      redirect_to root_path
-    end
+  def set_operation
+    @operation = Operation.find(params[:id])
+  rescue ActiveRecord::RecordNotFound
+    redirect_to root_path
+  end
 
-    def operation_params
-      params.require(:operation).permit(:amount, :odate, :description, :category_id, :otype, :user_id)
-    end
-
+  def operation_params
+    params.require(:operation).permit(:amount, :odate, :description, :category_id, :otype, :user_id)
+  end
 end

@@ -1,7 +1,8 @@
-class User < ApplicationRecord
+# frozen_string_literal: true
 
-  has_many :categories
-  has_many :operations
+class User < ApplicationRecord
+  has_many :categories, dependent: :destroy
+  has_many :operations, dependent: :destroy
 
   validates :email, uniqueness: true
 
