@@ -1,21 +1,7 @@
-Rails/UniqueValidationWithoutIndex:
-  Exclude:
-    - 'app/models/category.rb'
-
 Layout/LineLength:
   Exclude:
     - 'config/initializers/devise.rb'
     - 'config/initializers/kaminari_config.rb'
-
-Rails/NotNullColumn:
-  Exclude:
-    - 'db/migrate/20230927082221_add_user_to_categories.rb'
-    - 'db/migrate/20230927082509_add_user_to_operations.rb'
-
-Rails/ReversibleMigration:
-  Exclude:
-    - 'db/migrate/20230211045300_change_amount_column_in_my_operations.rb'
-    - 'db/migrate/20231003054552_change_amount_column_default_in_my_operation.rb'
 
 Metrics/ClassLength:
   Exclude:

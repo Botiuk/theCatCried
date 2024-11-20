@@ -14,9 +14,8 @@ class Operation < ApplicationRecord
   max_pages 50
 
   def self.total_amount(user)
-    Operation.where(user_id: user,
-                    otype: 'income').sum(:amount) - Operation.where(user_id: user,
-                                                                    otype: 'outcome').sum(:amount)
+    Operation.where(user_id: user, otype: 'income')
+             .sum(:amount) - Operation.where(user_id: user, otype: 'outcome').sum(:amount)
   end
 
   def self.list_order(user)
